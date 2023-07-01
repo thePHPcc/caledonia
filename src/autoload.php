@@ -9,7 +9,7 @@ require __DIR__ . '/exceptions/Exception.php';
 require __DIR__ . '/goods/Grain.php';
 require __DIR__ . '/market/Market.php';
 require __DIR__ . '/goods/Milk.php';
-require __DIR__ . '/Price.php';
+require __DIR__ . '/market/Price.php';
 require __DIR__ . '/exceptions/PriceMustBePositiveException.php';
 require __DIR__ . '/market/PriceTable.php';
 require __DIR__ . '/goods/Whisky.php';
