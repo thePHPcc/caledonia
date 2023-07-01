@@ -5,8 +5,11 @@
 require __DIR__ . '/goods/Good.php';
 require __DIR__ . '/goods/Bread.php';
 require __DIR__ . '/goods/Cheese.php';
+require __DIR__ . '/exceptions/Exception.php';
 require __DIR__ . '/goods/Grain.php';
 require __DIR__ . '/goods/Milk.php';
+require __DIR__ . '/Price.php';
+require __DIR__ . '/exceptions/PriceMustBePositiveException.php';
 require __DIR__ . '/goods/Whisky.php';
 require __DIR__ . '/goods/Wool.php';
 // @codeCoverageIgnoreEnd
