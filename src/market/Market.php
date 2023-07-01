@@ -1,6 +1,9 @@
 <?php declare(strict_types=1);
 namespace example\caledonia;
 
+use function max;
+use function min;
+
 final class Market
 {
     private readonly PriceTable $prices;
@@ -99,5 +102,79 @@ final class Market
             Whisky::class => $prices[$this->whisky],
             Wool::class   => $prices[$this->wool],
         };
+    }
+
+    public function purchase(Good $good, int $amount): void
+    {
+        if ($good->isBread()) {
+            $this->bread = min(9, $this->bread + $amount);
+
+            return;
+        }
+
+        if ($good->isCheese()) {
+            $this->cheese = min(9, $this->cheese + $amount);
+
+            return;
+        }
+
+        if ($good->isGrain()) {
+            $this->grain = min(9, $this->grain + $amount);
+
+            return;
+        }
+
+        if ($good->isMilk()) {
+            $this->milk = min(9, $this->milk + $amount);
+
+            return;
+        }
+
+        if ($good->isWhisky()) {
+            $this->whisky = min(9, $this->whisky + $amount);
+
+            return;
+        }
+
+        if ($good->isWool()) {
+            $this->wool = min(9, $this->wool + $amount);
+        }
+    }
+
+    public function sell(Good $good, int $amount): void
+    {
+        if ($good->isBread()) {
+            $this->bread = max(0, $this->bread - $amount);
+
+            return;
+        }
+
+        if ($good->isCheese()) {
+            $this->cheese = max(0, $this->cheese - $amount);
+
+            return;
+        }
+
+        if ($good->isGrain()) {
+            $this->grain = max(0, $this->grain - $amount);
+
+            return;
+        }
+
+        if ($good->isMilk()) {
+            $this->milk = max(0, $this->milk - $amount);
+
+            return;
+        }
+
+        if ($good->isWhisky()) {
+            $this->whisky = max(0, $this->whisky - $amount);
+
+            return;
+        }
+
+        if ($good->isWool()) {
+            $this->wool = max(0, $this->wool - $amount);
+        }
     }
 }
