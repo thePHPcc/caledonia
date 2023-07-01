@@ -1,0 +1,2 @@
+/tools/* binary
+*.php diff=php
