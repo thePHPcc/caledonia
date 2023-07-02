@@ -22,10 +22,13 @@ final readonly class EventCollection implements Countable, IteratorAggregate
      */
     public static function fromArray(array $events): self
     {
-        return new self(...$events);
+        return new self($events);
     }
 
-    private function __construct(Event ...$events)
+    /**
+     * @psalm-param list<Event> $events
+     */
+    private function __construct(array $events)
     {
         $this->events = $events;
     }
