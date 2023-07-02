@@ -12,6 +12,11 @@ use PHPUnit\Framework\TestCase;
 #[Small]
 final class EventTest extends TestCase
 {
+    public function testHasType(): void
+    {
+        $this->assertSame('dummy', $this->event()->type());
+    }
+
     public function testHasId(): void
     {
         $this->assertSame('9f0fd1e7-46b1-40cd-9665-1b7535e187c8', $this->event()->id()->asString());
