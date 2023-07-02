@@ -8,6 +8,14 @@
             <arg path="src/autoload.php" />
             <arg path="src" />
         </exec>
+
+        <exec executable="${basedir}/tools/phpab" taskname="phpab">
+            <arg value="--basedir" />
+            <arg path="tests/src" />
+            <arg value="--output" />
+            <arg path="tests/src/autoload.php" />
+            <arg path="tests/src" />
+        </exec>
     </target>
 
     <target name="update-tools" description="Update development tools using Phive">
