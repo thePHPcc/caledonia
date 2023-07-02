@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-namespace example\caledonia;
+namespace example\caledonia\domain;
 
 use function max;
 use function min;

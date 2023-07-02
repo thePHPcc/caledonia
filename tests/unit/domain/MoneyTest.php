@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-namespace example\caledonia;
+namespace example\caledonia\domain;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
