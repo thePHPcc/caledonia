@@ -23,7 +23,11 @@ spl_autoload_register(
                 'example\\caledonia\\domain\\pricetable' => '/domain/market/PriceTable.php',
                 'example\\caledonia\\domain\\whisky' => '/domain/goods/Whisky.php',
                 'example\\caledonia\\domain\\wool' => '/domain/goods/Wool.php',
-                'example\\caledonia\\exception' => '/exceptions/Exception.php'
+                'example\\caledonia\\exception' => '/exceptions/Exception.php',
+                'example\\caledonia\\uuid\\invaliduuidexception' => '/infrastructure/exceptions/InvalidUuidException.php',
+                'example\\caledonia\\uuid\\randomuuidgenerator' => '/infrastructure/uuid/RandomUuidGenerator.php',
+                'example\\caledonia\\uuid\\uuid' => '/infrastructure/uuid/Uuid.php',
+                'example\\caledonia\\uuid\\uuidgenerator' => '/infrastructure/uuid/UuidGenerator.php'
             );
         }
         $cn = strtolower($class);
