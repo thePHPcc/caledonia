@@ -22,12 +22,12 @@ final class Factory
         return new MysqlEventReader($this->eventReaderDatabase());
     }
 
-    private function eventWriter(): EventWriter
+    public function eventWriter(): EventWriter
     {
         return new MysqlEventWriter($this->eventWriterDatabase());
     }
 
-    private function eventReaderDatabase(): MysqlDatabase
+    public function eventReaderDatabase(): MysqlDatabase
     {
         return MysqlDatabase::connect(
             new MysqlDatabaseConfiguration(
@@ -39,7 +39,7 @@ final class Factory
         );
     }
 
-    private function eventWriterDatabase(): MysqlDatabase
+    public function eventWriterDatabase(): MysqlDatabase
     {
         return MysqlDatabase::connect(
             new MysqlDatabaseConfiguration(
