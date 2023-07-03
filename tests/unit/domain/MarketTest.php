@@ -2,6 +2,7 @@
 namespace example\caledonia\domain;
 
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
@@ -16,6 +17,7 @@ use PHPUnit\Framework\TestCase;
 #[UsesClass(Whisky::class)]
 #[UsesClass(Wool::class)]
 #[UsesClass(Price::class)]
+#[Group('domain')]
 #[Small]
 final class MarketTest extends TestCase
 {
