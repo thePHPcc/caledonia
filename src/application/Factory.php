@@ -11,4 +11,9 @@ final readonly class Factory
     {
         $this->frameworkFactory = $frameworkFactory;
     }
+
+    public function eventEmitter(): EventEmitter
+    {
+        return new DispatchingEventEmitter($this->frameworkFactory->eventDispatcher());
+    }
 }

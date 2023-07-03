@@ -7,6 +7,8 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
+                'example\\caledonia\\application\\dispatchingeventemitter' => '/application/event/DispatchingEventEmitter.php',
+                'example\\caledonia\\application\\eventemitter' => '/application/event/EventEmitter.php',
                 'example\\caledonia\\application\\factory' => '/application/Factory.php',
                 'example\\caledonia\\domain\\amountmustnotbecomenegativeexception' => '/domain/exceptions/AmountMustNotBecomeNegativeException.php',
                 'example\\caledonia\\domain\\amountmustnotbenegativeexception' => '/domain/exceptions/AmountMustNotBeNegativeException.php',
