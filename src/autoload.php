@@ -7,6 +7,7 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
+                'example\\caledonia\\application\\factory' => '/application/Factory.php',
                 'example\\caledonia\\domain\\amountmustnotbecomenegativeexception' => '/domain/exceptions/AmountMustNotBecomeNegativeException.php',
                 'example\\caledonia\\domain\\amountmustnotbenegativeexception' => '/domain/exceptions/AmountMustNotBeNegativeException.php',
                 'example\\caledonia\\domain\\bread' => '/domain/goods/Bread.php',
@@ -32,6 +33,7 @@ spl_autoload_register(
                 'example\\framework\\event\\eventcollection' => '/framework/event/EventCollection.php',
                 'example\\framework\\event\\eventcollectioniterator' => '/framework/event/EventCollectionIterator.php',
                 'example\\framework\\exception' => '/framework/exceptions/Exception.php',
+                'example\\framework\\factory' => '/framework/Factory.php',
                 'example\\framework\\library\\invaliduuidexception' => '/framework/exceptions/InvalidUuidException.php',
                 'example\\framework\\library\\randomuuidgenerator' => '/framework/uuid/RandomUuidGenerator.php',
                 'example\\framework\\library\\uuid' => '/framework/uuid/Uuid.php',
