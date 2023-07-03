@@ -9,14 +9,14 @@ final class MysqlDatabaseConfiguration
     private string $host;
     private string $username;
     private string $password;
-    private string $schema;
+    private string $database;
 
-    public function __construct(string $host, string $username, string $password, string $schema)
+    public function __construct(string $host, string $username, string $password, string $database)
     {
         $this->host     = $host;
         $this->username = $username;
         $this->password = $password;
-        $this->schema   = $schema;
+        $this->database = $database;
     }
 
     public function host(): string
@@ -34,8 +34,8 @@ final class MysqlDatabaseConfiguration
         return $this->password;
     }
 
-    public function schema(): string
+    public function database(): string
     {
-        return $this->schema;
+        return $this->database;
     }
 }

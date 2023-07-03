@@ -23,7 +23,7 @@ final class MysqlDatabase implements Database
             $configuration->host(),
             $configuration->username(),
             $configuration->password(),
-            $configuration->schema(),
+            $configuration->database(),
         );
 
         $connection->options(MYSQLI_OPT_INT_AND_FLOAT_NATIVE, 1);
