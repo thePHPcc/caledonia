@@ -28,4 +28,21 @@ abstract class DatabaseTestCase extends TestCase
             ),
         );
     }
+
+    protected function emptyTable(string $table): void
+    {
+        $this->connectionForTesting()->query('TRUNCATE TABLE ' . $table . ';');
+    }
+
+    protected function connectionForTesting(): MysqlDatabase
+    {
+        return MysqlDatabase::connect(
+            new MysqlDatabaseConfiguration(
+                'localhost',
+                'test_fixture_manager',
+                'test_fixture_manager_password',
+                'caledonia',
+            ),
+        );
+    }
 }

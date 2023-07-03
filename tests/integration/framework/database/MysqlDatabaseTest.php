@@ -11,25 +11,21 @@ final class MysqlDatabaseTest extends DatabaseTestCase
 {
     public function testCanInsertIntoTableUsingConnectionThatIsAllowedToInsertIntoTable(): void
     {
-        $connection = $this->connectionForWritingEvents();
+        $this->emptyTable('test');
 
-        $this->assertTrue($connection->query($this->insertQuery()));
+        $connection = $this->connectionForTesting();
+
+        $this->assertTrue($connection->query('INSERT INTO test () VALUES();'));
     }
 
     #[Depends('testCanInsertIntoTableUsingConnectionThatIsAllowedToInsertIntoTable')]
     public function testCanSelectFromTableUsingConnectionThatIsAllowedToSelectFromTable(): void
     {
-        $connection = $this->connectionForReadingEvents();
+        $connection = $this->connectionForTesting();
 
         $this->assertSame(
-            [
-                [
-                    'event_id'       => 'the-event-id',
-                    'correlation_id' => 'the-correlation-id',
-                    'payload'        => 'the-payload',
-                ],
-            ],
-            $connection->query($this->selectQuery()),
+            [['id' => 1]],
+            $connection->query('SELECT id FROM test;'),
         );
     }
 
@@ -39,7 +35,7 @@ final class MysqlDatabaseTest extends DatabaseTestCase
 
         $this->expectException(DatabaseException::class);
 
-        $connection->query($this->insertQuery());
+        $connection->query('INSERT INTO test () VALUES();');
     }
 
     public function testCannotSelectFromTableUsingConnectionThatIsNotAllowedToSelectFromTable(): void
@@ -48,16 +44,6 @@ final class MysqlDatabaseTest extends DatabaseTestCase
 
         $this->expectException(DatabaseException::class);
 
-        $connection->query($this->selectQuery());
-    }
-
-    private function insertQuery(): string
-    {
-        return 'INSERT INTO event (event_id, correlation_id, payload) VALUES("the-event-id", "the-correlation-id", "the-payload");';
-    }
-
-    private function selectQuery(): string
-    {
-        return 'SELECT event_id, correlation_id, payload FROM event;';
+        $connection->query('SELECT id FROM test;');
     }
 }
