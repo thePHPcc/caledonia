@@ -16,11 +16,6 @@ abstract class DatabaseTestCase extends TestCase
         return (new Factory)->eventWriterDatabase();
     }
 
-    protected function emptyTable(string $table): void
-    {
-        $this->connectionForTesting()->query('TRUNCATE TABLE ' . $table . ';');
-    }
-
     protected function connectionForTesting(): MysqlDatabase
     {
         return MysqlDatabase::connect(
@@ -31,5 +26,10 @@ abstract class DatabaseTestCase extends TestCase
                 'caledonia',
             ),
         );
+    }
+
+    protected function emptyTable(string $table): void
+    {
+        $this->connectionForTesting()->query('TRUNCATE TABLE ' . $table . ';');
     }
 }
