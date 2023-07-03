@@ -7,6 +7,7 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
+                'example\\framework\\database\\mysqlconnections' => '/MysqlConnections.php',
                 'example\\framework\\event\\dummyevent' => '/DummyEvent.php'
             );
         }
