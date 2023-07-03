@@ -11,7 +11,7 @@ use mysqli;
 use mysqli_result;
 use mysqli_sql_exception;
 
-final class MysqlDatabase implements Database
+final readonly class MysqlDatabase implements Database
 {
     private mysqli $mysqli;
 
