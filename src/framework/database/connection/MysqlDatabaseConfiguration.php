@@ -4,7 +4,7 @@ namespace example\framework\database;
 /**
  * @psalm-immutable
  */
-final class MysqlDatabaseConfiguration
+final readonly class MysqlDatabaseConfiguration
 {
     private string $host;
     private string $username;
