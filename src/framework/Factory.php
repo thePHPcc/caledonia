@@ -34,7 +34,7 @@ final class Factory
                 'localhost',
                 'event_reader',
                 'event_reader_password',
-                'event',
+                'caledonia',
             ),
         );
     }
@@ -46,7 +46,7 @@ final class Factory
                 'localhost',
                 'event_writer',
                 'event_writer_password',
-                'event',
+                'caledonia',
             ),
         );
     }
