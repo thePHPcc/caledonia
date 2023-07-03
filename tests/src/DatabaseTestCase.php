@@ -1,9 +1,11 @@
 <?php declare(strict_types=1);
 namespace example\framework\database;
 
-trait MysqlConnections
+use PHPUnit\Framework\TestCase;
+
+abstract class DatabaseTestCase extends TestCase
 {
-    private function databaseConnectionForReadingEvents(): MysqlDatabase
+    protected function connectionForReadingEvents(): MysqlDatabase
     {
         return MysqlDatabase::connect(
             new MysqlDatabaseConfiguration(
@@ -15,7 +17,7 @@ trait MysqlConnections
         );
     }
 
-    private function databaseConnectionForWritingEvents(): MysqlDatabase
+    protected function connectionForWritingEvents(): MysqlDatabase
     {
         return MysqlDatabase::connect(
             new MysqlDatabaseConfiguration(

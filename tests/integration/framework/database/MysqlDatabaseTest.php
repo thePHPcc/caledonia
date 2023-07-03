@@ -4,17 +4,14 @@ namespace example\framework\database;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\Attributes\Medium;
-use PHPUnit\Framework\TestCase;
 
 #[CoversClass(MysqlDatabase::class)]
 #[Medium]
-final class MysqlDatabaseTest extends TestCase
+final class MysqlDatabaseTest extends DatabaseTestCase
 {
-    use MysqlConnections;
-
     public function testCanInsertIntoTableUsingConnectionThatIsAllowedToInsertIntoTable(): void
     {
-        $connection = $this->databaseConnectionForWritingEvents();
+        $connection = $this->connectionForWritingEvents();
 
         $this->assertTrue($connection->query($this->insertQuery()));
     }
@@ -22,7 +19,7 @@ final class MysqlDatabaseTest extends TestCase
     #[Depends('testCanInsertIntoTableUsingConnectionThatIsAllowedToInsertIntoTable')]
     public function testCanSelectFromTableUsingConnectionThatIsAllowedToSelectFromTable(): void
     {
-        $connection = $this->databaseConnectionForReadingEvents();
+        $connection = $this->connectionForReadingEvents();
 
         $this->assertSame(
             [
@@ -38,7 +35,7 @@ final class MysqlDatabaseTest extends TestCase
 
     public function testCannotInsertIntoTableUsingConnectionThatIsNotAllowedToInsertIntoTable(): void
     {
-        $connection = $this->databaseConnectionForReadingEvents();
+        $connection = $this->connectionForReadingEvents();
 
         $this->expectException(DatabaseException::class);
 
@@ -47,7 +44,7 @@ final class MysqlDatabaseTest extends TestCase
 
     public function testCannotSelectFromTableUsingConnectionThatIsNotAllowedToSelectFromTable(): void
     {
-        $connection = $this->databaseConnectionForWritingEvents();
+        $connection = $this->connectionForWritingEvents();
 
         $this->expectException(DatabaseException::class);
 
