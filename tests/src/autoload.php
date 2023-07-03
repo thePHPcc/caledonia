@@ -7,7 +7,7 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
-                'example\\caledonia\\event\\dummyevent' => '/DummyEvent.php'
+                'example\\framework\\event\\dummyevent' => '/DummyEvent.php'
             );
         }
         $cn = strtolower($class);

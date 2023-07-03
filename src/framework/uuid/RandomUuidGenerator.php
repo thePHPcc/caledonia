@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-namespace example\caledonia\uuid;
+namespace example\framework\library;
 
 use function bin2hex;
 use function hexdec;

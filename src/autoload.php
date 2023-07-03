@@ -11,6 +11,7 @@ spl_autoload_register(
                 'example\\caledonia\\domain\\amountmustnotbenegativeexception' => '/domain/exceptions/AmountMustNotBeNegativeException.php',
                 'example\\caledonia\\domain\\bread' => '/domain/goods/Bread.php',
                 'example\\caledonia\\domain\\cheese' => '/domain/goods/Cheese.php',
+                'example\\caledonia\\domain\\exception' => '/domain/exceptions/Exception.php',
                 'example\\caledonia\\domain\\good' => '/domain/goods/Good.php',
                 'example\\caledonia\\domain\\grain' => '/domain/goods/Grain.php',
                 'example\\caledonia\\domain\\market' => '/domain/market/Market.php',
@@ -23,14 +24,14 @@ spl_autoload_register(
                 'example\\caledonia\\domain\\pricetable' => '/domain/market/PriceTable.php',
                 'example\\caledonia\\domain\\whisky' => '/domain/goods/Whisky.php',
                 'example\\caledonia\\domain\\wool' => '/domain/goods/Wool.php',
-                'example\\caledonia\\event\\event' => '/infrastructure/event/Event.php',
-                'example\\caledonia\\event\\eventcollection' => '/infrastructure/event/EventCollection.php',
-                'example\\caledonia\\event\\eventcollectioniterator' => '/infrastructure/event/EventCollectionIterator.php',
-                'example\\caledonia\\exception' => '/exceptions/Exception.php',
-                'example\\caledonia\\uuid\\invaliduuidexception' => '/infrastructure/exceptions/InvalidUuidException.php',
-                'example\\caledonia\\uuid\\randomuuidgenerator' => '/infrastructure/uuid/RandomUuidGenerator.php',
-                'example\\caledonia\\uuid\\uuid' => '/infrastructure/uuid/Uuid.php',
-                'example\\caledonia\\uuid\\uuidgenerator' => '/infrastructure/uuid/UuidGenerator.php'
+                'example\\framework\\event\\event' => '/framework/event/Event.php',
+                'example\\framework\\event\\eventcollection' => '/framework/event/EventCollection.php',
+                'example\\framework\\event\\eventcollectioniterator' => '/framework/event/EventCollectionIterator.php',
+                'example\\framework\\exception' => '/framework/exceptions/Exception.php',
+                'example\\framework\\library\\invaliduuidexception' => '/framework/exceptions/InvalidUuidException.php',
+                'example\\framework\\library\\randomuuidgenerator' => '/framework/uuid/RandomUuidGenerator.php',
+                'example\\framework\\library\\uuid' => '/framework/uuid/Uuid.php',
+                'example\\framework\\library\\uuidgenerator' => '/framework/uuid/UuidGenerator.php'
             );
         }
         $cn = strtolower($class);

@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
-namespace example\caledonia\uuid;
+namespace example\framework\library;
 
-use example\caledonia\Exception;
+use example\framework\Exception;
 use InvalidArgumentException;
 
 final class InvalidUuidException extends InvalidArgumentException implements Exception

@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
-namespace example\caledonia\event;
+namespace example\framework\event;
 
-use example\caledonia\uuid\Uuid;
+use example\framework\library\Uuid;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;

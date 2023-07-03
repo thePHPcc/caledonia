@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-namespace example\caledonia\event;
+namespace example\framework\event;
 
 use function count;
 use Countable;
