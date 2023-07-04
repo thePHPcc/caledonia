@@ -7,6 +7,14 @@ namespace example\caledonia\domain;
 final readonly class Bread extends Good
 {
     /**
+     * @psalm-return 'bread'
+     */
+    public function asString(): string
+    {
+        return 'bread';
+    }
+
+    /**
      * @psalm-assert-if-true Bread $this
      */
     public function isBread(): true

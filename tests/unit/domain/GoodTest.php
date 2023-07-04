@@ -19,7 +19,9 @@ final class GoodTest extends TestCase
 {
     public function testCanBeBread(): void
     {
-        $good = Good::bread();
+        $string = 'bread';
+
+        $good = Good::fromString($string);
 
         $this->assertTrue($good->isBread());
         $this->assertFalse($good->isCheese());
@@ -27,11 +29,15 @@ final class GoodTest extends TestCase
         $this->assertFalse($good->isMilk());
         $this->assertFalse($good->isWhisky());
         $this->assertFalse($good->isWool());
+
+        $this->assertSame($string, $good->asString());
     }
 
     public function testCanBeCheese(): void
     {
-        $good = Good::cheese();
+        $string = 'cheese';
+
+        $good = Good::fromString($string);
 
         $this->assertFalse($good->isBread());
         $this->assertTrue($good->isCheese());
@@ -39,11 +45,15 @@ final class GoodTest extends TestCase
         $this->assertFalse($good->isMilk());
         $this->assertFalse($good->isWhisky());
         $this->assertFalse($good->isWool());
+
+        $this->assertSame($string, $good->asString());
     }
 
     public function testCanBeGrain(): void
     {
-        $good = Good::grain();
+        $string = 'grain';
+
+        $good = Good::fromString($string);
 
         $this->assertFalse($good->isBread());
         $this->assertFalse($good->isCheese());
@@ -51,11 +61,15 @@ final class GoodTest extends TestCase
         $this->assertFalse($good->isMilk());
         $this->assertFalse($good->isWhisky());
         $this->assertFalse($good->isWool());
+
+        $this->assertSame($string, $good->asString());
     }
 
     public function testCanBeMilk(): void
     {
-        $good = Good::milk();
+        $string = 'milk';
+
+        $good = Good::fromString($string);
 
         $this->assertFalse($good->isBread());
         $this->assertFalse($good->isCheese());
@@ -63,11 +77,15 @@ final class GoodTest extends TestCase
         $this->assertTrue($good->isMilk());
         $this->assertFalse($good->isWhisky());
         $this->assertFalse($good->isWool());
+
+        $this->assertSame($string, $good->asString());
     }
 
     public function testCanBeWhisky(): void
     {
-        $good = Good::whisky();
+        $string = 'whisky';
+
+        $good = Good::fromString($string);
 
         $this->assertFalse($good->isBread());
         $this->assertFalse($good->isCheese());
@@ -75,11 +93,15 @@ final class GoodTest extends TestCase
         $this->assertFalse($good->isMilk());
         $this->assertTrue($good->isWhisky());
         $this->assertFalse($good->isWool());
+
+        $this->assertSame($string, $good->asString());
     }
 
     public function testCanBeWool(): void
     {
-        $good = Good::wool();
+        $string = 'wool';
+
+        $good = Good::fromString($string);
 
         $this->assertFalse($good->isBread());
         $this->assertFalse($good->isCheese());
@@ -87,6 +109,8 @@ final class GoodTest extends TestCase
         $this->assertFalse($good->isMilk());
         $this->assertFalse($good->isWhisky());
         $this->assertTrue($good->isWool());
+
+        $this->assertSame($string, $good->asString());
     }
 
     public function testIsComparable(): void

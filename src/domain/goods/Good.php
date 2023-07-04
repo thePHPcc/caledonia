@@ -6,6 +6,18 @@ namespace example\caledonia\domain;
  */
 abstract readonly class Good
 {
+    public static function fromString(string $good): self
+    {
+        return match ($good) {
+            'bread'  => self::bread(),
+            'cheese' => self::cheese(),
+            'grain'  => self::grain(),
+            'milk'   => self::milk(),
+            'whisky' => self::whisky(),
+            'wool'   => self::wool(),
+        };
+    }
+
     public static function bread(): Bread
     {
         return new Bread;
@@ -92,4 +104,9 @@ abstract readonly class Good
     {
         return false;
     }
+
+    /**
+     * @psalm-return 'bread'|'cheese'|'grain'|'milk'|'whisky'|'wool'
+     */
+    abstract public function asString(): string;
 }

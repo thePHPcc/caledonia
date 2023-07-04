@@ -7,6 +7,14 @@ namespace example\caledonia\domain;
 final readonly class Wool extends Good
 {
     /**
+     * @psalm-return 'wool'
+     */
+    public function asString(): string
+    {
+        return 'wool';
+    }
+
+    /**
      * @psalm-assert-if-true Wool $this
      */
     public function isWool(): true
