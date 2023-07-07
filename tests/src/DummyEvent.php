@@ -10,12 +10,4 @@ final readonly class DummyEvent extends Event
     {
         return 'the-topic';
     }
-
-    /**
-     * @psalm-return non-empty-array<string, mixed>
-     */
-    public function asArray(): array
-    {
-        return ['key' => 'value'];
-    }
 }

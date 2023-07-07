@@ -30,11 +30,6 @@ final class EventTest extends TestCase
         $this->assertSame('53c540a1-4509-4465-b2cb-0e534be0abab', $this->event()->correlationId()->asString());
     }
 
-    public function testCanBeRepresentedAsArray(): void
-    {
-        $this->assertSame(['key' => 'value'], $this->event()->asArray());
-    }
-
     private function event(): Event
     {
         return new DummyEvent(
