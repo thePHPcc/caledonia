@@ -8,13 +8,15 @@ USE caledonia;
 
 CREATE TABLE `event` (
   `id`             INTEGER UNSIGNED NOT NULL AUTO_INCREMENT INVISIBLE,
-  `event_id`       CHAR(36)         NOT NULL UNIQUE,
   `timestamp`      TIMESTAMP        NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `event_id`       CHAR(36)         NOT NULL UNIQUE,
   `correlation_id` CHAR(36)         NOT NULL,
+  `topic`          VARCHAR(128)     NOT NULL,
   `payload`        LONGTEXT         NOT NULL,
 
   PRIMARY KEY (`id`),
-  INDEX       (`correlation_id`)
+  INDEX       (`correlation_id`),
+  INDEX       (`topic`)
 ) ENGINE=InnoDB;
 
 CREATE TABLE `test` (
