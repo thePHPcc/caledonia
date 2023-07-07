@@ -27,7 +27,7 @@ abstract readonly class Event
     /**
      * @psalm-return non-empty-string
      */
-    abstract public function type(): string;
+    abstract public function topic(): string;
 
     /**
      * @psalm-return non-empty-array<string, mixed>

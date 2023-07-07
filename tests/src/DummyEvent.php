@@ -6,9 +6,9 @@ final readonly class DummyEvent extends Event
     /**
      * @psalm-return non-empty-string
      */
-    public function type(): string
+    public function topic(): string
     {
-        return 'dummy';
+        return 'the-topic';
     }
 
     /**

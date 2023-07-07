@@ -15,9 +15,9 @@ use PHPUnit\Framework\TestCase;
 #[Small]
 final class EventTest extends TestCase
 {
-    public function testHasType(): void
+    public function testHasTopic(): void
     {
-        $this->assertSame('dummy', $this->event()->type());
+        $this->assertSame('the-topic', $this->event()->topic());
     }
 
     public function testHasId(): void
