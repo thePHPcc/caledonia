@@ -12,6 +12,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(EventCollection::class)]
 #[CoversClass(EventCollectionIterator::class)]
 #[UsesClass(Event::class)]
+#[UsesClass(CorrelatedEvent::class)]
 #[UsesClass(Uuid::class)]
 #[Group('framework')]
 #[Group('framework/event')]

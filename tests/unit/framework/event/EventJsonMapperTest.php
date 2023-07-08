@@ -12,6 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 #[CoversClass(EventJsonMapper::class)]
 #[UsesClass(Event::class)]
+#[UsesClass(CorrelatedEvent::class)]
 #[UsesClass(Uuid::class)]
 #[Group('framework')]
 #[Group('framework/event')]

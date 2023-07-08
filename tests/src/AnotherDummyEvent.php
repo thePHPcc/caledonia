@@ -3,13 +3,13 @@ namespace example\framework\event;
 
 use example\framework\library\Uuid;
 
-final readonly class DummyEvent extends CorrelatedEvent
+final readonly class AnotherDummyEvent extends Event
 {
     private string $key;
 
-    public function __construct(Uuid $id, Uuid $correlationId, string $key)
+    public function __construct(Uuid $id, string $key)
     {
-        parent::__construct($id, $correlationId);
+        parent::__construct($id);
 
         $this->key = $key;
     }

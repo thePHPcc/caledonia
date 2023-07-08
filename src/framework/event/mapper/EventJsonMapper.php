@@ -50,11 +50,17 @@ final class EventJsonMapper
     {
         $this->ensureEventCanBeMapped($event->topic());
 
+        $metadata = ['id' => $event->id()->asString()];
+
+        if ($event->hasCorrelationId()) {
+            /** @psalm-suppress RedundantCondition */
+            assert($event instanceof CorrelatedEvent);
+
+            $metadata['correlation_id'] = $event->correlationId()->asString();
+        }
+
         $data = array_merge(
-            [
-                'id'             => $event->id()->asString(),
-                'correlation_id' => $event->correlationId()->asString(),
-            ],
+            $metadata,
             $this->mappers[$event->topic()]->toArray($event),
         );
 

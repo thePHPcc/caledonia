@@ -8,6 +8,7 @@ spl_autoload_register(
         if ($classes === null) {
             $classes = array(
                 'example\\framework\\database\\databasetestcase' => '/DatabaseTestCase.php',
+                'example\\framework\\event\\anotherdummyevent' => '/AnotherDummyEvent.php',
                 'example\\framework\\event\\dummyevent' => '/DummyEvent.php',
                 'example\\framework\\event\\dummyeventmapping' => '/DummyEventMapping.php'
             );

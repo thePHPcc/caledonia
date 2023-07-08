@@ -9,6 +9,7 @@ use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(Event::class)]
+#[CoversClass(CorrelatedEvent::class)]
 #[UsesClass(Uuid::class)]
 #[Group('framework')]
 #[Group('framework/event')]
@@ -25,9 +26,15 @@ final class EventTest extends TestCase
         $this->assertSame('9f0fd1e7-46b1-40cd-9665-1b7535e187c8', $this->event()->id()->asString());
     }
 
-    public function testHasCorrelationId(): void
+    public function testMayHaveCorrelationId(): void
     {
+        $this->assertTrue($this->event()->hasCorrelationId());
         $this->assertSame('53c540a1-4509-4465-b2cb-0e534be0abab', $this->event()->correlationId()->asString());
+    }
+
+    public function testMayNotHaveCorrelationId(): void
+    {
+        $this->assertFalse($this->eventWithoutCorrelationId()->hasCorrelationId());
     }
 
     private function event(): Event
@@ -35,6 +42,14 @@ final class EventTest extends TestCase
         return new DummyEvent(
             Uuid::from('9f0fd1e7-46b1-40cd-9665-1b7535e187c8'),
             Uuid::from('53c540a1-4509-4465-b2cb-0e534be0abab'),
+            'value',
+        );
+    }
+
+    private function eventWithoutCorrelationId(): Event
+    {
+        return new AnotherDummyEvent(
+            Uuid::from('9f0fd1e7-46b1-40cd-9665-1b7535e187c8'),
             'value',
         );
     }

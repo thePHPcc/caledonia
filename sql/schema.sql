@@ -10,7 +10,7 @@ CREATE TABLE `event` (
   `id`             INTEGER UNSIGNED NOT NULL AUTO_INCREMENT INVISIBLE,
   `timestamp`      TIMESTAMP        NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `event_id`       CHAR(36)         NOT NULL UNIQUE,
-  `correlation_id` CHAR(36)         NOT NULL,
+  `correlation_id` CHAR(36),
   `topic`          VARCHAR(128)     NOT NULL,
   `payload`        LONGTEXT         NOT NULL,
 

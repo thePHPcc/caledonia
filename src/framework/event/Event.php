@@ -6,22 +6,23 @@ use example\framework\library\Uuid;
 abstract readonly class Event
 {
     private Uuid $id;
-    private Uuid $correlationId;
 
-    public function __construct(Uuid $id, Uuid $correlationId)
+    public function __construct(Uuid $id)
     {
-        $this->id            = $id;
-        $this->correlationId = $correlationId;
+        $this->id = $id;
     }
 
-    public function id(): Uuid
+    final public function id(): Uuid
     {
         return $this->id;
     }
 
-    public function correlationId(): Uuid
+    /**
+     * @psalm-assert-if-true CorrelatedEvent $this
+     */
+    public function hasCorrelationId(): bool
     {
-        return $this->correlationId;
+        return false;
     }
 
     /**
