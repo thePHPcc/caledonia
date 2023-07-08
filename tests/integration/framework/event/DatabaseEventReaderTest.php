@@ -11,6 +11,24 @@ use PHPUnit\Framework\Attributes\Medium;
 #[Medium]
 final class DatabaseEventReaderTest extends DatabaseTestCase
 {
+    public function testReadsEventsByCorrelation(): void
+    {
+        $this->prepareEvent();
+
+        $events = $this->reader()->correlation(Uuid::from('c46f1078-5363-4a35-a48f-27417805503d'));
+
+        $this->assertCount(1, $events);
+
+        $event = $events->asArray()[0];
+
+        assert($event instanceof DummyEvent);
+
+        $this->assertSame('the-topic', $event->topic());
+        $this->assertSame('b5578a2a-3188-470c-a2b7-3a249faed6fb', $event->id()->asString());
+        $this->assertSame('c46f1078-5363-4a35-a48f-27417805503d', $event->correlationId()->asString());
+        $this->assertSame('value', $event->key());
+    }
+
     public function testReadsEventsByTopic(): void
     {
         $this->prepareEvent();
