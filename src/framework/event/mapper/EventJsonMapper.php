@@ -4,6 +4,8 @@ namespace example\framework\event;
 use const JSON_PRETTY_PRINT;
 use const JSON_THROW_ON_ERROR;
 use function array_merge;
+use function assert;
+use function is_array;
 use function json_decode;
 use function json_encode;
 
@@ -32,9 +34,11 @@ final class EventJsonMapper
     {
         $this->ensureEventCanBeMapped($topic);
 
-        return $this->mappers[$topic]->fromArray(
-            json_decode($json, true, JSON_THROW_ON_ERROR),
-        );
+        $data = json_decode($json, true, JSON_THROW_ON_ERROR);
+
+        assert(is_array($data));
+
+        return $this->mappers[$topic]->fromArray($data);
     }
 
     /**
