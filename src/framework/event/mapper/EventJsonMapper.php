@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 namespace example\framework\event;
 
-use const JSON_PRETTY_PRINT;
 use const JSON_THROW_ON_ERROR;
 use function array_merge;
 use function assert;
@@ -64,7 +63,7 @@ final class EventJsonMapper
             $this->mappers[$event->topic()]->toArray($event),
         );
 
-        return json_encode($data, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT);
+        return json_encode($data, JSON_THROW_ON_ERROR);
     }
 
     /**
