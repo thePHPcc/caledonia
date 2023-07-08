@@ -3,11 +3,11 @@ namespace example\framework;
 
 use example\framework\database\MysqlDatabase;
 use example\framework\database\MysqlDatabaseConfiguration;
+use example\framework\event\DatabaseEventReader;
+use example\framework\event\DatabaseEventWriter;
 use example\framework\event\EventDispatcher;
 use example\framework\event\EventReader;
 use example\framework\event\EventWriter;
-use example\framework\event\MysqlEventReader;
-use example\framework\event\MysqlEventWriter;
 use example\framework\event\WritingEventDispatcher;
 
 final class Factory
@@ -19,12 +19,12 @@ final class Factory
 
     public function eventReader(): EventReader
     {
-        return new MysqlEventReader($this->eventReaderDatabase());
+        return new DatabaseEventReader($this->eventReaderDatabase());
     }
 
     public function eventWriter(): EventWriter
     {
-        return new MysqlEventWriter($this->eventWriterDatabase());
+        return new DatabaseEventWriter($this->eventWriterDatabase());
     }
 
     public function eventReaderDatabase(): MysqlDatabase
