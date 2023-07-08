@@ -1,19 +1,32 @@
 <?php declare(strict_types=1);
 namespace example\framework\database;
 
-use example\framework\Factory;
 use PHPUnit\Framework\TestCase;
 
 abstract class DatabaseTestCase extends TestCase
 {
     protected function connectionForReadingEvents(): MysqlDatabase
     {
-        return (new Factory)->eventReaderDatabase();
+        return MysqlDatabase::connect(
+            new MysqlDatabaseConfiguration(
+                'localhost',
+                'event_reader',
+                'event_reader_password',
+                'caledonia',
+            ),
+        );
     }
 
     protected function connectionForWritingEvents(): MysqlDatabase
     {
-        return (new Factory)->eventWriterDatabase();
+        return MysqlDatabase::connect(
+            new MysqlDatabaseConfiguration(
+                'localhost',
+                'event_writer',
+                'event_writer_password',
+                'caledonia',
+            ),
+        );
     }
 
     protected function connectionForTesting(): MysqlDatabase
