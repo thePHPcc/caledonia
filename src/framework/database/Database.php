@@ -8,5 +8,12 @@ interface Database
      *
      * @throws DatabaseException
      */
-    public function query(string $sql, string ...$parameters): array|true;
+    public function execute(string $sql, string ...$parameters): true;
+
+    /**
+     * @param non-empty-string $sql
+     *
+     * @throws DatabaseException
+     */
+    public function query(string $sql, string ...$parameters): array;
 }

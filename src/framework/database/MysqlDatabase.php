@@ -6,7 +6,6 @@ use const MYSQLI_OPT_INT_AND_FLOAT_NATIVE;
 use const MYSQLI_REPORT_ERROR;
 use const MYSQLI_REPORT_STRICT;
 use function array_values;
-use function assert;
 use function count;
 use function mysqli_report;
 use function substr_count;
@@ -44,20 +43,42 @@ final readonly class MysqlDatabase implements Database
      *
      * @throws DatabaseException
      */
-    public function query(string $sql, string ...$parameters): array|true
+    public function execute(string $sql, string ...$parameters): true
     {
-        if (substr_count($sql, '?') !== count($parameters)) {
-            throw new DatabaseException('Number of parameters does not match number of placeholders');
+        $this->ensureParameterCountMatches($sql, $parameters);
+
+        try {
+            $result = $this->mysqli->execute_query($sql, array_values($parameters));
+        } catch (mysqli_sql_exception $e) {
+            throw new DatabaseException(
+                $e->getMessage(),
+                $e->getCode(),
+                $e,
+            );
         }
+
+        if ($result !== true) {
+            throw new DatabaseException('Query unexpectedly returned a result');
+        }
+
+        return true;
+    }
+
+    /**
+     * @param non-empty-string $sql
+     *
+     * @throws DatabaseException
+     */
+    public function query(string $sql, string ...$parameters): array
+    {
+        $this->ensureParameterCountMatches($sql, $parameters);
 
         try {
             $result = $this->mysqli->execute_query($sql, array_values($parameters));
 
-            if ($result === true) {
-                return true;
+            if (!$result instanceof mysqli_result) {
+                throw new DatabaseException('Query did not return a result');
             }
-
-            assert($result instanceof mysqli_result);
 
             return $result->fetch_all(MYSQLI_ASSOC);
         } catch (mysqli_sql_exception $e) {
@@ -66,6 +87,18 @@ final readonly class MysqlDatabase implements Database
                 $e->getCode(),
                 $e,
             );
+        }
+    }
+
+    /**
+     * @param non-empty-string $sql
+     *
+     * @throws DatabaseException
+     */
+    private function ensureParameterCountMatches(string $sql, array $parameters): void
+    {
+        if (substr_count($sql, '?') !== count($parameters)) {
+            throw new DatabaseException('Number of parameters does not match number of placeholders');
         }
     }
 }

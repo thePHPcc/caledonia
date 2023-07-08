@@ -16,4 +16,10 @@
       <code><![CDATA[min(9, $this->wool + $amount)]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
+  <file src="src/framework/event/reader/DatabaseEventReader.php">
+    <ArgumentTypeCoercion>
+      <code>$result</code>
+      <code>$result</code>
+    </ArgumentTypeCoercion>
+  </file>
 </files>

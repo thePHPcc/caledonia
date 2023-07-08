@@ -26,7 +26,7 @@ final readonly class DatabaseEventWriter implements EventWriter
             /** @psalm-suppress RedundantCondition */
             assert($event instanceof CorrelatedEvent);
 
-            $this->database->query(
+            $this->database->execute(
                 'INSERT INTO event
                              (topic, event_id, correlation_id, payload)
                       VALUES (?, ?, ?, ?);',
@@ -39,7 +39,7 @@ final readonly class DatabaseEventWriter implements EventWriter
             return;
         }
 
-        $this->database->query(
+        $this->database->execute(
             'INSERT INTO event
                              (topic, event_id, payload)
                       VALUES (?, ?, ?);',

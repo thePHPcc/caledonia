@@ -15,7 +15,7 @@ final class MysqlDatabaseTest extends DatabaseTestCase
 
         $connection = $this->connectionForTesting();
 
-        $this->assertTrue($connection->query('INSERT INTO test () VALUES();'));
+        $this->assertTrue($connection->execute('INSERT INTO test () VALUES();'));
     }
 
     #[Depends('testCanInsertIntoTableUsingConnectionThatIsAllowedToInsertIntoTable')]
@@ -35,7 +35,7 @@ final class MysqlDatabaseTest extends DatabaseTestCase
 
         $this->expectException(DatabaseException::class);
 
-        $connection->query('INSERT INTO test () VALUES();');
+        $connection->execute('INSERT INTO test () VALUES();');
     }
 
     public function testCannotSelectFromTableUsingConnectionThatIsNotAllowedToSelectFromTable(): void
@@ -53,6 +53,6 @@ final class MysqlDatabaseTest extends DatabaseTestCase
 
         $this->expectException(DatabaseException::class);
 
-        $connection->query('INSERT INTO test () VALUES(?);');
+        $connection->execute('INSERT INTO test () VALUES(?);');
     }
 }

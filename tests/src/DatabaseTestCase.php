@@ -78,6 +78,6 @@ abstract class DatabaseTestCase extends TestCase
 
     final protected function emptyTable(string $table): void
     {
-        $this->connectionForTesting()->query('TRUNCATE TABLE ' . $table . ';');
+        $this->connectionForTesting()->execute('TRUNCATE TABLE ' . $table . ';');
     }
 }
