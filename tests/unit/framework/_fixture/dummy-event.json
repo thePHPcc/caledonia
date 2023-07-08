@@ -1,5 +1,6 @@
 {
-    "id": "9f0fd1e7-46b1-40cd-9665-1b7535e187c8",
+    "topic": "the-topic",
+    "event_id": "9f0fd1e7-46b1-40cd-9665-1b7535e187c8",
     "correlation_id": "53c540a1-4509-4465-b2cb-0e534be0abab",
     "key": "value"
 }

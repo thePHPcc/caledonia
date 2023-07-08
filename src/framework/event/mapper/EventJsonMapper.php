@@ -49,7 +49,10 @@ final class EventJsonMapper
     {
         $this->ensureEventCanBeMapped($event->topic());
 
-        $metadata = ['id' => $event->id()->asString()];
+        $metadata = [
+            'topic' => $event->topic(),
+            'event_id' => $event->id()->asString(),
+        ];
 
         if ($event->hasCorrelationId()) {
             /** @psalm-suppress RedundantCondition */
