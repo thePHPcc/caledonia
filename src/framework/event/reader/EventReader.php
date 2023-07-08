@@ -3,4 +3,5 @@ namespace example\framework\event;
 
 interface EventReader
 {
+    public function topic(string $topic): EventCollection;
 }
