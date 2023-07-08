@@ -8,5 +8,5 @@ interface Database
      *
      * @throws DatabaseException
      */
-    public function query(string $sql): array|true;
+    public function query(string $sql, string ...$parameters): array|true;
 }

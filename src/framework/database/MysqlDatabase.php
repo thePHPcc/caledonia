@@ -5,8 +5,11 @@ use const MYSQLI_ASSOC;
 use const MYSQLI_OPT_INT_AND_FLOAT_NATIVE;
 use const MYSQLI_REPORT_ERROR;
 use const MYSQLI_REPORT_STRICT;
+use function array_values;
 use function assert;
+use function count;
 use function mysqli_report;
+use function substr_count;
 use mysqli;
 use mysqli_result;
 use mysqli_sql_exception;
@@ -41,10 +44,14 @@ final readonly class MysqlDatabase implements Database
      *
      * @throws DatabaseException
      */
-    public function query(string $sql): array|true
+    public function query(string $sql, string ...$parameters): array|true
     {
+        if (substr_count($sql, '?') !== count($parameters)) {
+            throw new DatabaseException('Number of parameters does not match number of placeholders');
+        }
+
         try {
-            $result = $this->mysqli->query($sql);
+            $result = $this->mysqli->execute_query($sql, array_values($parameters));
 
             if ($result === true) {
                 return true;

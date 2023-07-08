@@ -46,4 +46,13 @@ final class MysqlDatabaseTest extends DatabaseTestCase
 
         $connection->query('SELECT id FROM test;');
     }
+
+    public function testNumberOfPlaceholdersMustMatchNumberOfParameters(): void
+    {
+        $connection = $this->connectionForTesting();
+
+        $this->expectException(DatabaseException::class);
+
+        $connection->query('INSERT INTO test () VALUES(?);');
+    }
 }
