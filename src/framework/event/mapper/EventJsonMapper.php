@@ -23,6 +23,9 @@ final class EventJsonMapper
     }
 
     /**
+     * @psalm-param non-empty-string $topic
+     * @psalm-param non-empty-string $json
+     *
      * @throws CannotMapEventException
      */
     public function fromJson(string $topic, string $json): Event
@@ -35,6 +38,8 @@ final class EventJsonMapper
     }
 
     /**
+     * @psalm-return non-empty-string
+     *
      * @throws CannotMapEventException
      */
     public function toJson(Event $event): string
@@ -53,6 +58,8 @@ final class EventJsonMapper
     }
 
     /**
+     * @psalm-param non-empty-string $topic
+     *
      * @throws CannotMapEventException
      */
     private function ensureEventCanBeMapped(string $topic): void
