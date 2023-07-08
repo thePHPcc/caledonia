@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 
 abstract class DatabaseTestCase extends TestCase
 {
-    protected function connectionForReadingEvents(): MysqlDatabase
+    final protected function connectionForReadingEvents(): MysqlDatabase
     {
         return MysqlDatabase::connect(
             new MysqlDatabaseConfiguration(
@@ -17,7 +17,7 @@ abstract class DatabaseTestCase extends TestCase
         );
     }
 
-    protected function connectionForWritingEvents(): MysqlDatabase
+    final protected function connectionForWritingEvents(): MysqlDatabase
     {
         return MysqlDatabase::connect(
             new MysqlDatabaseConfiguration(
@@ -29,7 +29,7 @@ abstract class DatabaseTestCase extends TestCase
         );
     }
 
-    protected function connectionForTesting(): MysqlDatabase
+    final protected function connectionForTesting(): MysqlDatabase
     {
         return MysqlDatabase::connect(
             new MysqlDatabaseConfiguration(
@@ -41,7 +41,7 @@ abstract class DatabaseTestCase extends TestCase
         );
     }
 
-    protected function emptyTable(string $table): void
+    final protected function emptyTable(string $table): void
     {
         $this->connectionForTesting()->query('TRUNCATE TABLE ' . $table . ';');
     }
