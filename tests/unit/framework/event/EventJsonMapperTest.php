@@ -36,9 +36,9 @@ final class EventJsonMapperTest extends TestCase
 
         $this->assertInstanceOf(DummyEvent::class, $event);
 
+        $this->assertSame($this->event()->topic(), $event->topic());
         $this->assertSame($this->event()->id()->asString(), $event->id()->asString());
         $this->assertSame($this->event()->correlationId()->asString(), $event->correlationId()->asString());
-        $this->assertSame($this->event()->topic(), $event->topic());
         $this->assertSame($this->event()->key(), $event->key());
     }
 
