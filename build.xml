@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="caledonia">
+    <target name="clean" unless="clean.done" description="Cleanup build artifacts">
+        <delete dir="${basedir}/vendor"/>
+        <delete file="${basedir}/composer.lock"/>
+
+        <property name="clean.done" value="true"/>
+    </target>
+
     <target name="generate-autoloader" description="Generate autoloader with PHPAB">
         <exec executable="${basedir}/tools/phpab" taskname="phpab">
             <arg value="--basedir" />
@@ -27,6 +34,19 @@
         <exec executable="${basedir}/tools/phive" taskname="phive">
             <arg value="--no-progress"/>
             <arg value="update"/>
+        </exec>
+    </target>
+
+    <target name="-dependencies-installed">
+        <available file="${basedir}/composer.lock" property="dependencies-installed"/>
+    </target>
+
+    <target name="install-dependencies" unless="dependencies-installed" depends="-dependencies-installed" description="Install dependencies with Composer">
+        <exec executable="${basedir}/tools/composer" taskname="composer">
+            <arg value="update"/>
+            <arg value="--no-interaction"/>
+            <arg value="--no-progress"/>
+            <arg value="--no-ansi"/>
         </exec>
     </target>
 </project>
