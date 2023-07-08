@@ -17,7 +17,7 @@ final readonly class DummyEventMapping implements EventArrayMapper
 
     public function toArray(Event $event): array
     {
-        assert($event instanceof DummyEvent);
+        assert($event instanceof DummyEvent || $event instanceof AnotherDummyEvent);
 
         return [
             'key' => $event->key(),
