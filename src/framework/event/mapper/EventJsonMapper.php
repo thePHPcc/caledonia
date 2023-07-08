@@ -50,7 +50,7 @@ final class EventJsonMapper
         $this->ensureEventCanBeMapped($event->topic());
 
         $metadata = [
-            'topic' => $event->topic(),
+            'topic'    => $event->topic(),
             'event_id' => $event->id()->asString(),
         ];
 
