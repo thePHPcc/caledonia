@@ -24,20 +24,21 @@ final class EventJsonMapper
     }
 
     /**
-     * @psalm-param non-empty-string $topic
      * @psalm-param non-empty-string $json
      *
      * @throws CannotMapEventException
      */
-    public function fromJson(string $topic, string $json): Event
+    public function fromJson(string $json): Event
     {
-        $this->ensureEventCanBeMapped($topic);
-
         $data = json_decode($json, true, JSON_THROW_ON_ERROR);
 
-        assert(is_array($data));
+        if (!is_array($data) || !isset($data['topic'])) {
+            throw new CannotMapEventException;
+        }
 
-        return $this->mappers[$topic]->fromArray($data);
+        $this->ensureEventCanBeMapped($data['topic']);
+
+        return $this->mappers[$data['topic']]->fromArray($data);
     }
 
     /**

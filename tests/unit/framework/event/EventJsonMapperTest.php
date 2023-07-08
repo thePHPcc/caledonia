@@ -30,7 +30,6 @@ final class EventJsonMapperTest extends TestCase
     public function testMapsJsonDocumentToEventObject(): void
     {
         $event = $this->mapper()->fromJson(
-            'the-topic',
             file_get_contents(__DIR__ . '/../_fixture/dummy-event.json'),
         );
 
@@ -46,7 +45,7 @@ final class EventJsonMapperTest extends TestCase
     {
         $this->expectException(CannotMapEventException::class);
 
-        (new EventJsonMapper([]))->fromJson('unknown', json_encode([]));
+        (new EventJsonMapper([]))->fromJson(json_encode([]));
     }
 
     private function event(): DummyEvent
