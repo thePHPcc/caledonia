@@ -8,10 +8,6 @@ final readonly class DummyEventMapping implements EventArrayMapper
 {
     public function fromArray(array $data): DummyEvent
     {
-        assert(isset($data['key']));
-        assert(isset($data['event_id']));
-        assert(isset($data['correlation_id']));
-
         return new DummyEvent(Uuid::from($data['event_id']), Uuid::from($data['correlation_id']), $data['key']);
     }
 

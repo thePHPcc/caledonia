@@ -36,6 +36,12 @@ final class EventJsonMapper
 
         $this->ensureJsonCanBeMapped($data);
 
+        assert(is_array($data));
+        assert(isset($data['topic']) && is_string($data['topic']));
+        assert(isset($data['event_id']) && is_string($data['event_id']));
+        assert(array_key_exists('correlation_id', $data));
+        assert(is_string($data['correlation_id']) || is_null($data['correlation_id']));
+
         return $this->mappers[$data['topic']]->fromArray($data);
     }
 
@@ -99,8 +105,11 @@ final class EventJsonMapper
         }
 
         if (!array_key_exists('topic', $data) ||
+            !is_string($data['topic']) ||
             !array_key_exists('event_id', $data) ||
-            !array_key_exists('correlation_id', $data)) {
+            !is_string($data['event_id']) ||
+            !array_key_exists('correlation_id', $data) ||
+            (!is_string($data['correlation_id']) && !is_null($data['correlation_id']))) {
             throw new CannotMapEventException;
         }
     }
