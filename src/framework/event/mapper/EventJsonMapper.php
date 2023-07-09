@@ -7,6 +7,7 @@ use function assert;
 use function is_array;
 use function json_decode;
 use function json_encode;
+use JsonException;
 
 final class EventJsonMapper
 {
@@ -67,7 +68,15 @@ final class EventJsonMapper
             $this->mappers[$event->topic()]->toArray($event),
         );
 
-        return json_encode($data, JSON_THROW_ON_ERROR);
+        try {
+            return json_encode($data, JSON_THROW_ON_ERROR);
+        } catch (JsonException $e) {
+            throw new CannotMapEventException(
+                $e->getMessage(),
+                $e->getCode(),
+                $e,
+            );
+        }
     }
 
     /**
