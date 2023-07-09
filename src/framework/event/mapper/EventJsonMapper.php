@@ -49,8 +49,9 @@ final class EventJsonMapper
         $this->ensureEventCanBeMapped($event->topic());
 
         $metadata = [
-            'topic'    => $event->topic(),
-            'event_id' => $event->id()->asString(),
+            'topic'          => $event->topic(),
+            'event_id'       => $event->id()->asString(),
+            'correlation_id' => null,
         ];
 
         if ($event->hasCorrelationId()) {
@@ -98,7 +99,8 @@ final class EventJsonMapper
         }
 
         if (!array_key_exists('topic', $data) ||
-            !array_key_exists('event_id', $data)) {
+            !array_key_exists('event_id', $data) ||
+            !array_key_exists('correlation_id', $data)) {
             throw new CannotMapEventException;
         }
     }

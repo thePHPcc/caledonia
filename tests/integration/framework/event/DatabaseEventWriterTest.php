@@ -41,7 +41,7 @@ final class DatabaseEventWriterTest extends DatabaseTestCase
                 [
                     'topic'    => 'the-topic',
                     'event_id' => '74383eed-ab07-443e-9782-a29322594145',
-                    'payload'  => '{"topic":"the-topic","event_id":"74383eed-ab07-443e-9782-a29322594145","key":"value"}',
+                    'payload'  => '{"topic":"the-topic","event_id":"74383eed-ab07-443e-9782-a29322594145","correlation_id":null,"key":"value"}',
                 ],
             ],
             'event',
