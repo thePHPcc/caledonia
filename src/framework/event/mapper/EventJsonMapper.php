@@ -2,6 +2,7 @@
 namespace example\framework\event;
 
 use const JSON_THROW_ON_ERROR;
+use function array_key_exists;
 use function array_merge;
 use function assert;
 use function is_array;
@@ -33,11 +34,7 @@ final class EventJsonMapper
     {
         $data = json_decode($json, true, JSON_THROW_ON_ERROR);
 
-        if (!is_array($data) || !isset($data['topic'])) {
-            throw new CannotMapEventException;
-        }
-
-        $this->ensureEventCanBeMapped($data['topic']);
+        $this->ensureJsonCanBeMapped($data);
 
         return $this->mappers[$data['topic']]->fromArray($data);
     }
@@ -87,6 +84,21 @@ final class EventJsonMapper
     private function ensureEventCanBeMapped(string $topic): void
     {
         if (!isset($this->mappers[$topic])) {
+            throw new CannotMapEventException;
+        }
+    }
+
+    /**
+     * @throws CannotMapEventException
+     */
+    private function ensureJsonCanBeMapped(mixed $data): void
+    {
+        if (!is_array($data)) {
+            throw new CannotMapEventException;
+        }
+
+        if (!array_key_exists('topic', $data) ||
+            !array_key_exists('event_id', $data)) {
             throw new CannotMapEventException;
         }
     }
