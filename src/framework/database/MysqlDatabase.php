@@ -39,7 +39,7 @@ final readonly class MysqlDatabase implements Database
     }
 
     /**
-     * @param non-empty-string $sql
+     * @psalm-param non-empty-string $sql
      *
      * @throws DatabaseException
      */
@@ -65,7 +65,7 @@ final readonly class MysqlDatabase implements Database
     }
 
     /**
-     * @param non-empty-string $sql
+     * @psalm-param non-empty-string $sql
      *
      * @throws DatabaseException
      */
@@ -91,7 +91,7 @@ final readonly class MysqlDatabase implements Database
     }
 
     /**
-     * @param non-empty-string $sql
+     * @psalm-param non-empty-string $sql
      *
      * @throws DatabaseException
      */

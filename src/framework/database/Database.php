@@ -4,14 +4,14 @@ namespace example\framework\database;
 interface Database
 {
     /**
-     * @param non-empty-string $sql
+     * @psalm-param non-empty-string $sql
      *
      * @throws DatabaseException
      */
     public function execute(string $sql, string ...$parameters): true;
 
     /**
-     * @param non-empty-string $sql
+     * @psalm-param non-empty-string $sql
      *
      * @throws DatabaseException
      */
