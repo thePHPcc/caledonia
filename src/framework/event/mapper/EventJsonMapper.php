@@ -6,6 +6,7 @@ use function array_key_exists;
 use function array_merge;
 use function assert;
 use function is_array;
+use function is_string;
 use function json_decode;
 use function json_encode;
 use JsonException;
@@ -40,7 +41,7 @@ final class EventJsonMapper
         assert(isset($data['topic']) && is_string($data['topic']));
         assert(isset($data['event_id']) && is_string($data['event_id']));
         assert(array_key_exists('correlation_id', $data));
-        assert(is_string($data['correlation_id']) || is_null($data['correlation_id']));
+        assert(is_string($data['correlation_id']) || null === $data['correlation_id']);
 
         return $this->mappers[$data['topic']]->fromArray($data);
     }
@@ -109,7 +110,7 @@ final class EventJsonMapper
             !array_key_exists('event_id', $data) ||
             !is_string($data['event_id']) ||
             !array_key_exists('correlation_id', $data) ||
-            (!is_string($data['correlation_id']) && !is_null($data['correlation_id']))) {
+            (!is_string($data['correlation_id']) && null !== $data['correlation_id'])) {
             throw new CannotMapEventException;
         }
     }
