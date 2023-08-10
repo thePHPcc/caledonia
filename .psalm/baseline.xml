@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.13.1@086b94371304750d1c673315321a55d15fc59015">
-  <file src="src/domain/market/Market.php">
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[max(0, $this->bread - $amount)]]></code>
-      <code><![CDATA[max(0, $this->cheese - $amount)]]></code>
-      <code><![CDATA[max(0, $this->grain - $amount)]]></code>
-      <code><![CDATA[max(0, $this->milk - $amount)]]></code>
-      <code><![CDATA[max(0, $this->whisky - $amount)]]></code>
-      <code><![CDATA[max(0, $this->wool - $amount)]]></code>
-      <code><![CDATA[min(9, $this->bread + $amount)]]></code>
-      <code><![CDATA[min(9, $this->cheese + $amount)]]></code>
-      <code><![CDATA[min(9, $this->grain + $amount)]]></code>
-      <code><![CDATA[min(9, $this->milk + $amount)]]></code>
-      <code><![CDATA[min(9, $this->whisky + $amount)]]></code>
-      <code><![CDATA[min(9, $this->wool + $amount)]]></code>
-    </InvalidPropertyAssignmentValue>
-  </file>
+<files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
   <file src="src/framework/event/reader/DatabaseEventReader.php">
     <ArgumentTypeCoercion>
       <code>$result</code>
