@@ -67,6 +67,8 @@ final readonly class MysqlDatabase implements Database
     /**
      * @psalm-param non-empty-string $sql
      *
+     * @psalm-return list<array<non-empty-string, mixed>>
+     *
      * @throws DatabaseException
      */
     public function query(string $sql, string ...$parameters): array
