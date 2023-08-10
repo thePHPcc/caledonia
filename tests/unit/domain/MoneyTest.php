@@ -28,10 +28,10 @@ final class MoneyTest extends TestCase
 
     public function testAnotherValueCanBeSubtracted(): void
     {
-        $a = Money::from(2);
+        $a = Money::from(1);
         $b = Money::from(1);
 
-        $this->assertObjectEquals(Money::from(1), $a->minus($b));
+        $this->assertObjectEquals(Money::from(0), $a->minus($b));
     }
 
     public function testIsComparable(): void
