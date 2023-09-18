@@ -3,6 +3,7 @@ $finder = PhpCsFixer\Finder::create()
     ->files()
     ->in(__DIR__ . '/src')
     ->in(__DIR__ . '/tests')
+    ->in(__DIR__ . '/public')
     ->notName('autoload.php')
 ;
 
