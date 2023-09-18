@@ -44,6 +44,7 @@ spl_autoload_register(
                 'example\\framework\\event\\eventstore' => '/framework/event/store/EventStore.php',
                 'example\\framework\\event\\eventwriter' => '/framework/event/writer/EventWriter.php',
                 'example\\framework\\event\\inmemoryeventstore' => '/framework/event/store/InMemoryEventStore.php',
+                'example\\framework\\event\\persistenteventstore' => '/framework/event/store/PersistentEventStore.php',
                 'example\\framework\\event\\writingeventdispatcher' => '/framework/event/dispatcher/WritingEventDispatcher.php',
                 'example\\framework\\exception' => '/framework/exceptions/Exception.php',
                 'example\\framework\\library\\invaliduuidexception' => '/framework/exceptions/InvalidUuidException.php',
