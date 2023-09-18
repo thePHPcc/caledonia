@@ -22,7 +22,7 @@ final class EventJsonMapperTest extends TestCase
     public function testMapsEventObjectToJsonDocument(): void
     {
         $this->assertJsonStringEqualsJsonFile(
-            __DIR__ . '/../_fixture/dummy-event.json',
+            __DIR__ . '/../../_fixture/dummy-event.json',
             $this->mapper()->toJson($this->event()),
         );
     }
@@ -30,7 +30,7 @@ final class EventJsonMapperTest extends TestCase
     public function testMapsJsonDocumentToEventObject(): void
     {
         $event = $this->mapper()->fromJson(
-            file_get_contents(__DIR__ . '/../_fixture/dummy-event.json'),
+            file_get_contents(__DIR__ . '/../../_fixture/dummy-event.json'),
         );
 
         $this->assertInstanceOf(DummyEvent::class, $event);
