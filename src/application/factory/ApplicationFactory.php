@@ -17,11 +17,25 @@ final readonly class ApplicationFactory
 
     private function createGetRequestRouter(): GetRequestRouter
     {
-        return new GetRequestRouter;
+        return new GetRequestRouter(
+            new NotFoundGetRoute,
+        );
     }
 
     private function createPostRequestRouter(): PostRequestRouter
     {
-        return new PostRequestRouter;
+        return new PostRequestRouter(
+            new NotFoundPostRoute,
+        );
+    }
+
+    private function createCommandFactory(): CommandFactory
+    {
+        return new CommandFactory;
+    }
+
+    private function createQueryFactory(): QueryFactory
+    {
+        return new QueryFactory;
     }
 }

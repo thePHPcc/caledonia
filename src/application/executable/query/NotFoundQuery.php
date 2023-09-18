@@ -1,0 +1,17 @@
+<?php declare(strict_types=1);
+namespace example\caledonia\application;
+
+use example\framework\http\Query;
+use example\framework\http\Response;
+
+final readonly class NotFoundQuery implements Query
+{
+    public function execute(): Response
+    {
+        $response = new Response;
+
+        $response->setBody('not found');
+
+        return $response;
+    }
+}

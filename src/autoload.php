@@ -7,8 +7,15 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
+                'example\\caledonia\\application\\applicationfactory' => '/application/factory/ApplicationFactory.php',
+                'example\\caledonia\\application\\commandfactory' => '/application/factory/CommandFactory.php',
                 'example\\caledonia\\application\\eventemitter' => '/application/event/EventEmitter.php',
-                'example\\caledonia\\application\\ApplicationFactory' => '/application/Factory.php',
+                'example\\caledonia\\application\\eventjsonmapper' => '/application/event/EventJsonMapper.php',
+                'example\\caledonia\\application\\notfoundcommand' => '/application/executable/command/NotFoundCommand.php',
+                'example\\caledonia\\application\\notfoundgetroute' => '/application/route/get/NotFoundGetRoute.php',
+                'example\\caledonia\\application\\notfoundpostroute' => '/application/route/post/NotFoundPostRoute.php',
+                'example\\caledonia\\application\\notfoundquery' => '/application/executable/query/NotFoundQuery.php',
+                'example\\caledonia\\application\\queryfactory' => '/application/factory/QueryFactory.php',
                 'example\\caledonia\\application\\writingeventemitter' => '/application/event/WritingEventEmitter.php',
                 'example\\caledonia\\domain\\amountmustnotbecomenegativeexception' => '/domain/exceptions/AmountMustNotBecomeNegativeException.php',
                 'example\\caledonia\\domain\\amountmustnotbenegativeexception' => '/domain/exceptions/AmountMustNotBeNegativeException.php',

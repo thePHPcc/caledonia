@@ -16,8 +16,6 @@ final readonly class Kernel
 
     public function run(Request $request): Response
     {
-        $response = new Response;
-
         if ($request->isGetRequest()) {
             assert($request instanceof GetRequest);
 
@@ -33,7 +31,5 @@ final readonly class Kernel
 
             return $command->execute();
         }
-
-        return $response;
     }
 }
