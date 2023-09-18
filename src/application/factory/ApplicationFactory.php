@@ -5,7 +5,7 @@ use example\framework\http\GetRequestRouter;
 use example\framework\http\Kernel;
 use example\framework\http\PostRequestRouter;
 
-final readonly class Factory
+final readonly class ApplicationFactory
 {
     public function createApplication(): Kernel
     {
