@@ -33,7 +33,7 @@ final class EventCollectionTest extends TestCase
     {
         $this->assertCount(2, $this->collection());
         $this->assertTrue($this->collection()->isNotEmpty());
-        $this->assertTrue(EventCollection::fromArray([])->isEmpty());
+        $this->assertTrue(EventCollection::empty()->isEmpty());
     }
 
     public function testIsIterable(): void

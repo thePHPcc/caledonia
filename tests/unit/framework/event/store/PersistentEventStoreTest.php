@@ -48,7 +48,7 @@ final class PersistentEventStoreTest extends TestCase
             ->expects($this->once())
             ->method('correlation')
             ->with($correlationId)
-            ->willReturn(EventCollection::fromArray([]));
+            ->willReturn(EventCollection::empty());
 
         $store->correlation($correlationId);
     }
@@ -65,7 +65,7 @@ final class PersistentEventStoreTest extends TestCase
             ->expects($this->once())
             ->method('topic')
             ->with($topic)
-            ->willReturn(EventCollection::fromArray([]));
+            ->willReturn(EventCollection::empty());
 
         $store->topic($topic);
     }

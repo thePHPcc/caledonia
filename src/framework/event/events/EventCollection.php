@@ -17,6 +17,11 @@ final readonly class EventCollection implements Countable, IteratorAggregate
      */
     private array $events;
 
+    public static function empty(): self
+    {
+        return new self([]);
+    }
+
     /**
      * @psalm-param list<Event> $events
      */

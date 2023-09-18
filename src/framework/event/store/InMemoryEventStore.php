@@ -41,7 +41,7 @@ final class InMemoryEventStore implements EventStore
     public function correlation(Uuid $correlationId): EventCollection
     {
         if (!isset($this->eventsByCorrelationId[$correlationId->asString()])) {
-            return EventCollection::fromArray([]);
+            return EventCollection::empty();
         }
 
         return EventCollection::fromArray($this->eventsByCorrelationId[$correlationId->asString()]);
@@ -50,7 +50,7 @@ final class InMemoryEventStore implements EventStore
     public function topic(string $topic): EventCollection
     {
         if (!isset($this->eventsByTopic[$topic])) {
-            return EventCollection::fromArray([]);
+            return EventCollection::empty();
         }
 
         return EventCollection::fromArray($this->eventsByTopic[$topic]);
