@@ -25,6 +25,7 @@ spl_autoload_register(
                 'example\\caledonia\\domain\\good' => '/domain/goods/Good.php',
                 'example\\caledonia\\domain\\grain' => '/domain/goods/Grain.php',
                 'example\\caledonia\\domain\\market' => '/domain/market/Market.php',
+                'example\\caledonia\\domain\\markethtmlprojector' => '/domain/market/MarketHtmlProjector.php',
                 'example\\caledonia\\domain\\milk' => '/domain/goods/Milk.php',
                 'example\\caledonia\\domain\\money' => '/domain/player/Money.php',
                 'example\\caledonia\\domain\\namemustnotbeemptyexception' => '/domain/exceptions/NameMustNotBeEmptyException.php',

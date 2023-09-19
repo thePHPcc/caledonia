@@ -482,4 +482,17 @@ final class MarketTest extends TestCase
         $market->sell(Good::wool(), 1);
         $this->assertEquals(Price::from(3), $market->priceFor(Good::wool()));
     }
+
+    public function testHasPriceTableForEachGood(): void
+    {
+        $priceTables = Market::create()->priceTables();
+
+        $this->assertCount(6, $priceTables);
+        $this->assertArrayHasKey('bread', $priceTables);
+        $this->assertArrayHasKey('cheese', $priceTables);
+        $this->assertArrayHasKey('grain', $priceTables);
+        $this->assertArrayHasKey('milk', $priceTables);
+        $this->assertArrayHasKey('whisky', $priceTables);
+        $this->assertArrayHasKey('wool', $priceTables);
+    }
 }

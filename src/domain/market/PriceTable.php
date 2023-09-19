@@ -170,9 +170,25 @@ final readonly class PriceTable
         $this->position = $position;
     }
 
+    /**
+     * @psalm-param int<0, 9> $position
+     */
+    public function at(int $position): Price
+    {
+        return $this->prices[$position];
+    }
+
     public function current(): Price
     {
         return $this->prices[$this->position];
+    }
+
+    /**
+     * @psalm-return int<0, 9>
+     */
+    public function currentPosition(): int
+    {
+        return $this->position;
     }
 
     public function increase(): self

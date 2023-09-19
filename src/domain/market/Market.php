@@ -93,4 +93,12 @@ final class Market
             $this->priceTables[$good->asString()] = $this->priceTables[$good->asString()]->decrease();
         }
     }
+
+    /**
+     * @psalm-return array{bread: PriceTable, cheese: PriceTable, grain: PriceTable, milk: PriceTable, whisky: PriceTable, wool: PriceTable}
+     */
+    public function priceTables(): array
+    {
+        return $this->priceTables;
+    }
 }
