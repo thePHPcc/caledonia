@@ -1,12 +1,15 @@
 <?php declare(strict_types=1);
 namespace example\caledonia\domain;
 
-final class PriceTable
+/**
+ * @psalm-immutable
+ */
+final readonly class PriceTable
 {
     /**
      * @psalm-var list<Price>
      */
-    private readonly array $prices;
+    private array $prices;
 
     /**
      * @psalm-var int<0, 9>
@@ -172,17 +175,25 @@ final class PriceTable
         return $this->prices[$this->position];
     }
 
-    public function increase(): void
+    public function increase(): self
     {
-        if ($this->position < 9) {
-            $this->position++;
+        $position = $this->position;
+
+        if ($position < 9) {
+            $position++;
         }
+
+        return new self($this->prices, $position);
     }
 
-    public function decrease(): void
+    public function decrease(): self
     {
-        if ($this->position > 0) {
-            $this->position--;
+        $position = $this->position;
+
+        if ($position > 0) {
+            $position--;
         }
+
+        return new self($this->prices, $position);
     }
 }

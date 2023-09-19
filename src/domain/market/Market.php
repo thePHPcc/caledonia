@@ -80,7 +80,7 @@ final class Market
     public function purchase(Good $good, int $amount): void
     {
         foreach (range(1, $amount) as $i) {
-            $this->priceTables[$good->asString()]->increase();
+            $this->priceTables[$good->asString()] = $this->priceTables[$good->asString()]->increase();
         }
     }
 
@@ -90,7 +90,7 @@ final class Market
     public function sell(Good $good, int $amount): void
     {
         foreach (range(1, $amount) as $i) {
-            $this->priceTables[$good->asString()]->decrease();
+            $this->priceTables[$good->asString()] = $this->priceTables[$good->asString()]->decrease();
         }
     }
 }
