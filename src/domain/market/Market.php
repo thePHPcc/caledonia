@@ -6,7 +6,7 @@ use function range;
 final class Market
 {
     /**
-     * @psalm-var array<'bread'|'cheese'|'grain'|'milk'|'whisky'|'wool', PriceTable>
+     * @psalm-var array{bread: PriceTable, cheese: PriceTable, grain: PriceTable, milk: PriceTable, whisky: PriceTable, wool: PriceTable}
      */
     private array $priceTables;
 
