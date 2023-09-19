@@ -1,0 +1,7 @@
+<?php declare(strict_types=1);
+namespace example\framework\event;
+
+interface EventSubscriber
+{
+    public function notify(Event $event): void;
+}

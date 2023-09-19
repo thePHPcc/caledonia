@@ -5,6 +5,8 @@ use example\framework\database\MysqlDatabase;
 use example\framework\database\MysqlDatabaseConfiguration;
 use example\framework\event\DatabaseEventWriter;
 use example\framework\event\EventWriter;
+use example\framework\event\SubscribableEventDispatcher;
+use example\framework\event\WritingEventSubscriber;
 
 final readonly class CommandFactory
 {
@@ -12,7 +14,11 @@ final readonly class CommandFactory
 
     public function createEventEmitter(): EventEmitter
     {
-        return new WritingEventEmitter($this->createEventWriter());
+        return new DispatchingEventEmitter(
+            new SubscribableEventDispatcher(
+                new WritingEventSubscriber($this->createEventWriter()),
+            ),
+        );
     }
 
     private function createEventWriter(): EventWriter
