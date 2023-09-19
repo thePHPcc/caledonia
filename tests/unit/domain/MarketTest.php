@@ -32,34 +32,34 @@ final class MarketTest extends TestCase
     {
         $market = Market::from(0, 0, 0, 0, 0, 0);
 
-        $market->purchase(Good::bread(), 1);
+        $market = $market->purchase(Good::bread(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::bread()));
 
-        $market->purchase(Good::bread(), 1);
+        $market = $market->purchase(Good::bread(), 1);
         $this->assertEquals(Price::from(9), $market->priceFor(Good::bread()));
 
-        $market->purchase(Good::bread(), 1);
+        $market = $market->purchase(Good::bread(), 1);
         $this->assertEquals(Price::from(10), $market->priceFor(Good::bread()));
 
-        $market->purchase(Good::bread(), 1);
+        $market = $market->purchase(Good::bread(), 1);
         $this->assertEquals(Price::from(11), $market->priceFor(Good::bread()));
 
-        $market->purchase(Good::bread(), 1);
+        $market = $market->purchase(Good::bread(), 1);
         $this->assertEquals(Price::from(11), $market->priceFor(Good::bread()));
 
-        $market->purchase(Good::bread(), 1);
+        $market = $market->purchase(Good::bread(), 1);
         $this->assertEquals(Price::from(12), $market->priceFor(Good::bread()));
 
-        $market->purchase(Good::bread(), 1);
+        $market = $market->purchase(Good::bread(), 1);
         $this->assertEquals(Price::from(13), $market->priceFor(Good::bread()));
 
-        $market->purchase(Good::bread(), 1);
+        $market = $market->purchase(Good::bread(), 1);
         $this->assertEquals(Price::from(14), $market->priceFor(Good::bread()));
 
-        $market->purchase(Good::bread(), 1);
+        $market = $market->purchase(Good::bread(), 1);
         $this->assertEquals(Price::from(15), $market->priceFor(Good::bread()));
 
-        $market->purchase(Good::bread(), 1);
+        $market = $market->purchase(Good::bread(), 1);
         $this->assertEquals(Price::from(15), $market->priceFor(Good::bread()));
     }
 
@@ -67,34 +67,34 @@ final class MarketTest extends TestCase
     {
         $market = Market::from(9, 9, 9, 9, 9, 9);
 
-        $market->sell(Good::bread(), 1);
+        $market = $market->sell(Good::bread(), 1);
         $this->assertEquals(Price::from(14), $market->priceFor(Good::bread()));
 
-        $market->sell(Good::bread(), 1);
+        $market = $market->sell(Good::bread(), 1);
         $this->assertEquals(Price::from(13), $market->priceFor(Good::bread()));
 
-        $market->sell(Good::bread(), 1);
+        $market = $market->sell(Good::bread(), 1);
         $this->assertEquals(Price::from(12), $market->priceFor(Good::bread()));
 
-        $market->sell(Good::bread(), 1);
+        $market = $market->sell(Good::bread(), 1);
         $this->assertEquals(Price::from(11), $market->priceFor(Good::bread()));
 
-        $market->sell(Good::bread(), 1);
+        $market = $market->sell(Good::bread(), 1);
         $this->assertEquals(Price::from(11), $market->priceFor(Good::bread()));
 
-        $market->sell(Good::bread(), 1);
+        $market = $market->sell(Good::bread(), 1);
         $this->assertEquals(Price::from(10), $market->priceFor(Good::bread()));
 
-        $market->sell(Good::bread(), 1);
+        $market = $market->sell(Good::bread(), 1);
         $this->assertEquals(Price::from(9), $market->priceFor(Good::bread()));
 
-        $market->sell(Good::bread(), 1);
+        $market = $market->sell(Good::bread(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::bread()));
 
-        $market->sell(Good::bread(), 1);
+        $market = $market->sell(Good::bread(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::bread()));
 
-        $market->sell(Good::bread(), 1);
+        $market = $market->sell(Good::bread(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::bread()));
     }
 
@@ -109,34 +109,34 @@ final class MarketTest extends TestCase
     {
         $market = Market::from(0, 0, 0, 0, 0, 0);
 
-        $market->purchase(Good::cheese(), 1);
+        $market = $market->purchase(Good::cheese(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::cheese()));
 
-        $market->purchase(Good::cheese(), 1);
+        $market = $market->purchase(Good::cheese(), 1);
         $this->assertEquals(Price::from(9), $market->priceFor(Good::cheese()));
 
-        $market->purchase(Good::cheese(), 1);
+        $market = $market->purchase(Good::cheese(), 1);
         $this->assertEquals(Price::from(10), $market->priceFor(Good::cheese()));
 
-        $market->purchase(Good::cheese(), 1);
+        $market = $market->purchase(Good::cheese(), 1);
         $this->assertEquals(Price::from(11), $market->priceFor(Good::cheese()));
 
-        $market->purchase(Good::cheese(), 1);
+        $market = $market->purchase(Good::cheese(), 1);
         $this->assertEquals(Price::from(12), $market->priceFor(Good::cheese()));
 
-        $market->purchase(Good::cheese(), 1);
+        $market = $market->purchase(Good::cheese(), 1);
         $this->assertEquals(Price::from(13), $market->priceFor(Good::cheese()));
 
-        $market->purchase(Good::cheese(), 1);
+        $market = $market->purchase(Good::cheese(), 1);
         $this->assertEquals(Price::from(14), $market->priceFor(Good::cheese()));
 
-        $market->purchase(Good::cheese(), 1);
+        $market = $market->purchase(Good::cheese(), 1);
         $this->assertEquals(Price::from(14), $market->priceFor(Good::cheese()));
 
-        $market->purchase(Good::cheese(), 1);
+        $market = $market->purchase(Good::cheese(), 1);
         $this->assertEquals(Price::from(15), $market->priceFor(Good::cheese()));
 
-        $market->purchase(Good::cheese(), 1);
+        $market = $market->purchase(Good::cheese(), 1);
         $this->assertEquals(Price::from(15), $market->priceFor(Good::cheese()));
     }
 
@@ -144,34 +144,34 @@ final class MarketTest extends TestCase
     {
         $market = Market::from(9, 9, 9, 9, 9, 9);
 
-        $market->sell(Good::cheese(), 1);
+        $market = $market->sell(Good::cheese(), 1);
         $this->assertEquals(Price::from(14), $market->priceFor(Good::cheese()));
 
-        $market->sell(Good::cheese(), 1);
+        $market = $market->sell(Good::cheese(), 1);
         $this->assertEquals(Price::from(14), $market->priceFor(Good::cheese()));
 
-        $market->sell(Good::cheese(), 1);
+        $market = $market->sell(Good::cheese(), 1);
         $this->assertEquals(Price::from(13), $market->priceFor(Good::cheese()));
 
-        $market->sell(Good::cheese(), 1);
+        $market = $market->sell(Good::cheese(), 1);
         $this->assertEquals(Price::from(12), $market->priceFor(Good::cheese()));
 
-        $market->sell(Good::cheese(), 1);
+        $market = $market->sell(Good::cheese(), 1);
         $this->assertEquals(Price::from(11), $market->priceFor(Good::cheese()));
 
-        $market->sell(Good::cheese(), 1);
+        $market = $market->sell(Good::cheese(), 1);
         $this->assertEquals(Price::from(10), $market->priceFor(Good::cheese()));
 
-        $market->sell(Good::cheese(), 1);
+        $market = $market->sell(Good::cheese(), 1);
         $this->assertEquals(Price::from(9), $market->priceFor(Good::cheese()));
 
-        $market->sell(Good::cheese(), 1);
+        $market = $market->sell(Good::cheese(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::cheese()));
 
-        $market->sell(Good::cheese(), 1);
+        $market = $market->sell(Good::cheese(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::cheese()));
 
-        $market->sell(Good::cheese(), 1);
+        $market = $market->sell(Good::cheese(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::cheese()));
     }
 
@@ -186,34 +186,34 @@ final class MarketTest extends TestCase
     {
         $market = Market::from(0, 0, 0, 0, 0, 0);
 
-        $market->purchase(Good::grain(), 1);
+        $market = $market->purchase(Good::grain(), 1);
         $this->assertEquals(Price::from(3), $market->priceFor(Good::grain()));
 
-        $market->purchase(Good::grain(), 1);
+        $market = $market->purchase(Good::grain(), 1);
         $this->assertEquals(Price::from(4), $market->priceFor(Good::grain()));
 
-        $market->purchase(Good::grain(), 1);
+        $market = $market->purchase(Good::grain(), 1);
         $this->assertEquals(Price::from(5), $market->priceFor(Good::grain()));
 
-        $market->purchase(Good::grain(), 1);
+        $market = $market->purchase(Good::grain(), 1);
         $this->assertEquals(Price::from(6), $market->priceFor(Good::grain()));
 
-        $market->purchase(Good::grain(), 1);
+        $market = $market->purchase(Good::grain(), 1);
         $this->assertEquals(Price::from(6), $market->priceFor(Good::grain()));
 
-        $market->purchase(Good::grain(), 1);
+        $market = $market->purchase(Good::grain(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::grain()));
 
-        $market->purchase(Good::grain(), 1);
+        $market = $market->purchase(Good::grain(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::grain()));
 
-        $market->purchase(Good::grain(), 1);
+        $market = $market->purchase(Good::grain(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::grain()));
 
-        $market->purchase(Good::grain(), 1);
+        $market = $market->purchase(Good::grain(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::grain()));
 
-        $market->purchase(Good::grain(), 1);
+        $market = $market->purchase(Good::grain(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::grain()));
     }
 
@@ -221,34 +221,34 @@ final class MarketTest extends TestCase
     {
         $market = Market::from(9, 9, 9, 9, 9, 9);
 
-        $market->sell(Good::grain(), 1);
+        $market = $market->sell(Good::grain(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::grain()));
 
-        $market->sell(Good::grain(), 1);
+        $market = $market->sell(Good::grain(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::grain()));
 
-        $market->sell(Good::grain(), 1);
+        $market = $market->sell(Good::grain(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::grain()));
 
-        $market->sell(Good::grain(), 1);
+        $market = $market->sell(Good::grain(), 1);
         $this->assertEquals(Price::from(6), $market->priceFor(Good::grain()));
 
-        $market->sell(Good::grain(), 1);
+        $market = $market->sell(Good::grain(), 1);
         $this->assertEquals(Price::from(6), $market->priceFor(Good::grain()));
 
-        $market->sell(Good::grain(), 1);
+        $market = $market->sell(Good::grain(), 1);
         $this->assertEquals(Price::from(5), $market->priceFor(Good::grain()));
 
-        $market->sell(Good::grain(), 1);
+        $market = $market->sell(Good::grain(), 1);
         $this->assertEquals(Price::from(4), $market->priceFor(Good::grain()));
 
-        $market->sell(Good::grain(), 1);
+        $market = $market->sell(Good::grain(), 1);
         $this->assertEquals(Price::from(3), $market->priceFor(Good::grain()));
 
-        $market->sell(Good::grain(), 1);
+        $market = $market->sell(Good::grain(), 1);
         $this->assertEquals(Price::from(3), $market->priceFor(Good::grain()));
 
-        $market->sell(Good::grain(), 1);
+        $market = $market->sell(Good::grain(), 1);
         $this->assertEquals(Price::from(3), $market->priceFor(Good::grain()));
     }
 
@@ -263,34 +263,34 @@ final class MarketTest extends TestCase
     {
         $market = Market::from(0, 0, 0, 0, 0, 0);
 
-        $market->purchase(Good::milk(), 1);
+        $market = $market->purchase(Good::milk(), 1);
         $this->assertEquals(Price::from(4), $market->priceFor(Good::milk()));
 
-        $market->purchase(Good::milk(), 1);
+        $market = $market->purchase(Good::milk(), 1);
         $this->assertEquals(Price::from(5), $market->priceFor(Good::milk()));
 
-        $market->purchase(Good::milk(), 1);
+        $market = $market->purchase(Good::milk(), 1);
         $this->assertEquals(Price::from(5), $market->priceFor(Good::milk()));
 
-        $market->purchase(Good::milk(), 1);
+        $market = $market->purchase(Good::milk(), 1);
         $this->assertEquals(Price::from(6), $market->priceFor(Good::milk()));
 
-        $market->purchase(Good::milk(), 1);
+        $market = $market->purchase(Good::milk(), 1);
         $this->assertEquals(Price::from(6), $market->priceFor(Good::milk()));
 
-        $market->purchase(Good::milk(), 1);
+        $market = $market->purchase(Good::milk(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::milk()));
 
-        $market->purchase(Good::milk(), 1);
+        $market = $market->purchase(Good::milk(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::milk()));
 
-        $market->purchase(Good::milk(), 1);
+        $market = $market->purchase(Good::milk(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::milk()));
 
-        $market->purchase(Good::milk(), 1);
+        $market = $market->purchase(Good::milk(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::milk()));
 
-        $market->purchase(Good::milk(), 1);
+        $market = $market->purchase(Good::milk(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::milk()));
     }
 
@@ -298,34 +298,34 @@ final class MarketTest extends TestCase
     {
         $market = Market::from(9, 9, 9, 9, 9, 9);
 
-        $market->sell(Good::milk(), 1);
+        $market = $market->sell(Good::milk(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::milk()));
 
-        $market->sell(Good::milk(), 1);
+        $market = $market->sell(Good::milk(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::milk()));
 
-        $market->sell(Good::milk(), 1);
+        $market = $market->sell(Good::milk(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::milk()));
 
-        $market->sell(Good::milk(), 1);
+        $market = $market->sell(Good::milk(), 1);
         $this->assertEquals(Price::from(6), $market->priceFor(Good::milk()));
 
-        $market->sell(Good::milk(), 1);
+        $market = $market->sell(Good::milk(), 1);
         $this->assertEquals(Price::from(6), $market->priceFor(Good::milk()));
 
-        $market->sell(Good::milk(), 1);
+        $market = $market->sell(Good::milk(), 1);
         $this->assertEquals(Price::from(5), $market->priceFor(Good::milk()));
 
-        $market->sell(Good::milk(), 1);
+        $market = $market->sell(Good::milk(), 1);
         $this->assertEquals(Price::from(5), $market->priceFor(Good::milk()));
 
-        $market->sell(Good::milk(), 1);
+        $market = $market->sell(Good::milk(), 1);
         $this->assertEquals(Price::from(4), $market->priceFor(Good::milk()));
 
-        $market->sell(Good::milk(), 1);
+        $market = $market->sell(Good::milk(), 1);
         $this->assertEquals(Price::from(3), $market->priceFor(Good::milk()));
 
-        $market->sell(Good::milk(), 1);
+        $market = $market->sell(Good::milk(), 1);
         $this->assertEquals(Price::from(3), $market->priceFor(Good::milk()));
     }
 
@@ -340,34 +340,34 @@ final class MarketTest extends TestCase
     {
         $market = Market::from(0, 0, 0, 0, 0, 0);
 
-        $market->purchase(Good::whisky(), 1);
+        $market = $market->purchase(Good::whisky(), 1);
         $this->assertEquals(Price::from(9), $market->priceFor(Good::whisky()));
 
-        $market->purchase(Good::whisky(), 1);
+        $market = $market->purchase(Good::whisky(), 1);
         $this->assertEquals(Price::from(10), $market->priceFor(Good::whisky()));
 
-        $market->purchase(Good::whisky(), 1);
+        $market = $market->purchase(Good::whisky(), 1);
         $this->assertEquals(Price::from(11), $market->priceFor(Good::whisky()));
 
-        $market->purchase(Good::whisky(), 1);
+        $market = $market->purchase(Good::whisky(), 1);
         $this->assertEquals(Price::from(12), $market->priceFor(Good::whisky()));
 
-        $market->purchase(Good::whisky(), 1);
+        $market = $market->purchase(Good::whisky(), 1);
         $this->assertEquals(Price::from(13), $market->priceFor(Good::whisky()));
 
-        $market->purchase(Good::whisky(), 1);
+        $market = $market->purchase(Good::whisky(), 1);
         $this->assertEquals(Price::from(13), $market->priceFor(Good::whisky()));
 
-        $market->purchase(Good::whisky(), 1);
+        $market = $market->purchase(Good::whisky(), 1);
         $this->assertEquals(Price::from(14), $market->priceFor(Good::whisky()));
 
-        $market->purchase(Good::whisky(), 1);
+        $market = $market->purchase(Good::whisky(), 1);
         $this->assertEquals(Price::from(15), $market->priceFor(Good::whisky()));
 
-        $market->purchase(Good::whisky(), 1);
+        $market = $market->purchase(Good::whisky(), 1);
         $this->assertEquals(Price::from(16), $market->priceFor(Good::whisky()));
 
-        $market->purchase(Good::whisky(), 1);
+        $market = $market->purchase(Good::whisky(), 1);
         $this->assertEquals(Price::from(16), $market->priceFor(Good::whisky()));
     }
 
@@ -375,34 +375,34 @@ final class MarketTest extends TestCase
     {
         $market = Market::from(9, 9, 9, 9, 9, 9);
 
-        $market->sell(Good::whisky(), 1);
+        $market = $market->sell(Good::whisky(), 1);
         $this->assertEquals(Price::from(15), $market->priceFor(Good::whisky()));
 
-        $market->sell(Good::whisky(), 1);
+        $market = $market->sell(Good::whisky(), 1);
         $this->assertEquals(Price::from(14), $market->priceFor(Good::whisky()));
 
-        $market->sell(Good::whisky(), 1);
+        $market = $market->sell(Good::whisky(), 1);
         $this->assertEquals(Price::from(13), $market->priceFor(Good::whisky()));
 
-        $market->sell(Good::whisky(), 1);
+        $market = $market->sell(Good::whisky(), 1);
         $this->assertEquals(Price::from(13), $market->priceFor(Good::whisky()));
 
-        $market->sell(Good::whisky(), 1);
+        $market = $market->sell(Good::whisky(), 1);
         $this->assertEquals(Price::from(12), $market->priceFor(Good::whisky()));
 
-        $market->sell(Good::whisky(), 1);
+        $market = $market->sell(Good::whisky(), 1);
         $this->assertEquals(Price::from(11), $market->priceFor(Good::whisky()));
 
-        $market->sell(Good::whisky(), 1);
+        $market = $market->sell(Good::whisky(), 1);
         $this->assertEquals(Price::from(10), $market->priceFor(Good::whisky()));
 
-        $market->sell(Good::whisky(), 1);
+        $market = $market->sell(Good::whisky(), 1);
         $this->assertEquals(Price::from(9), $market->priceFor(Good::whisky()));
 
-        $market->sell(Good::whisky(), 1);
+        $market = $market->sell(Good::whisky(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::whisky()));
 
-        $market->sell(Good::whisky(), 1);
+        $market = $market->sell(Good::whisky(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::whisky()));
     }
 
@@ -417,34 +417,34 @@ final class MarketTest extends TestCase
     {
         $market = Market::from(0, 0, 0, 0, 0, 0);
 
-        $market->purchase(Good::wool(), 1);
+        $market = $market->purchase(Good::wool(), 1);
         $this->assertEquals(Price::from(3), $market->priceFor(Good::wool()));
 
-        $market->purchase(Good::wool(), 1);
+        $market = $market->purchase(Good::wool(), 1);
         $this->assertEquals(Price::from(4), $market->priceFor(Good::wool()));
 
-        $market->purchase(Good::wool(), 1);
+        $market = $market->purchase(Good::wool(), 1);
         $this->assertEquals(Price::from(4), $market->priceFor(Good::wool()));
 
-        $market->purchase(Good::wool(), 1);
+        $market = $market->purchase(Good::wool(), 1);
         $this->assertEquals(Price::from(5), $market->priceFor(Good::wool()));
 
-        $market->purchase(Good::wool(), 1);
+        $market = $market->purchase(Good::wool(), 1);
         $this->assertEquals(Price::from(5), $market->priceFor(Good::wool()));
 
-        $market->purchase(Good::wool(), 1);
+        $market = $market->purchase(Good::wool(), 1);
         $this->assertEquals(Price::from(6), $market->priceFor(Good::wool()));
 
-        $market->purchase(Good::wool(), 1);
+        $market = $market->purchase(Good::wool(), 1);
         $this->assertEquals(Price::from(6), $market->priceFor(Good::wool()));
 
-        $market->purchase(Good::wool(), 1);
+        $market = $market->purchase(Good::wool(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::wool()));
 
-        $market->purchase(Good::wool(), 1);
+        $market = $market->purchase(Good::wool(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::wool()));
 
-        $market->purchase(Good::wool(), 1);
+        $market = $market->purchase(Good::wool(), 1);
         $this->assertEquals(Price::from(8), $market->priceFor(Good::wool()));
     }
 
@@ -452,34 +452,34 @@ final class MarketTest extends TestCase
     {
         $market = Market::from(9, 9, 9, 9, 9, 9);
 
-        $market->sell(Good::wool(), 1);
+        $market = $market->sell(Good::wool(), 1);
         $this->assertEquals(Price::from(7), $market->priceFor(Good::wool()));
 
-        $market->sell(Good::wool(), 1);
+        $market = $market->sell(Good::wool(), 1);
         $this->assertEquals(Price::from(6), $market->priceFor(Good::wool()));
 
-        $market->sell(Good::wool(), 1);
+        $market = $market->sell(Good::wool(), 1);
         $this->assertEquals(Price::from(6), $market->priceFor(Good::wool()));
 
-        $market->sell(Good::wool(), 1);
+        $market = $market->sell(Good::wool(), 1);
         $this->assertEquals(Price::from(5), $market->priceFor(Good::wool()));
 
-        $market->sell(Good::wool(), 1);
+        $market = $market->sell(Good::wool(), 1);
         $this->assertEquals(Price::from(5), $market->priceFor(Good::wool()));
 
-        $market->sell(Good::wool(), 1);
+        $market = $market->sell(Good::wool(), 1);
         $this->assertEquals(Price::from(4), $market->priceFor(Good::wool()));
 
-        $market->sell(Good::wool(), 1);
+        $market = $market->sell(Good::wool(), 1);
         $this->assertEquals(Price::from(4), $market->priceFor(Good::wool()));
 
-        $market->sell(Good::wool(), 1);
+        $market = $market->sell(Good::wool(), 1);
         $this->assertEquals(Price::from(3), $market->priceFor(Good::wool()));
 
-        $market->sell(Good::wool(), 1);
+        $market = $market->sell(Good::wool(), 1);
         $this->assertEquals(Price::from(3), $market->priceFor(Good::wool()));
 
-        $market->sell(Good::wool(), 1);
+        $market = $market->sell(Good::wool(), 1);
         $this->assertEquals(Price::from(3), $market->priceFor(Good::wool()));
     }
 

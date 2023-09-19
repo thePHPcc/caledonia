@@ -3,7 +3,10 @@ namespace example\caledonia\domain;
 
 use function range;
 
-final class Market
+/**
+ * @psalm-immutable
+ */
+final readonly class Market
 {
     /**
      * @psalm-var array{bread: PriceTable, cheese: PriceTable, grain: PriceTable, milk: PriceTable, whisky: PriceTable, wool: PriceTable}
@@ -70,21 +73,29 @@ final class Market
     /**
      * @psalm-param positive-int $amount
      */
-    public function purchase(Good $good, int $amount): void
+    public function purchase(Good $good, int $amount): self
     {
+        $priceTables = $this->priceTables;
+
         foreach (range(1, $amount) as $i) {
-            $this->priceTables[$good->asString()] = $this->priceTables[$good->asString()]->increase();
+            $priceTables[$good->asString()] = $priceTables[$good->asString()]->increase();
         }
+
+        return $this->newFromPriceTables($priceTables);
     }
 
     /**
      * @psalm-param positive-int $amount
      */
-    public function sell(Good $good, int $amount): void
+    public function sell(Good $good, int $amount): self
     {
+        $priceTables = $this->priceTables;
+
         foreach (range(1, $amount) as $i) {
-            $this->priceTables[$good->asString()] = $this->priceTables[$good->asString()]->decrease();
+            $priceTables[$good->asString()] = $priceTables[$good->asString()]->decrease();
         }
+
+        return $this->newFromPriceTables($priceTables);
     }
 
     /**
@@ -93,5 +104,20 @@ final class Market
     public function priceTables(): array
     {
         return $this->priceTables;
+    }
+
+    /**
+     * @psalm-param array{bread: PriceTable, cheese: PriceTable, grain: PriceTable, milk: PriceTable, whisky: PriceTable, wool: PriceTable} $priceTables
+     */
+    private function newFromPriceTables(array $priceTables): self
+    {
+        return new self(
+            $priceTables['bread']->currentPosition(),
+            $priceTables['cheese']->currentPosition(),
+            $priceTables['grain']->currentPosition(),
+            $priceTables['milk']->currentPosition(),
+            $priceTables['whisky']->currentPosition(),
+            $priceTables['wool']->currentPosition(),
+        );
     }
 }
