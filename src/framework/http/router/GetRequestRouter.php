@@ -1,6 +1,8 @@
 <?php declare(strict_types=1);
 namespace example\framework\http;
 
+use function array_values;
+
 final readonly class GetRequestRouter
 {
     /**
@@ -10,7 +12,7 @@ final readonly class GetRequestRouter
 
     public function __construct(GetRequestRoute ...$routes)
     {
-        $this->routes = $routes;
+        $this->routes = array_values($routes);
     }
 
     /**

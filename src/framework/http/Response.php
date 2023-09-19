@@ -9,7 +9,7 @@ final class Response
      * @psalm-var list<string>
      */
     private array $headers = [];
-    private string $body;
+    private string $body   = '';
 
     public function addHeader(string $header): void
     {
