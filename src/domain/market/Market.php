@@ -10,9 +10,6 @@ final class Market
      */
     private array $priceTables;
 
-    /**
-     * @throws PriceMustBePositiveException
-     */
     public static function create(): self
     {
         return self::from(
@@ -32,8 +29,6 @@ final class Market
      * @psalm-param int<0, 9> $milk
      * @psalm-param int<0, 9> $whisky
      * @psalm-param int<0, 9> $wool
-     *
-     * @throws PriceMustBePositiveException
      */
     public static function from(int $bread, int $cheese, int $grain, int $milk, int $whisky, int $wool): self
     {
@@ -54,8 +49,6 @@ final class Market
      * @psalm-param int<0, 9> $milk
      * @psalm-param int<0, 9> $whisky
      * @psalm-param int<0, 9> $wool
-     *
-     * @throws PriceMustBePositiveException
      */
     private function __construct(int $bread, int $cheese, int $grain, int $milk, int $whisky, int $wool)
     {

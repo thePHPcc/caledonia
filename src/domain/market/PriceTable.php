@@ -18,11 +18,10 @@ final readonly class PriceTable
 
     /**
      * @psalm-param int<0, 9> $position
-     *
-     * @throws PriceMustBePositiveException
      */
     public static function bread(int $position): self
     {
+        /** @psalm-suppress MissingThrowsDocblock */
         return new self(
             [
                 Price::from(7),
@@ -42,11 +41,10 @@ final readonly class PriceTable
 
     /**
      * @psalm-param int<0, 9> $position
-     *
-     * @throws PriceMustBePositiveException
      */
     public static function cheese(int $position): self
     {
+        /** @psalm-suppress MissingThrowsDocblock */
         return new self(
             [
                 Price::from(7),
@@ -66,11 +64,10 @@ final readonly class PriceTable
 
     /**
      * @psalm-param int<0, 9> $position
-     *
-     * @throws PriceMustBePositiveException
      */
     public static function grain(int $position): self
     {
+        /** @psalm-suppress MissingThrowsDocblock */
         return new self(
             [
                 Price::from(3),
@@ -90,11 +87,10 @@ final readonly class PriceTable
 
     /**
      * @psalm-param int<0, 9> $position
-     *
-     * @throws PriceMustBePositiveException
      */
     public static function milk(int $position): self
     {
+        /** @psalm-suppress MissingThrowsDocblock */
         return new self(
             [
                 Price::from(3),
@@ -114,11 +110,10 @@ final readonly class PriceTable
 
     /**
      * @psalm-param int<0, 9> $position
-     *
-     * @throws PriceMustBePositiveException
      */
     public static function whisky(int $position): self
     {
+        /** @psalm-suppress MissingThrowsDocblock */
         return new self(
             [
                 Price::from(8),
@@ -138,11 +133,10 @@ final readonly class PriceTable
 
     /**
      * @psalm-param int<0, 9> $position
-     *
-     * @throws PriceMustBePositiveException
      */
     public static function wool(int $position): self
     {
+        /** @psalm-suppress MissingThrowsDocblock */
         return new self(
             [
                 Price::from(3),
