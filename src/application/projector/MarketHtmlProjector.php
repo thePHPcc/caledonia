@@ -1,9 +1,10 @@
 <?php declare(strict_types=1);
-namespace example\caledonia\domain;
+namespace example\caledonia\application;
 
 use function file_get_contents;
 use function range;
 use function str_replace;
+use example\caledonia\domain\Market;
 
 final readonly class MarketHtmlProjector
 {
