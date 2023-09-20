@@ -7,6 +7,7 @@ use example\framework\event\DatabaseEventWriter;
 use example\framework\event\EventWriter;
 use example\framework\event\SubscribableEventDispatcher;
 use example\framework\event\WritingEventSubscriber;
+use example\framework\library\RandomUuidGenerator;
 
 final readonly class CommandFactory
 {
@@ -18,6 +19,7 @@ final readonly class CommandFactory
             new SubscribableEventDispatcher(
                 new WritingEventSubscriber($this->createEventWriter()),
             ),
+            new RandomUuidGenerator,
         );
     }
 
