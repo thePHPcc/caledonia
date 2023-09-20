@@ -9,7 +9,6 @@ use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(SubscribableEventDispatcher::class)]
-#[UsesClass(CorrelatedEvent::class)]
 #[UsesClass(Event::class)]
 #[UsesClass(Uuid::class)]
 #[Group('framework')]
@@ -35,7 +34,6 @@ final class SubscribableEventDispatcherTest extends TestCase
     {
         return new DummyEvent(
             Uuid::from('9f0fd1e7-46b1-40cd-9665-1b7535e187c8'),
-            Uuid::from('53c540a1-4509-4465-b2cb-0e534be0abab'),
             'value',
         );
     }

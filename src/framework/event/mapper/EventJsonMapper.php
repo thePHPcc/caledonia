@@ -40,8 +40,6 @@ final class EventJsonMapper
         assert(is_array($data));
         assert(isset($data['topic']) && is_string($data['topic']));
         assert(isset($data['event_id']) && is_string($data['event_id']));
-        assert(array_key_exists('correlation_id', $data));
-        assert(is_string($data['correlation_id']) || null === $data['correlation_id']);
 
         return $this->mappers[$data['topic']]->fromArray($data);
     }
@@ -56,17 +54,9 @@ final class EventJsonMapper
         $this->ensureEventCanBeMapped($event->topic());
 
         $metadata = [
-            'topic'          => $event->topic(),
-            'event_id'       => $event->id()->asString(),
-            'correlation_id' => null,
+            'topic'    => $event->topic(),
+            'event_id' => $event->id()->asString(),
         ];
-
-        if ($event->hasCorrelationId()) {
-            /** @psalm-suppress RedundantCondition */
-            assert($event instanceof CorrelatedEvent);
-
-            $metadata['correlation_id'] = $event->correlationId()->asString();
-        }
 
         $data = array_merge(
             $metadata,
@@ -108,9 +98,7 @@ final class EventJsonMapper
         if (!array_key_exists('topic', $data) ||
             !is_string($data['topic']) ||
             !array_key_exists('event_id', $data) ||
-            !is_string($data['event_id']) ||
-            !array_key_exists('correlation_id', $data) ||
-            (!is_string($data['correlation_id']) && null !== $data['correlation_id'])) {
+            !is_string($data['event_id'])) {
             throw new CannotMapEventException;
         }
     }

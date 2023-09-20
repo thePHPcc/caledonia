@@ -12,7 +12,6 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(EventCollection::class)]
 #[CoversClass(EventCollectionIterator::class)]
 #[UsesClass(Event::class)]
-#[UsesClass(CorrelatedEvent::class)]
 #[UsesClass(Uuid::class)]
 #[Group('framework')]
 #[Group('framework/event')]
@@ -56,12 +55,10 @@ final class EventCollectionTest extends TestCase
         return [
             new DummyEvent(
                 Uuid::from('9f0fd1e7-46b1-40cd-9665-1b7535e187c8'),
-                Uuid::from('53c540a1-4509-4465-b2cb-0e534be0abab'),
                 'value',
             ),
             new DummyEvent(
                 Uuid::from('31314fcc-c716-47b6-9d5c-d2a631d35f1a'),
-                Uuid::from('ffa4422c-dd75-4395-acfc-b84f54225e06'),
                 'value',
             ),
         ];

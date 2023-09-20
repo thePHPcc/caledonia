@@ -3,7 +3,6 @@ namespace example\framework\event;
 
 use example\framework\database\Database;
 use example\framework\database\DatabaseException;
-use example\framework\library\Uuid;
 
 final readonly class DatabaseEventReader implements EventReader
 {
@@ -14,19 +13,6 @@ final readonly class DatabaseEventReader implements EventReader
     {
         $this->database = $database;
         $this->mapper   = $mapper;
-    }
-
-    /**
-     * @throws DatabaseException
-     */
-    public function correlation(Uuid $correlationId): EventCollection
-    {
-        $result = $this->database->query(
-            'SELECT payload FROM event WHERE correlation_id = ? ORDER BY id;',
-            $correlationId->asString(),
-        );
-
-        return $this->processResult($result);
     }
 
     /**

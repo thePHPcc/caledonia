@@ -18,15 +18,12 @@ abstract readonly class Event
     }
 
     /**
-     * @psalm-assert-if-true CorrelatedEvent $this
+     * @psalm-return non-empty-string
      */
-    public function hasCorrelationId(): bool
-    {
-        return false;
-    }
+    abstract public function topic(): string;
 
     /**
      * @psalm-return non-empty-string
      */
-    abstract public function topic(): string;
+    abstract public function asString(): string;
 }

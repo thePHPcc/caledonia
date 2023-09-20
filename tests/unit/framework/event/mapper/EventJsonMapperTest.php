@@ -12,7 +12,6 @@ use PHPUnit\Framework\TestCase;
 
 #[CoversClass(EventJsonMapper::class)]
 #[UsesClass(Event::class)]
-#[UsesClass(CorrelatedEvent::class)]
 #[UsesClass(Uuid::class)]
 #[Group('framework')]
 #[Group('framework/event')]
@@ -37,7 +36,6 @@ final class EventJsonMapperTest extends TestCase
 
         $this->assertSame($this->event()->topic(), $event->topic());
         $this->assertSame($this->event()->id()->asString(), $event->id()->asString());
-        $this->assertSame($this->event()->correlationId()->asString(), $event->correlationId()->asString());
         $this->assertSame($this->event()->key(), $event->key());
     }
 
@@ -59,13 +57,12 @@ final class EventJsonMapperTest extends TestCase
     {
         return new DummyEvent(
             Uuid::from('9f0fd1e7-46b1-40cd-9665-1b7535e187c8'),
-            Uuid::from('53c540a1-4509-4465-b2cb-0e534be0abab'),
             'value',
         );
     }
 
     private function mapper(): EventJsonMapper
     {
-        return new EventJsonMapper(['the-topic' => new DummyEventMapping]);
+        return new EventJsonMapper(['the-topic' => new DummyEventMapper]);
     }
 }

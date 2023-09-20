@@ -3,13 +3,13 @@ namespace example\framework\event;
 
 use example\framework\library\Uuid;
 
-final readonly class DummyEvent extends CorrelatedEvent
+final readonly class DummyEvent extends Event
 {
     private string $key;
 
-    public function __construct(Uuid $id, Uuid $correlationId, string $key)
+    public function __construct(Uuid $id, string $key)
     {
-        parent::__construct($id, $correlationId);
+        parent::__construct($id);
 
         $this->key = $key;
     }
@@ -20,6 +20,14 @@ final readonly class DummyEvent extends CorrelatedEvent
     public function topic(): string
     {
         return 'the-topic';
+    }
+
+    /**
+     * @psalm-return non-empty-string
+     */
+    public function asString(): string
+    {
+        return 'another dummy event';
     }
 
     public function key(): string

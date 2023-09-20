@@ -15,33 +15,16 @@ final class DatabaseEventWriterTest extends DatabaseTestCase
         $this->emptyTable('event');
     }
 
-    public function testWritesCorrelatedEventToDatabase(): void
+    public function testWritesEventToDatabase(): void
     {
-        $this->writer()->write($this->eventWithCorrelationId());
-
-        $this->assertTableEqualsArray(
-            [
-                [
-                    'topic'          => 'the-topic',
-                    'event_id'       => 'b5578a2a-3188-470c-a2b7-3a249faed6fb',
-                    'correlation_id' => 'c46f1078-5363-4a35-a48f-27417805503d',
-                    'payload'        => '{"topic":"the-topic","event_id":"b5578a2a-3188-470c-a2b7-3a249faed6fb","correlation_id":"c46f1078-5363-4a35-a48f-27417805503d","key":"value"}',
-                ],
-            ],
-            'event',
-        );
-    }
-
-    public function testWritesUncorrelatedEventToDatabase(): void
-    {
-        $this->writer()->write($this->eventWithoutCorrelationId());
+        $this->writer()->write($this->event());
 
         $this->assertTableEqualsArray(
             [
                 [
                     'topic'    => 'the-topic',
                     'event_id' => '74383eed-ab07-443e-9782-a29322594145',
-                    'payload'  => '{"topic":"the-topic","event_id":"74383eed-ab07-443e-9782-a29322594145","correlation_id":null,"key":"value"}',
+                    'payload'  => '{"topic":"the-topic","event_id":"74383eed-ab07-443e-9782-a29322594145","key":"value"}',
                 ],
             ],
             'event',
@@ -55,21 +38,12 @@ final class DatabaseEventWriterTest extends DatabaseTestCase
 
     private function mapper(): EventJsonMapper
     {
-        return new EventJsonMapper(['the-topic' => new DummyEventMapping]);
+        return new EventJsonMapper(['the-topic' => new DummyEventMapper]);
     }
 
-    private function eventWithCorrelationId(): Event
+    private function event(): Event
     {
         return new DummyEvent(
-            Uuid::from('b5578a2a-3188-470c-a2b7-3a249faed6fb'),
-            Uuid::from('c46f1078-5363-4a35-a48f-27417805503d'),
-            'value',
-        );
-    }
-
-    private function eventWithoutCorrelationId(): Event
-    {
-        return new AnotherDummyEvent(
             Uuid::from('74383eed-ab07-443e-9782-a29322594145'),
             'value',
         );
