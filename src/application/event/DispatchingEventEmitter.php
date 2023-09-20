@@ -4,7 +4,6 @@ namespace example\caledonia\application;
 use example\caledonia\domain\Good;
 use example\caledonia\domain\GoodPurchasedEvent;
 use example\caledonia\domain\GoodSoldEvent;
-use example\caledonia\domain\Player;
 use example\caledonia\domain\Price;
 use example\caledonia\domain\PriceChangedEvent;
 use example\framework\event\EventDispatcher;
@@ -24,12 +23,11 @@ final readonly class DispatchingEventEmitter implements EventEmitter
     /**
      * @psalm-param positive-int $amount
      */
-    public function goodPurchased(Player $buyer, Good $good, Price $price, int $amount): void
+    public function goodPurchased(Good $good, Price $price, int $amount): void
     {
         $this->dispatcher->dispatch(
             new GoodPurchasedEvent(
                 $this->uuidGenerator->generate(),
-                $buyer,
                 $good,
                 $price,
                 $amount,
@@ -40,12 +38,11 @@ final readonly class DispatchingEventEmitter implements EventEmitter
     /**
      * @psalm-param positive-int $amount
      */
-    public function goodSold(Player $seller, Good $good, Price $price, int $amount): void
+    public function goodSold(Good $good, Price $price, int $amount): void
     {
         $this->dispatcher->dispatch(
             new GoodSoldEvent(
                 $this->uuidGenerator->generate(),
-                $seller,
                 $good,
                 $price,
                 $amount,

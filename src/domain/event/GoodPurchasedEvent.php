@@ -7,7 +7,6 @@ use example\framework\library\Uuid;
 
 final readonly class GoodPurchasedEvent extends Event
 {
-    private Player $buyer;
     private Good $good;
     private Price $price;
 
@@ -19,11 +18,10 @@ final readonly class GoodPurchasedEvent extends Event
     /**
      * @psalm-param positive-int $amount
      */
-    public function __construct(Uuid $id, Player $buyer, Good $good, Price $price, int $amount)
+    public function __construct(Uuid $id, Good $good, Price $price, int $amount)
     {
         parent::__construct($id);
 
-        $this->buyer  = $buyer;
         $this->good   = $good;
         $this->price  = $price;
         $this->amount = $amount;
@@ -45,11 +43,6 @@ final readonly class GoodPurchasedEvent extends Event
             $this->good->asString(),
             $this->price->asInt(),
         );
-    }
-
-    public function buyer(): Player
-    {
-        return $this->buyer;
     }
 
     public function good(): Good
