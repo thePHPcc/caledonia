@@ -16,6 +16,8 @@ final readonly class DatabaseEventReader implements EventReader
     }
 
     /**
+     * @psalm-param non-empty-string $topic
+     *
      * @throws DatabaseException
      */
     public function topic(string $topic): EventCollection
