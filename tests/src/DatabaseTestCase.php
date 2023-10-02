@@ -6,6 +6,7 @@ use function count;
 use function implode;
 use function sprintf;
 use PHPUnit\Framework\TestCase;
+use Throwable;
 
 abstract class DatabaseTestCase extends TestCase
 {
@@ -42,7 +43,7 @@ abstract class DatabaseTestCase extends TestCase
 
     final protected function connectionForReadingEvents(): MysqlDatabase
     {
-        return MysqlDatabase::connect(
+        return $this->connect(
             new MysqlDatabaseConfiguration(
                 'localhost',
                 'event_reader',
@@ -54,7 +55,7 @@ abstract class DatabaseTestCase extends TestCase
 
     final protected function connectionForWritingEvents(): MysqlDatabase
     {
-        return MysqlDatabase::connect(
+        return $this->connect(
             new MysqlDatabaseConfiguration(
                 'localhost',
                 'event_writer',
@@ -66,7 +67,7 @@ abstract class DatabaseTestCase extends TestCase
 
     final protected function connectionForTesting(): MysqlDatabase
     {
-        return MysqlDatabase::connect(
+        return $this->connect(
             new MysqlDatabaseConfiguration(
                 'localhost',
                 'test_fixture_manager',
@@ -79,5 +80,14 @@ abstract class DatabaseTestCase extends TestCase
     final protected function emptyTable(string $table): void
     {
         $this->connectionForTesting()->execute('TRUNCATE TABLE ' . $table . ';');
+    }
+
+    private function connect(MysqlDatabaseConfiguration $configuration): MysqlDatabase
+    {
+        try {
+            return MysqlDatabase::connect($configuration);
+        } catch (Throwable $t) {
+            $this->markTestSkipped($t->getMessage());
+        }
     }
 }
