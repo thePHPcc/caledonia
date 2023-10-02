@@ -52,4 +52,12 @@ final class GetRequestTest extends TestCase
         $this->assertTrue($request->has('key'));
         $this->assertSame('value', $request->get('key'));
     }
+
+    public function testCanBeQueriedForItsType(): void
+    {
+        $request = GetRequest::from('uri', []);
+
+        $this->assertTrue($request->isGetRequest());
+        $this->assertFalse($request->isPostRequest());
+    }
 }

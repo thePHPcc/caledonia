@@ -30,4 +30,12 @@ final class PostRequestTest extends TestCase
 
         $this->assertSame($body, $request->body());
     }
+
+    public function testCanBeQueriedForItsType(): void
+    {
+        $request = PostRequest::from('uri', '');
+
+        $this->assertTrue($request->isPostRequest());
+        $this->assertFalse($request->isGetRequest());
+    }
 }
