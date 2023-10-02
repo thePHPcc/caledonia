@@ -86,8 +86,8 @@ abstract class DatabaseTestCase extends TestCase
     {
         try {
             return MysqlDatabase::connect($configuration);
-        } catch (Throwable $t) {
-            $this->markTestSkipped($t->getMessage());
+        } catch (Throwable) {
+            $this->markTestSkipped('Could not connect to test database');
         }
     }
 }
