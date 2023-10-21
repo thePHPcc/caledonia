@@ -25,6 +25,7 @@ spl_autoload_register(
                 'example\\caledonia\\application\\pricechangedjsonmapper' => '/application/event/mapper/PriceChangedJsonMapper.php',
                 'example\\caledonia\\application\\purchasecommand' => '/application/executable/command/PurchaseCommand.php',
                 'example\\caledonia\\application\\purchasegoodcommandprocessor' => '/application/processor/PurchaseGoodCommandProcessor.php',
+                'example\\caledonia\\application\\purchasegoodroute' => '/application/route/post/PurchaseGoodRoute.php',
                 'example\\caledonia\\application\\queryfactory' => '/application/factory/QueryFactory.php',
                 'example\\caledonia\\application\\sellgoodcommandprocessor' => '/application/processor/SellGoodCommandProcessor.php',
                 'example\\caledonia\\domain\\amountmustnotbecomenegativeexception' => '/domain/exceptions/AmountMustNotBecomeNegativeException.php',
