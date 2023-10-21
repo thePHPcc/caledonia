@@ -6,6 +6,9 @@ namespace example\caledonia\domain;
  */
 abstract readonly class Good
 {
+    /**
+     * @psalm-param 'bread'|'cheese'|'grain'|'milk'|'whisky'|'wool' $good
+     */
     public static function fromString(string $good): self
     {
         return match ($good) {
