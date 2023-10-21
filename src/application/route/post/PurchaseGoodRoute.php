@@ -18,7 +18,7 @@ final readonly class PurchaseGoodRoute implements PostRequestRoute
 
     public function route(PostRequest $request): false|PurchaseCommand
     {
-        if ($request->uri() === '/purchase-good') {
+        if ($request->uri() !== '/purchase-good') {
             return false;
         }
 
