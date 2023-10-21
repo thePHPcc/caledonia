@@ -9,6 +9,9 @@ trait EventJsonMapper
     {
         return new FrameworkEventJsonMapper(
             [
+                'market.good-purchased' => new GoodPurchasedJsonMapper,
+                'market.good-sold'      => new GoodSoldJsonMapper,
+                'market.price-changed'  => new PriceChangedJsonMapper,
             ],
         );
     }
