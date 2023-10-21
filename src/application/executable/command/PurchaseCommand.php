@@ -22,5 +22,7 @@ final readonly class PurchaseCommand implements Command
     public function execute(): Response
     {
         $this->processor->process($this->command);
+
+        return new Response;
     }
 }
