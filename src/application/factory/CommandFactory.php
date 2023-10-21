@@ -23,6 +23,14 @@ final readonly class CommandFactory
         );
     }
 
+    public function createSellGoodCommandProcessor(): SellGoodCommandProcessor
+    {
+        return new SellGoodCommandProcessor(
+            $this->createEventEmitter(),
+            $this->createMarketEventSourcer(),
+        );
+    }
+
     public function createMarketEventSourcer(): MarketEventSourcer
     {
         return new MarketEventSourcer(

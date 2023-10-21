@@ -26,6 +26,7 @@ final readonly class ApplicationFactory
     {
         return new PostRequestRouter(
             new PurchaseGoodRoute($this->createCommandFactory()),
+            new SellGoodRoute($this->createCommandFactory()),
             new NotFoundPostRoute,
         );
     }
