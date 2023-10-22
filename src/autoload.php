@@ -12,6 +12,8 @@ spl_autoload_register(
                 'example\\caledonia\\application\\dispatchingeventemitter' => '/application/event/DispatchingEventEmitter.php',
                 'example\\caledonia\\application\\eventemitter' => '/application/event/EventEmitter.php',
                 'example\\caledonia\\application\\eventjsonmapper' => '/application/event/mapper/EventJsonMapper.php',
+                'example\\caledonia\\application\\eventreading' => '/application/factory/event/EventReading.php',
+                'example\\caledonia\\application\\eventwriting' => '/application/factory/event/EventWriting.php',
                 'example\\caledonia\\application\\goodpurchasedjsonmapper' => '/application/event/mapper/GoodPurchasedJsonMapper.php',
                 'example\\caledonia\\application\\goodsoldjsonmapper' => '/application/event/mapper/GoodSoldJsonMapper.php',
                 'example\\caledonia\\application\\marketeventsourcer' => '/application/sourcer/MarketEventSourcer.php',
