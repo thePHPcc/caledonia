@@ -18,6 +18,7 @@ final readonly class ApplicationFactory
     private function createGetRequestRouter(): GetRequestRouter
     {
         return new GetRequestRouter(
+            new MarketRoute($this->createQueryFactory()),
             new NotFoundGetRoute,
         );
     }

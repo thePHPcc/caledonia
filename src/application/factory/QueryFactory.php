@@ -25,6 +25,11 @@ final readonly class QueryFactory
         );
     }
 
+    public function createMarketHtmlProjectionReader(): MarketHtmlProjectionReader
+    {
+        return new MarketHtmlProjectionReader;
+    }
+
     private function createDatabaseConnectionForReadingEvents(): MysqlDatabase
     {
         return MysqlDatabase::connect(

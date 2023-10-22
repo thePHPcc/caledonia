@@ -6,3 +6,4 @@
 /.psalm/cache
 /vendor
 /composer.lock
+/projections
