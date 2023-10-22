@@ -9,11 +9,11 @@ use example\framework\http\PostRequestRoute;
 
 final readonly class SellGoodRoute implements PostRequestRoute
 {
-    private CommandFactory $commandFactory;
+    private CommandFactory $factory;
 
-    public function __construct(CommandFactory $commandFactory)
+    public function __construct(CommandFactory $factory)
     {
-        $this->commandFactory = $commandFactory;
+        $this->factory = $factory;
     }
 
     public function route(PostRequest $request): false|SellCommand
@@ -25,7 +25,7 @@ final readonly class SellGoodRoute implements PostRequestRoute
         $data = json_decode($request->body(), true);
 
         return new SellCommand(
-            $this->commandFactory->createSellGoodCommandProcessor(),
+            $this->factory->createSellGoodCommandProcessor(),
             new SellGoodCommand(
                 Good::fromString($data['good']),
                 (int) $data['amount'],
