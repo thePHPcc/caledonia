@@ -10,6 +10,13 @@ final readonly class QueryFactory
 {
     use EventJsonMapper;
 
+    public function createMarketEventSourcer(): MarketEventSourcer
+    {
+        return new MarketEventSourcer(
+            $this->createEventReader(),
+        );
+    }
+
     public function createEventReader(): EventReader
     {
         return new DatabaseEventReader(
