@@ -22,7 +22,7 @@ final class ResponseTest extends TestCase
     public function testHeaderCanBeAdded(): void
     {
         $response = new Response;
-        $header = 'the-header';
+        $header   = 'the-header';
 
         $response->addHeader($header);
 
@@ -37,7 +37,7 @@ final class ResponseTest extends TestCase
     public function testBodyCanBeSet(): void
     {
         $response = new Response;
-        $body = 'the-body';
+        $body     = 'the-body';
 
         $response->setBody($body);
 
@@ -49,8 +49,8 @@ final class ResponseTest extends TestCase
     public function testCanBeSent(): void
     {
         $response = new Response;
-        $header = 'the-header';
-        $body = 'the-body';
+        $header   = 'the-header';
+        $body     = 'the-body';
 
         $response->addHeader($header);
         $response->setBody($body);
