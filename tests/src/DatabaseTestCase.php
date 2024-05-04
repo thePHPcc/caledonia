@@ -4,12 +4,30 @@ namespace example\framework\database;
 use function array_keys;
 use function count;
 use function implode;
+use function iterator_to_array;
 use function sprintf;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\CsvParser\Parser as CsvParser;
+use SebastianBergmann\CsvParser\Schema as CsvSchema;
 use Throwable;
 
 abstract class DatabaseTestCase extends TestCase
 {
+    /**
+     * @psalm-param non-empty-string $path
+     * @psalm-param non-empty-string $tableName
+     */
+    final protected function assertTableEqualsCsvFile(string $path, string $tableName, CsvSchema $schema): void
+    {
+        $this->assertTableEqualsArray(
+            iterator_to_array($this->csvParser()->parse($path, $schema)),
+            $tableName,
+        );
+    }
+
+    /**
+     * @psalm-param non-empty-string $tableName
+     */
     final protected function assertTableEqualsArray(array $expected, string $tableName): void
     {
         $this->assertNumberOfRowsInTable(count($expected), $tableName);
@@ -24,6 +42,10 @@ abstract class DatabaseTestCase extends TestCase
         );
     }
 
+    /**
+     * @psalm-param non-negative-int $expected
+     * @psalm-param non-empty-string $tableName
+     */
     final protected function assertNumberOfRowsInTable(int $expected, string $tableName): void
     {
         $result = $this->connectionForTesting()->query(
@@ -36,6 +58,9 @@ abstract class DatabaseTestCase extends TestCase
         $this->assertSame($expected, $result[0]['count']);
     }
 
+    /**
+     * @psalm-param non-empty-string $query
+     */
     final protected function assertQuery(array $expected, string $query, string ...$parameters): void
     {
         $this->assertSame($expected, $this->connectionForTesting()->query($query, ...$parameters));
@@ -89,5 +114,15 @@ abstract class DatabaseTestCase extends TestCase
         } catch (Throwable) {
             $this->markTestSkipped('Could not connect to test database');
         }
+    }
+
+    private function csvParser(): CsvParser
+    {
+        $parser = new CsvParser;
+
+        $parser->ignoreFirstLine();
+        $parser->setSeparator(';');
+
+        return $parser;
     }
 }

@@ -5,5 +5,4 @@
 /.phpunit.cache
 /.psalm/cache
 /vendor
-/composer.lock
 /projections

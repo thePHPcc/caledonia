@@ -1,0 +1,73 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "2c24cf37c35c0e9e0f4586eb757a5a7c",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "sebastian/csv-parser",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/csv-parser.git",
+                "reference": "d13d78caab2fbd5f1f85a8a14ede42fd0d8b308f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/csv-parser/zipball/d13d78caab2fbd5f1f85a8a14ede42fd0d8b308f",
+                "reference": "d13d78caab2fbd5f1f85a8a14ede42fd0d8b308f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
+                }
+            ],
+            "description": "Library for type-safe parsing of CSV files",
+            "homepage": "https://github.com/sebastianbergmann/csv-parser",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/csv-parser/issues",
+                "security": "https://github.com/sebastianbergmann/csv-parser/security/policy",
+                "source": "https://github.com/sebastianbergmann/csv-parser/tree/1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-03-11T05:57:11+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

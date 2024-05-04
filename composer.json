@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "sebastian/csv-parser": "^1.0"
+    }
+}
