@@ -2,6 +2,7 @@
 namespace example\framework\event;
 
 use function array_fill;
+use function assert;
 use function count;
 use function implode;
 use function is_string;
@@ -42,6 +43,9 @@ final readonly class DatabaseEventReader implements EventReader
         $events = [];
 
         foreach ($result as $row) {
+            assert(is_string($row['payload']));
+            assert($row['payload'] !== '');
+
             $events[] = $this->mapper->fromJson($row['payload']);
         }
 

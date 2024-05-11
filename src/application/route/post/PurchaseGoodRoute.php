@@ -2,6 +2,7 @@
 namespace example\caledonia\application;
 
 use function assert;
+use function is_array;
 use function json_decode;
 use example\caledonia\domain\Good;
 use example\caledonia\domain\PurchaseGoodCommand;
@@ -24,6 +25,10 @@ final readonly class PurchaseGoodRoute implements PostRequestRoute
         }
 
         $data = json_decode($request->body(), true);
+
+        assert(is_array($data));
+        assert(isset($data['good']));
+        assert(isset($data['amount']));
 
         $good   = Good::fromString($data['good']);
         $amount = (int) $data['amount'];
