@@ -39,14 +39,6 @@ final readonly class DatabaseEventReader implements EventReader
             ...$topics,
         );
 
-        return $this->processResult($result);
-    }
-
-    /**
-     * @param list<array{payload: non-empty-string}> $result
-     */
-    private function processResult(array $result): EventCollection
-    {
         $events = [];
 
         foreach ($result as $row) {
