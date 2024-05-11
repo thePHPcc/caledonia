@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 namespace example\caledonia\application;
 
+use function assert;
 use function json_decode;
 use example\caledonia\domain\Good;
 use example\caledonia\domain\SellGoodCommand;
@@ -24,11 +25,16 @@ final readonly class SellGoodRoute implements PostRequestRoute
 
         $data = json_decode($request->body(), true);
 
+        $good   = Good::fromString($data['good']);
+        $amount = (int) $data['amount'];
+
+        assert($amount >= 1);
+
         return new SellCommand(
             $this->factory->createSellGoodCommandProcessor(),
             new SellGoodCommand(
-                Good::fromString($data['good']),
-                (int) $data['amount'],
+                $good,
+                $amount,
             ),
         );
     }
