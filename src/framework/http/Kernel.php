@@ -33,5 +33,7 @@ final readonly class Kernel
 
             return $command->execute();
         }
+
+        throw new RequestCannotBeRoutedException;
     }
 }
