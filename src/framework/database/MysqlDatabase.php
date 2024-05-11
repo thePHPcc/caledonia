@@ -93,8 +93,8 @@ final readonly class MysqlDatabase implements Database
     }
 
     /**
-     * @param non-empty-string       $sql
-     * @param list<non-empty-string> $parameters
+     * @param non-empty-string $sql
+     * @param array<string>    $parameters
      *
      * @throws DatabaseException
      */
