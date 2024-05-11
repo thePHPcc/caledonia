@@ -34,9 +34,6 @@ final readonly class GetRequest extends Request
         return (string) $this->parameters[$parameter];
     }
 
-    /**
-     * @psalm-assert-if-true GetRequest $this
-     */
     public function isGetRequest(): true
     {
         return true;

@@ -14,9 +14,6 @@ final readonly class Bread extends Good
         return 'bread';
     }
 
-    /**
-     * @psalm-assert-if-true Bread $this
-     */
     public function isBread(): true
     {
         return true;

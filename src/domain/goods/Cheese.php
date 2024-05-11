@@ -14,9 +14,6 @@ final readonly class Cheese extends Good
         return 'cheese';
     }
 
-    /**
-     * @psalm-assert-if-true Cheese $this
-     */
     public function isCheese(): true
     {
         return true;

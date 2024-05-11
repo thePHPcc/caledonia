@@ -14,9 +14,6 @@ final readonly class Whisky extends Good
         return 'whisky';
     }
 
-    /**
-     * @psalm-assert-if-true Whisky $this
-     */
     public function isWhisky(): true
     {
         return true;

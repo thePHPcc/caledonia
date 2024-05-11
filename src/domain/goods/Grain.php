@@ -14,9 +14,6 @@ final readonly class Grain extends Good
         return 'grain';
     }
 
-    /**
-     * @psalm-assert-if-true Grain $this
-     */
     public function isGrain(): true
     {
         return true;

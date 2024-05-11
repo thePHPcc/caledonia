@@ -14,9 +14,6 @@ final readonly class Wool extends Good
         return 'wool';
     }
 
-    /**
-     * @psalm-assert-if-true Wool $this
-     */
     public function isWool(): true
     {
         return true;

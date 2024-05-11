@@ -22,9 +22,6 @@ final readonly class PostRequest extends Request
         return $this->body;
     }
 
-    /**
-     * @psalm-assert-if-true PostRequest $this
-     */
     public function isPostRequest(): true
     {
         return true;

@@ -14,9 +14,6 @@ final readonly class Milk extends Good
         return 'milk';
     }
 
-    /**
-     * @psalm-assert-if-true Milk $this
-     */
     public function isMilk(): true
     {
         return true;
