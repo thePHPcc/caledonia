@@ -1,4 +1,7 @@
 {
+    "require": {
+        "ext-mysqli": "*"
+    },
     "require-dev": {
         "sebastian/csv-parser": "^1.0"
     }
