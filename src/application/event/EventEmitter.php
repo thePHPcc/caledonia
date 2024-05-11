@@ -7,12 +7,12 @@ use example\caledonia\domain\Price;
 interface EventEmitter
 {
     /**
-     * @psalm-param positive-int $amount
+     * @param positive-int $amount
      */
     public function goodPurchased(Good $good, Price $price, int $amount): void;
 
     /**
-     * @psalm-param positive-int $amount
+     * @param positive-int $amount
      */
     public function goodSold(Good $good, Price $price, int $amount): void;
 

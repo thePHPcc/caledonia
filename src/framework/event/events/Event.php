@@ -18,12 +18,12 @@ abstract readonly class Event
     }
 
     /**
-     * @psalm-return non-empty-string
+     * @return non-empty-string
      */
     abstract public function topic(): string;
 
     /**
-     * @psalm-return non-empty-string
+     * @return non-empty-string
      */
     abstract public function asString(): string;
 }

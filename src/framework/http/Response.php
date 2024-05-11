@@ -6,7 +6,7 @@ use function header;
 final class Response
 {
     /**
-     * @psalm-var list<string>
+     * @var list<string>
      */
     private array $headers = [];
     private string $body   = '';
@@ -36,7 +36,7 @@ final class Response
     }
 
     /**
-     * @psalm-return list<string>
+     * @return list<string>
      */
     public function headers(): array
     {

@@ -46,7 +46,7 @@ abstract readonly class Request
     }
 
     /**
-     * @psalm-assert-if-true GetRequest $this
+     * @phpstan-assert-if-true GetRequest $this
      */
     public function isGetRequest(): bool
     {
@@ -54,7 +54,7 @@ abstract readonly class Request
     }
 
     /**
-     * @psalm-assert-if-true PostRequest $this
+     * @phpstan-assert-if-true PostRequest $this
      */
     public function isPostRequest(): bool
     {

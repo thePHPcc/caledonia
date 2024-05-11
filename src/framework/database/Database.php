@@ -4,18 +4,18 @@ namespace example\framework\database;
 interface Database
 {
     /**
-     * @psalm-param non-empty-string $sql
+     * @param non-empty-string $sql
      *
      * @throws DatabaseException
      */
     public function execute(string $sql, string ...$parameters): true;
 
     /**
-     * @psalm-param non-empty-string $sql
-     *
-     * @psalm-return list<array<non-empty-string, mixed>>
+     * @param non-empty-string $sql
      *
      * @throws DatabaseException
+     *
+     * @return list<array<non-empty-string, mixed>>
      */
     public function query(string $sql, string ...$parameters): array;
 }

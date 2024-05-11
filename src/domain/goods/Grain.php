@@ -2,12 +2,12 @@
 namespace example\caledonia\domain;
 
 /**
- * @psalm-immutable
+ * @immutable
  */
 final readonly class Grain extends Good
 {
     /**
-     * @psalm-return 'grain'
+     * @return 'grain'
      */
     public function asString(): string
     {

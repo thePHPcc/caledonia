@@ -21,7 +21,7 @@ final readonly class PriceChangedEvent extends Event
     }
 
     /**
-     * @psalm-return non-empty-string
+     * @return non-empty-string
      */
     public function topic(): string
     {

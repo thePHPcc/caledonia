@@ -8,12 +8,12 @@ use IteratorAggregate;
 /**
  * @template-implements IteratorAggregate<int, Event>
  *
- * @psalm-immutable
+ * @immutable
  */
 final readonly class EventCollection implements Countable, IteratorAggregate
 {
     /**
-     * @psalm-var list<Event>
+     * @var list<Event>
      */
     private array $events;
 
@@ -23,7 +23,7 @@ final readonly class EventCollection implements Countable, IteratorAggregate
     }
 
     /**
-     * @psalm-param list<Event> $events
+     * @param list<Event> $events
      */
     public static function fromArray(array $events): self
     {
@@ -31,7 +31,7 @@ final readonly class EventCollection implements Countable, IteratorAggregate
     }
 
     /**
-     * @psalm-param list<Event> $events
+     * @param list<Event> $events
      */
     private function __construct(array $events)
     {
@@ -39,7 +39,7 @@ final readonly class EventCollection implements Countable, IteratorAggregate
     }
 
     /**
-     * @psalm-return list<Event>
+     * @return list<Event>
      */
     public function asArray(): array
     {

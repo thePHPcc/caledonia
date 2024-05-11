@@ -6,12 +6,12 @@ use function preg_match;
 final readonly class Uuid
 {
     /**
-     * @psalm-var non-empty-string
+     * @var non-empty-string
      */
     private string $uuid;
 
     /**
-     * @psalm-param non-empty-string $uuid
+     * @param non-empty-string $uuid
      *
      * @throws InvalidUuidException
      */
@@ -21,7 +21,7 @@ final readonly class Uuid
     }
 
     /**
-     * @psalm-param non-empty-string $uuid
+     * @param non-empty-string $uuid
      *
      * @throws InvalidUuidException
      */
@@ -33,7 +33,7 @@ final readonly class Uuid
     }
 
     /**
-     * @psalm-return non-empty-string
+     * @return non-empty-string
      */
     public function asString(): string
     {
@@ -41,7 +41,7 @@ final readonly class Uuid
     }
 
     /**
-     * @psalm-param non-empty-string $uuid
+     * @param non-empty-string $uuid
      *
      * @throws InvalidUuidException
      */

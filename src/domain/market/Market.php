@@ -4,12 +4,12 @@ namespace example\caledonia\domain;
 use function range;
 
 /**
- * @psalm-immutable
+ * @immutable
  */
 final readonly class Market
 {
     /**
-     * @psalm-var array{bread: PriceTable, cheese: PriceTable, grain: PriceTable, milk: PriceTable, whisky: PriceTable, wool: PriceTable}
+     * @var array{bread: PriceTable, cheese: PriceTable, grain: PriceTable, milk: PriceTable, whisky: PriceTable, wool: PriceTable}
      */
     private array $priceTables;
 
@@ -26,12 +26,12 @@ final readonly class Market
     }
 
     /**
-     * @psalm-param int<0, 9> $bread
-     * @psalm-param int<0, 9> $cheese
-     * @psalm-param int<0, 9> $grain
-     * @psalm-param int<0, 9> $milk
-     * @psalm-param int<0, 9> $whisky
-     * @psalm-param int<0, 9> $wool
+     * @param int<0, 9> $bread
+     * @param int<0, 9> $cheese
+     * @param int<0, 9> $grain
+     * @param int<0, 9> $milk
+     * @param int<0, 9> $whisky
+     * @param int<0, 9> $wool
      */
     public static function from(int $bread, int $cheese, int $grain, int $milk, int $whisky, int $wool): self
     {
@@ -46,12 +46,12 @@ final readonly class Market
     }
 
     /**
-     * @psalm-param int<0, 9> $bread
-     * @psalm-param int<0, 9> $cheese
-     * @psalm-param int<0, 9> $grain
-     * @psalm-param int<0, 9> $milk
-     * @psalm-param int<0, 9> $whisky
-     * @psalm-param int<0, 9> $wool
+     * @param int<0, 9> $bread
+     * @param int<0, 9> $cheese
+     * @param int<0, 9> $grain
+     * @param int<0, 9> $milk
+     * @param int<0, 9> $whisky
+     * @param int<0, 9> $wool
      */
     private function __construct(int $bread, int $cheese, int $grain, int $milk, int $whisky, int $wool)
     {
@@ -71,7 +71,7 @@ final readonly class Market
     }
 
     /**
-     * @psalm-param positive-int $amount
+     * @param positive-int $amount
      */
     public function purchase(Good $good, int $amount): self
     {
@@ -85,7 +85,7 @@ final readonly class Market
     }
 
     /**
-     * @psalm-param positive-int $amount
+     * @param positive-int $amount
      */
     public function sell(Good $good, int $amount): self
     {
@@ -99,7 +99,7 @@ final readonly class Market
     }
 
     /**
-     * @psalm-return array{bread: PriceTable, cheese: PriceTable, grain: PriceTable, milk: PriceTable, whisky: PriceTable, wool: PriceTable}
+     * @return array{bread: PriceTable, cheese: PriceTable, grain: PriceTable, milk: PriceTable, whisky: PriceTable, wool: PriceTable}
      */
     public function priceTables(): array
     {
@@ -107,7 +107,7 @@ final readonly class Market
     }
 
     /**
-     * @psalm-param array{bread: PriceTable, cheese: PriceTable, grain: PriceTable, milk: PriceTable, whisky: PriceTable, wool: PriceTable} $priceTables
+     * @param array{bread: PriceTable, cheese: PriceTable, grain: PriceTable, milk: PriceTable, whisky: PriceTable, wool: PriceTable} $priceTables
      */
     private function newFromPriceTables(array $priceTables): self
     {

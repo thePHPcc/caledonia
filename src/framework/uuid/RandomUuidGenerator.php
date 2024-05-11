@@ -14,10 +14,6 @@ final readonly class RandomUuidGenerator implements UuidGenerator
         /** @noinspection PhpUnhandledExceptionInspection */
         $bytes = bin2hex(random_bytes(16));
 
-        /**
-         * @psalm-suppress ArgumentTypeCoercion
-         * @psalm-suppress MissingThrowsDocblock
-         */
         return Uuid::from(
             sprintf(
                 '%08s-%04s-4%03s-%04x-%012s',

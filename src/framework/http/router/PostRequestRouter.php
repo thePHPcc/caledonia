@@ -6,7 +6,7 @@ use function array_values;
 final readonly class PostRequestRouter
 {
     /**
-     * @psalm-var list<PostRequestRoute>
+     * @var list<PostRequestRoute>
      */
     private array $routes;
 

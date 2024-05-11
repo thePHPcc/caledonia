@@ -6,7 +6,7 @@ use function array_values;
 final readonly class SubscribableEventDispatcher implements EventDispatcher
 {
     /**
-     * @psalm-var list<EventSubscriber>
+     * @var list<EventSubscriber>
      */
     private array $subscribers;
 

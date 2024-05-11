@@ -12,7 +12,7 @@ use example\framework\library\Uuid;
 final class PriceChangedJsonMapper implements EventArrayMapper
 {
     /**
-     * @psalm-param array{event_id: string, good: 'bread'|'cheese'|'grain'|'milk'|'whisky'|'wool', old_price: int, new_price: int} $data
+     * @param array{event_id: string, good: 'bread'|'cheese'|'grain'|'milk'|'whisky'|'wool', old_price: int, new_price: int} $data
      */
     public function fromArray(array $data): PriceChangedEvent
     {
@@ -25,7 +25,7 @@ final class PriceChangedJsonMapper implements EventArrayMapper
     }
 
     /**
-     * @psalm-return array{good: 'bread'|'cheese'|'grain'|'milk'|'whisky'|'wool', old_price: int, new_price: int}
+     * @return array{good: 'bread'|'cheese'|'grain'|'milk'|'whisky'|'wool', old_price: int, new_price: int}
      */
     public function toArray(Event $event): array
     {

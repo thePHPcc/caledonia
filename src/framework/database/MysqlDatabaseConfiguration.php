@@ -2,7 +2,7 @@
 namespace example\framework\database;
 
 /**
- * @psalm-immutable
+ * @immutable
  */
 final readonly class MysqlDatabaseConfiguration
 {

@@ -2,26 +2,25 @@
 namespace example\caledonia\domain;
 
 /**
- * @psalm-immutable
+ * @immutable
  */
 final readonly class PriceTable
 {
     /**
-     * @psalm-var list<Price>
+     * @var list<Price>
      */
     private array $prices;
 
     /**
-     * @psalm-var int<0, 9>
+     * @var int<0, 9>
      */
     private int $position;
 
     /**
-     * @psalm-param int<0, 9> $position
+     * @param int<0, 9> $position
      */
     public static function bread(int $position): self
     {
-        /** @psalm-suppress MissingThrowsDocblock */
         return new self(
             [
                 Price::from(7),
@@ -40,11 +39,10 @@ final readonly class PriceTable
     }
 
     /**
-     * @psalm-param int<0, 9> $position
+     * @param int<0, 9> $position
      */
     public static function cheese(int $position): self
     {
-        /** @psalm-suppress MissingThrowsDocblock */
         return new self(
             [
                 Price::from(7),
@@ -63,11 +61,10 @@ final readonly class PriceTable
     }
 
     /**
-     * @psalm-param int<0, 9> $position
+     * @param int<0, 9> $position
      */
     public static function grain(int $position): self
     {
-        /** @psalm-suppress MissingThrowsDocblock */
         return new self(
             [
                 Price::from(3),
@@ -86,11 +83,10 @@ final readonly class PriceTable
     }
 
     /**
-     * @psalm-param int<0, 9> $position
+     * @param int<0, 9> $position
      */
     public static function milk(int $position): self
     {
-        /** @psalm-suppress MissingThrowsDocblock */
         return new self(
             [
                 Price::from(3),
@@ -109,11 +105,10 @@ final readonly class PriceTable
     }
 
     /**
-     * @psalm-param int<0, 9> $position
+     * @param int<0, 9> $position
      */
     public static function whisky(int $position): self
     {
-        /** @psalm-suppress MissingThrowsDocblock */
         return new self(
             [
                 Price::from(8),
@@ -132,11 +127,10 @@ final readonly class PriceTable
     }
 
     /**
-     * @psalm-param int<0, 9> $position
+     * @param int<0, 9> $position
      */
     public static function wool(int $position): self
     {
-        /** @psalm-suppress MissingThrowsDocblock */
         return new self(
             [
                 Price::from(3),
@@ -155,8 +149,8 @@ final readonly class PriceTable
     }
 
     /**
-     * @psalm-param list<Price> $prices
-     * @psalm-param int<0, 9> $position
+     * @param list<Price> $prices
+     * @param int<0, 9>   $position
      */
     private function __construct(array $prices, int $position)
     {
@@ -165,7 +159,7 @@ final readonly class PriceTable
     }
 
     /**
-     * @psalm-param int<0, 9> $position
+     * @param int<0, 9> $position
      */
     public function at(int $position): Price
     {
@@ -178,7 +172,7 @@ final readonly class PriceTable
     }
 
     /**
-     * @psalm-return int<0, 9>
+     * @return int<0, 9>
      */
     public function currentPosition(): int
     {

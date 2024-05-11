@@ -21,7 +21,7 @@ final readonly class DispatchingEventEmitter implements EventEmitter
     }
 
     /**
-     * @psalm-param positive-int $amount
+     * @param positive-int $amount
      */
     public function goodPurchased(Good $good, Price $price, int $amount): void
     {
@@ -36,7 +36,7 @@ final readonly class DispatchingEventEmitter implements EventEmitter
     }
 
     /**
-     * @psalm-param positive-int $amount
+     * @param positive-int $amount
      */
     public function goodSold(Good $good, Price $price, int $amount): void
     {

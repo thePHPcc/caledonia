@@ -14,12 +14,12 @@ use JsonException;
 final class EventJsonMapper
 {
     /**
-     * @psalm-var array<string, EventArrayMapper>
+     * @var array<string, EventArrayMapper>
      */
     private array $mappers;
 
     /**
-     * @psalm-param array<string, EventArrayMapper> $mappers
+     * @param array<string, EventArrayMapper> $mappers
      */
     public function __construct(array $mappers)
     {
@@ -27,7 +27,7 @@ final class EventJsonMapper
     }
 
     /**
-     * @psalm-param non-empty-string $json
+     * @param non-empty-string $json
      *
      * @throws CannotMapEventException
      */
@@ -45,9 +45,9 @@ final class EventJsonMapper
     }
 
     /**
-     * @psalm-return non-empty-string
-     *
      * @throws CannotMapEventException
+     *
+     * @return non-empty-string
      */
     public function toJson(Event $event): string
     {
@@ -75,7 +75,7 @@ final class EventJsonMapper
     }
 
     /**
-     * @psalm-param non-empty-string $topic
+     * @param non-empty-string $topic
      *
      * @throws CannotMapEventException
      */

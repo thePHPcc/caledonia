@@ -21,7 +21,7 @@ final readonly class DatabaseEventReader implements EventReader
     }
 
     /**
-     * @psalm-param list<non-empty-string>|non-empty-string $topics
+     * @param list<non-empty-string>|non-empty-string $topics
      *
      * @throws DatabaseException
      */
@@ -43,7 +43,7 @@ final readonly class DatabaseEventReader implements EventReader
     }
 
     /**
-     * @psalm-param list<array{payload: non-empty-string}> $result
+     * @param list<array{payload: non-empty-string}> $result
      */
     private function processResult(array $result): EventCollection
     {

@@ -11,12 +11,12 @@ final readonly class GoodSoldEvent extends Event
     private Price $price;
 
     /**
-     * @psalm-var positive-int
+     * @var positive-int
      */
     private int $amount;
 
     /**
-     * @psalm-param positive-int $amount
+     * @param positive-int $amount
      */
     public function __construct(Uuid $id, Good $good, Price $price, int $amount)
     {
@@ -28,7 +28,7 @@ final readonly class GoodSoldEvent extends Event
     }
 
     /**
-     * @psalm-return non-empty-string
+     * @return non-empty-string
      */
     public function topic(): string
     {
@@ -59,7 +59,7 @@ final readonly class GoodSoldEvent extends Event
     }
 
     /**
-     * @psalm-return positive-int
+     * @return positive-int
      */
     public function amount(): int
     {

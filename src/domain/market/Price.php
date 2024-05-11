@@ -2,17 +2,17 @@
 namespace example\caledonia\domain;
 
 /**
- * @psalm-immutable
+ * @immutable
  */
 final readonly class Price
 {
     /**
-     * @psalm-var positive-int
+     * @var positive-int
      */
     private int $price;
 
     /**
-     * @psalm-param positive-int $price
+     * @param positive-int $price
      *
      * @throws PriceMustBePositiveException
      */
@@ -22,7 +22,7 @@ final readonly class Price
     }
 
     /**
-     * @psalm-param positive-int $price
+     * @param positive-int $price
      *
      * @throws PriceMustBePositiveException
      */
@@ -34,7 +34,7 @@ final readonly class Price
     }
 
     /**
-     * @psalm-return positive-int
+     * @return positive-int
      */
     public function asInt(): int
     {

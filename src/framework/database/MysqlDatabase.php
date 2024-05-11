@@ -39,7 +39,7 @@ final readonly class MysqlDatabase implements Database
     }
 
     /**
-     * @psalm-param non-empty-string $sql
+     * @param non-empty-string $sql
      *
      * @throws DatabaseException
      */
@@ -65,11 +65,11 @@ final readonly class MysqlDatabase implements Database
     }
 
     /**
-     * @psalm-param non-empty-string $sql
-     *
-     * @psalm-return list<array<non-empty-string, mixed>>
+     * @param non-empty-string $sql
      *
      * @throws DatabaseException
+     *
+     * @return list<array<non-empty-string, mixed>>
      */
     public function query(string $sql, string ...$parameters): array
     {
@@ -93,7 +93,7 @@ final readonly class MysqlDatabase implements Database
     }
 
     /**
-     * @psalm-param non-empty-string $sql
+     * @param non-empty-string $sql
      *
      * @throws DatabaseException
      */

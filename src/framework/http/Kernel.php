@@ -17,7 +17,6 @@ final readonly class Kernel
     public function run(Request $request): Response
     {
         if ($request->isGetRequest()) {
-            /** @psalm-suppress RedundantCondition */
             assert($request instanceof GetRequest);
 
             $query = $this->getRequestRouter->route($request);
@@ -26,7 +25,6 @@ final readonly class Kernel
         }
 
         if ($request->isPostRequest()) {
-            /** @psalm-suppress RedundantCondition */
             assert($request instanceof PostRequest);
 
             $command = $this->postRequestRouter->route($request);

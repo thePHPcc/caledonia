@@ -16,7 +16,7 @@ final readonly class MarketHtmlProjector
         $rows        = '';
 
         foreach (range(9, 1) as $row) {
-            /** @psalm-var int<1,9> $row */
+            /** @var int<1,9> $row */
             $rows .= str_replace(
                 [
                     '{wool}',

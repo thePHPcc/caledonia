@@ -2,12 +2,12 @@
 namespace example\caledonia\domain;
 
 /**
- * @psalm-immutable
+ * @immutable
  */
 abstract readonly class Good
 {
     /**
-     * @psalm-param 'bread'|'cheese'|'grain'|'milk'|'whisky'|'wool' $good
+     * @param 'bread'|'cheese'|'grain'|'milk'|'whisky'|'wool' $good
      */
     public static function fromString(string $good): self
     {
@@ -61,7 +61,7 @@ abstract readonly class Good
     }
 
     /**
-     * @psalm-assert-if-true Bread $this
+     * @phpstan-assert-if-true Bread $this
      */
     public function isBread(): bool
     {
@@ -69,7 +69,7 @@ abstract readonly class Good
     }
 
     /**
-     * @psalm-assert-if-true Cheese $this
+     * @phpstan-assert-if-true Cheese $this
      */
     public function isCheese(): bool
     {
@@ -77,7 +77,7 @@ abstract readonly class Good
     }
 
     /**
-     * @psalm-assert-if-true Grain $this
+     * @phpstan-assert-if-true Grain $this
      */
     public function isGrain(): bool
     {
@@ -85,7 +85,7 @@ abstract readonly class Good
     }
 
     /**
-     * @psalm-assert-if-true Milk $this
+     * @phpstan-assert-if-true Milk $this
      */
     public function isMilk(): bool
     {
@@ -93,7 +93,7 @@ abstract readonly class Good
     }
 
     /**
-     * @psalm-assert-if-true Whisky $this
+     * @phpstan-assert-if-true Whisky $this
      */
     public function isWhisky(): bool
     {
@@ -101,7 +101,7 @@ abstract readonly class Good
     }
 
     /**
-     * @psalm-assert-if-true Wool $this
+     * @phpstan-assert-if-true Wool $this
      */
     public function isWool(): bool
     {
@@ -109,7 +109,7 @@ abstract readonly class Good
     }
 
     /**
-     * @psalm-return 'bread'|'cheese'|'grain'|'milk'|'whisky'|'wool'
+     * @return 'bread'|'cheese'|'grain'|'milk'|'whisky'|'wool'
      */
     abstract public function asString(): string;
 }
