@@ -14,12 +14,6 @@ use SebastianBergmann\CsvParser\Type as CsvFieldType;
 #[Medium]
 final class DatabaseEventWriterTest extends DatabaseTestCase
 {
-    #[Before]
-    protected function prepareDatabase(): void
-    {
-        $this->emptyTable('event');
-    }
-
     public function testWritesEventToDatabase(): void
     {
         $this->writer()->write($this->event());
@@ -29,6 +23,12 @@ final class DatabaseEventWriterTest extends DatabaseTestCase
             'event',
             $this->eventSchema(),
         );
+    }
+
+    #[Before]
+    protected function prepareDatabase(): void
+    {
+        $this->emptyTable('event');
     }
 
     private function writer(): DatabaseEventWriter
