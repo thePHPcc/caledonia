@@ -10,9 +10,6 @@ final readonly class SellCommand implements Command
     private SellGoodCommandProcessor $processor;
     private SellGoodCommand $command;
 
-    /**
-     * @psalm-param positive-int $amount
-     */
     public function __construct(SellGoodCommandProcessor $processor, SellGoodCommand $command)
     {
         $this->processor = $processor;

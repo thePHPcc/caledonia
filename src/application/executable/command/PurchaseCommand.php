@@ -10,9 +10,6 @@ final readonly class PurchaseCommand implements Command
     private PurchaseGoodCommandProcessor $processor;
     private PurchaseGoodCommand $command;
 
-    /**
-     * @psalm-param positive-int $amount
-     */
     public function __construct(PurchaseGoodCommandProcessor $processor, PurchaseGoodCommand $command)
     {
         $this->processor = $processor;
