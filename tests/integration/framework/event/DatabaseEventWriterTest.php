@@ -3,6 +3,7 @@ namespace example\framework\event;
 
 use example\framework\database\DatabaseTestCase;
 use example\framework\library\Uuid;
+use PHPUnit\Framework\Attributes\Before;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 use SebastianBergmann\CsvParser\FieldDefinition as CsvFieldDefinition;
@@ -13,7 +14,8 @@ use SebastianBergmann\CsvParser\Type as CsvFieldType;
 #[Medium]
 final class DatabaseEventWriterTest extends DatabaseTestCase
 {
-    protected function setUp(): void
+    #[Before]
+    protected function prepareDatabase(): void
     {
         $this->emptyTable('event');
     }
