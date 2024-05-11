@@ -3,13 +3,22 @@ namespace example\framework\http;
 
 final readonly class GetRequest extends Request
 {
+    /**
+     * @var array<string, string>
+     */
     private array $parameters;
 
+    /**
+     * @param array<string, string> $parameters
+     */
     public static function from(string $uri, array $parameters): self
     {
         return new self($uri, $parameters);
     }
 
+    /**
+     * @param array<string, string> $parameters
+     */
     protected function __construct(string $uri, array $parameters)
     {
         parent::__construct($uri);
