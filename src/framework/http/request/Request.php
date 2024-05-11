@@ -25,10 +25,11 @@ abstract readonly class Request
 
         // @codeCoverageIgnoreStart
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            return new PostRequest(
-                $_SERVER['REQUEST_URI'],
-                file_get_contents('php://input'),
-            );
+            $body = file_get_contents('php://input');
+
+            assert($body !== false && $body !== '');
+
+            return new PostRequest($_SERVER['REQUEST_URI'], $body);
         }
 
         throw new UnsupportedRequestException;
