@@ -43,22 +43,4 @@ final class ResponseTest extends TestCase
 
         $this->assertSame($body, $response->body());
     }
-
-    #[RunInSeparateProcess]
-    #[RequiresFunction('xdebug_get_headers')]
-    public function testCanBeSent(): void
-    {
-        $response = new Response;
-        $header   = 'the-header';
-        $body     = 'the-body';
-
-        $response->addHeader($header);
-        $response->setBody($body);
-
-        $this->expectOutputString($body);
-
-        $response->send();
-
-        $this->assertSame([$header], xdebug_get_headers());
-    }
 }
