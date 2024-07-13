@@ -15,7 +15,7 @@ final readonly class DummyEvent extends Event
     }
 
     /**
-     * @psalm-return non-empty-string
+     * @return non-empty-string
      */
     public function topic(): string
     {
@@ -23,7 +23,7 @@ final readonly class DummyEvent extends Event
     }
 
     /**
-     * @psalm-return non-empty-string
+     * @return non-empty-string
      */
     public function asString(): string
     {

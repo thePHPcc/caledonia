@@ -14,8 +14,8 @@ use Throwable;
 abstract class DatabaseTestCase extends TestCase
 {
     /**
-     * @psalm-param non-empty-string $path
-     * @psalm-param non-empty-string $tableName
+     * @param non-empty-string $path
+     * @param non-empty-string $tableName
      */
     final protected function assertTableEqualsCsvFile(string $path, string $tableName, CsvSchema $schema): void
     {
@@ -26,7 +26,8 @@ abstract class DatabaseTestCase extends TestCase
     }
 
     /**
-     * @psalm-param non-empty-string $tableName
+     * @param list<array<string, float|int|string>> $expected
+     * @param non-empty-string                      $tableName
      */
     final protected function assertTableEqualsArray(array $expected, string $tableName): void
     {
@@ -43,8 +44,8 @@ abstract class DatabaseTestCase extends TestCase
     }
 
     /**
-     * @psalm-param non-negative-int $expected
-     * @psalm-param non-empty-string $tableName
+     * @param non-negative-int $expected
+     * @param non-empty-string $tableName
      */
     final protected function assertNumberOfRowsInTable(int $expected, string $tableName): void
     {
@@ -59,7 +60,8 @@ abstract class DatabaseTestCase extends TestCase
     }
 
     /**
-     * @psalm-param non-empty-string $query
+     * @param list<array<string, float|int|string>> $expected
+     * @param non-empty-string                      $query
      */
     final protected function assertQuery(array $expected, string $query, string ...$parameters): void
     {
