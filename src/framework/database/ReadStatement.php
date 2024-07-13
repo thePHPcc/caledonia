@@ -6,5 +6,5 @@ interface ReadStatement
     /**
      * @return list<array<non-empty-string, float|int|string>>
      */
-    public function execute(Database $database): array;
+    public function execute(ReadingDatabaseConnection $connection): array;
 }

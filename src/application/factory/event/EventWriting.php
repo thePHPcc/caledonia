@@ -1,8 +1,7 @@
 <?php declare(strict_types=1);
 namespace example\caledonia\application;
 
-use example\framework\database\MysqlDatabase;
-use example\framework\database\MysqlDatabaseConfiguration;
+use example\framework\database\MysqliWritingDatabaseConnection;
 use example\framework\event\DatabaseEventWriter;
 use example\framework\event\EventWriter;
 use example\framework\event\SubscribableEventDispatcher;
@@ -31,15 +30,13 @@ trait EventWriting
         );
     }
 
-    private function createDatabaseConnectionForWritingEvents(): MysqlDatabase
+    private function createDatabaseConnectionForWritingEvents(): MysqliWritingDatabaseConnection
     {
-        return MysqlDatabase::connect(
-            new MysqlDatabaseConfiguration(
-                'localhost',
-                'event_writer',
-                'event_writer_password',
-                'caledonia',
-            ),
+        return MysqliWritingDatabaseConnection::connect(
+            'localhost',
+            'event_writer',
+            'event_writer_password',
+            'caledonia',
         );
     }
 }

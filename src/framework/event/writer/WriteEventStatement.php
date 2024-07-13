@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 namespace example\framework\event;
 
-use example\framework\database\Database;
 use example\framework\database\WriteStatement;
+use example\framework\database\WritingDatabaseConnection;
 
 final readonly class WriteEventStatement implements WriteStatement
 {
@@ -33,9 +33,9 @@ final readonly class WriteEventStatement implements WriteStatement
         $this->payload = $payload;
     }
 
-    public function execute(Database $database): void
+    public function execute(WritingDatabaseConnection $connection): void
     {
-        $database->execute(
+        $connection->execute(
             'INSERT INTO event
                          (event_id, topic, payload)
                   VALUES (?, ?, ?);',

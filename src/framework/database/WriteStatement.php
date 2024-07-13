@@ -3,5 +3,5 @@ namespace example\framework\database;
 
 interface WriteStatement
 {
-    public function execute(Database $database): void;
+    public function execute(WritingDatabaseConnection $database): void;
 }

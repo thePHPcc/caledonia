@@ -69,54 +69,51 @@ abstract class DatabaseTestCase extends TestCase
         $this->assertSame($expected, $this->connectionForTesting()->query($query, ...$parameters));
     }
 
-    final protected function connectionForReadingEvents(): MysqlDatabase
+    final protected function connectionForReadingEvents(): MysqliReadingDatabaseConnection
     {
-        return $this->connect(
-            new MysqlDatabaseConfiguration(
+        try {
+            return MysqliReadingDatabaseConnection::connect(
                 'localhost',
                 'event_reader',
                 'event_reader_password',
                 'caledonia',
-            ),
-        );
+            );
+        } catch (Throwable) {
+            $this->markTestSkipped('Could not connect to test database');
+        }
     }
 
-    final protected function connectionForWritingEvents(): MysqlDatabase
+    final protected function connectionForWritingEvents(): MysqliWritingDatabaseConnection
     {
-        return $this->connect(
-            new MysqlDatabaseConfiguration(
+        try {
+            return MysqliWritingDatabaseConnection::connect(
                 'localhost',
                 'event_writer',
                 'event_writer_password',
                 'caledonia',
-            ),
-        );
+            );
+        } catch (Throwable) {
+            $this->markTestSkipped('Could not connect to test database');
+        }
     }
 
-    final protected function connectionForTesting(): MysqlDatabase
+    final protected function connectionForTesting(): MysqliDatabaseConnection
     {
-        return $this->connect(
-            new MysqlDatabaseConfiguration(
+        try {
+            return MysqliDatabaseConnection::connect(
                 'localhost',
                 'test_fixture_manager',
                 'test_fixture_manager_password',
                 'caledonia',
-            ),
-        );
+            );
+        } catch (Throwable) {
+            $this->markTestSkipped('Could not connect to test database');
+        }
     }
 
     final protected function emptyTable(string $table): void
     {
         $this->connectionForTesting()->execute('TRUNCATE TABLE ' . $table . ';');
-    }
-
-    private function connect(MysqlDatabaseConfiguration $configuration): MysqlDatabase
-    {
-        try {
-            return MysqlDatabase::connect($configuration);
-        } catch (Throwable) {
-            $this->markTestSkipped('Could not connect to test database');
-        }
     }
 
     private function csvParser(): CsvParser

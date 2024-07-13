@@ -5,7 +5,7 @@ use function array_fill;
 use function count;
 use function implode;
 use function sprintf;
-use example\framework\database\Database;
+use example\framework\database\ReadingDatabaseConnection;
 use example\framework\database\ReadStatement;
 
 final readonly class ReadEventsStatement implements ReadStatement
@@ -26,10 +26,10 @@ final readonly class ReadEventsStatement implements ReadStatement
     /**
      * @return list<array{payload: non-empty-string}>
      */
-    public function execute(Database $database): array
+    public function execute(ReadingDatabaseConnection $connection): array
     {
         /** @phpstan-ignore return.type */
-        return $database->query(
+        return $connection->query(
             sprintf(
                 'SELECT payload
                    FROM event

@@ -1,18 +1,18 @@
 <?php declare(strict_types=1);
 namespace example\framework\event;
 
-use example\framework\database\Database;
 use example\framework\database\DatabaseException;
+use example\framework\database\WritingDatabaseConnection;
 
 final readonly class DatabaseEventWriter implements EventWriter
 {
-    private Database $database;
+    private WritingDatabaseConnection $connection;
     private EventJsonMapper $mapper;
 
-    public function __construct(Database $database, EventJsonMapper $mapper)
+    public function __construct(WritingDatabaseConnection $connection, EventJsonMapper $mapper)
     {
-        $this->database = $database;
-        $this->mapper   = $mapper;
+        $this->connection = $connection;
+        $this->mapper     = $mapper;
     }
 
     /**
@@ -27,6 +27,6 @@ final readonly class DatabaseEventWriter implements EventWriter
             $this->mapper->toJson($event),
         );
 
-        $statement->execute($this->database);
+        $statement->execute($this->connection);
     }
 }

@@ -1,8 +1,7 @@
 <?php declare(strict_types=1);
 namespace example\caledonia\application;
 
-use example\framework\database\MysqlDatabase;
-use example\framework\database\MysqlDatabaseConfiguration;
+use example\framework\database\MysqliReadingDatabaseConnection;
 use example\framework\event\DatabaseEventReader;
 use example\framework\event\EventReader;
 
@@ -25,15 +24,13 @@ trait EventReading
         );
     }
 
-    private function createDatabaseConnectionForReadingEvents(): MysqlDatabase
+    private function createDatabaseConnectionForReadingEvents(): MysqliReadingDatabaseConnection
     {
-        return MysqlDatabase::connect(
-            new MysqlDatabaseConfiguration(
-                'localhost',
-                'event_reader',
-                'event_reader_password',
-                'caledonia',
-            ),
+        return MysqliReadingDatabaseConnection::connect(
+            'localhost',
+            'event_reader',
+            'event_reader_password',
+            'caledonia',
         );
     }
 }

@@ -2,18 +2,18 @@
 namespace example\framework\event;
 
 use function is_string;
-use example\framework\database\Database;
 use example\framework\database\DatabaseException;
+use example\framework\database\ReadingDatabaseConnection;
 
 final readonly class DatabaseEventReader implements EventReader
 {
-    private Database $database;
+    private ReadingDatabaseConnection $connection;
     private EventJsonMapper $mapper;
 
-    public function __construct(Database $database, EventJsonMapper $mapper)
+    public function __construct(ReadingDatabaseConnection $connection, EventJsonMapper $mapper)
     {
-        $this->database = $database;
-        $this->mapper   = $mapper;
+        $this->connection = $connection;
+        $this->mapper     = $mapper;
     }
 
     /**
@@ -27,7 +27,7 @@ final readonly class DatabaseEventReader implements EventReader
             $topics = [$topics];
         }
 
-        $result = (new ReadEventsStatement($topics))->execute($this->database);
+        $result = (new ReadEventsStatement($topics))->execute($this->connection);
         $events = [];
 
         foreach ($result as $row) {
