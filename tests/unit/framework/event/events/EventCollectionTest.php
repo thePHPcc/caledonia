@@ -50,6 +50,9 @@ final class EventCollectionTest extends TestCase
         return EventCollection::fromArray($this->events());
     }
 
+    /**
+     * @return non-empty-list<DummyEvent>
+     */
     private function events(): array
     {
         return [

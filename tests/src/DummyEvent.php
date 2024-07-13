@@ -5,8 +5,14 @@ use example\framework\library\Uuid;
 
 final readonly class DummyEvent extends Event
 {
+    /**
+     * @var non-empty-string
+     */
     private string $key;
 
+    /**
+     * @param non-empty-string $key
+     */
     public function __construct(Uuid $id, string $key)
     {
         parent::__construct($id);
@@ -30,6 +36,9 @@ final readonly class DummyEvent extends Event
         return 'another dummy event';
     }
 
+    /**
+     * @return non-empty-string
+     */
     public function key(): string
     {
         return $this->key;

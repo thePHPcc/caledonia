@@ -6,6 +6,9 @@ use example\framework\library\Uuid;
 
 final readonly class DummyEventMapper implements EventArrayMapper
 {
+    /**
+     * @param array{event_id: non-empty-string, key: non-empty-string} $data
+     */
     public function fromArray(array $data): DummyEvent
     {
         return new DummyEvent(Uuid::from($data['event_id']), $data['key']);
