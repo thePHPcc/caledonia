@@ -70,6 +70,7 @@ spl_autoload_register(
                 'example\\framework\\event\\eventreader' => '/framework/event/reader/EventReader.php',
                 'example\\framework\\event\\eventsubscriber' => '/framework/event/dispatcher/EventSubscriber.php',
                 'example\\framework\\event\\eventwriter' => '/framework/event/writer/EventWriter.php',
+                'example\\framework\\event\\readeventsstatement' => '/framework/event/reader/ReadEventsStatement.php',
                 'example\\framework\\event\\subscribableeventdispatcher' => '/framework/event/dispatcher/SubscribableEventDispatcher.php',
                 'example\\framework\\event\\writingeventsubscriber' => '/framework/event/writer/WritingEventSubscriber.php',
                 'example\\framework\\exception' => '/framework/exceptions/Exception.php',

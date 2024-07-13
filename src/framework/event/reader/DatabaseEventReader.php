@@ -1,12 +1,7 @@
 <?php declare(strict_types=1);
 namespace example\framework\event;
 
-use function array_fill;
-use function assert;
-use function count;
-use function implode;
 use function is_string;
-use function sprintf;
 use example\framework\database\Database;
 use example\framework\database\DatabaseException;
 
@@ -32,20 +27,10 @@ final readonly class DatabaseEventReader implements EventReader
             $topics = [$topics];
         }
 
-        $result = $this->database->query(
-            sprintf(
-                'SELECT payload FROM event WHERE topic IN (%s) ORDER BY id;',
-                implode(', ', array_fill(0, count($topics), '?')),
-            ),
-            ...$topics,
-        );
-
+        $result = (new ReadEventsStatement($topics))->execute($this->database);
         $events = [];
 
         foreach ($result as $row) {
-            assert(is_string($row['payload']));
-            assert($row['payload'] !== '');
-
             $events[] = $this->mapper->fromJson($row['payload']);
         }
 
