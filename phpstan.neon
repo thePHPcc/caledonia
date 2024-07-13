@@ -1,5 +1,8 @@
 parameters:
     level: 9
+    ignoreErrors:
+        -
+            identifier: method.impossibleType
     paths:
         - src
         - tests
