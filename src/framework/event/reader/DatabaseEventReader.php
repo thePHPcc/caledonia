@@ -22,7 +22,7 @@ final readonly class DatabaseEventReader implements EventReader
     }
 
     /**
-     * @param list<non-empty-string>|non-empty-string $topics
+     * @param non-empty-list<non-empty-string>|non-empty-string $topics
      *
      * @throws DatabaseException
      */
