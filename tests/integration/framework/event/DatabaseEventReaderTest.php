@@ -2,10 +2,13 @@
 namespace example\framework\event;
 
 use function assert;
-use example\framework\database\DatabaseTestCase;
 use example\framework\library\Uuid;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
+use SebastianBergmann\MysqliWrapper\MysqliReadingDatabaseConnection;
+use SebastianBergmann\MysqliWrapper\MysqliWritingDatabaseConnection;
+use SebastianBergmann\MysqliWrapper\Testing\DatabaseTestCase;
+use Throwable;
 
 #[CoversClass(DatabaseEventReader::class)]
 #[Medium]
@@ -26,6 +29,44 @@ final class DatabaseEventReaderTest extends DatabaseTestCase
         $this->assertSame('the-topic', $event->topic());
         $this->assertSame('b5578a2a-3188-470c-a2b7-3a249faed6fb', $event->id()->asString());
         $this->assertSame('value', $event->key());
+    }
+
+    protected function connectionForReadingEvents(): MysqliReadingDatabaseConnection
+    {
+        try {
+            return MysqliReadingDatabaseConnection::connect(
+                'localhost',
+                'event_reader',
+                'event_reader_password',
+                'caledonia',
+            );
+        } catch (Throwable) {
+            $this->markTestSkipped('Could not connect to test database');
+        }
+    }
+
+    protected function connectionForWritingEvents(): MysqliWritingDatabaseConnection
+    {
+        try {
+            return MysqliWritingDatabaseConnection::connect(
+                'localhost',
+                'event_writer',
+                'event_writer_password',
+                'caledonia',
+            );
+        } catch (Throwable) {
+            $this->markTestSkipped('Could not connect to test database');
+        }
+    }
+
+    protected function configurationForTesting(): array
+    {
+        return [
+            'host'     => 'localhost',
+            'username' => 'test_fixture_manager',
+            'password' => 'test_fixture_manager_password',
+            'database' => 'caledonia',
+        ];
     }
 
     private function prepareEvent(): void

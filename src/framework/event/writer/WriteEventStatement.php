@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 namespace example\framework\event;
 
-use example\framework\database\WriteStatement;
-use example\framework\database\WritingDatabaseConnection;
+use SebastianBergmann\MysqliWrapper\WriteStatement;
+use SebastianBergmann\MysqliWrapper\WritingDatabaseConnection;
 
 final readonly class WriteEventStatement implements WriteStatement
 {

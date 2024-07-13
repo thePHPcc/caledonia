@@ -2,8 +2,8 @@
 namespace example\framework\event;
 
 use function is_string;
-use example\framework\database\DatabaseException;
-use example\framework\database\ReadingDatabaseConnection;
+use SebastianBergmann\MysqliWrapper\Exception;
+use SebastianBergmann\MysqliWrapper\ReadingDatabaseConnection;
 
 final readonly class DatabaseEventReader implements EventReader
 {
@@ -19,7 +19,7 @@ final readonly class DatabaseEventReader implements EventReader
     /**
      * @param non-empty-list<non-empty-string>|non-empty-string $topics
      *
-     * @throws DatabaseException
+     * @throws Exception
      */
     public function topic(array|string $topics): EventCollection
     {

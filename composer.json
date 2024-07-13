@@ -2,8 +2,21 @@
     "require": {
         "ext-mysqli": "*"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require-dev": {
         "sebastian/csv-parser": "^1.0",
+        "sebastian/mysqli-wrapper": "dev-main",
         "sebastian/uuid": "^1.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/src/"
+        ]
     }
 }

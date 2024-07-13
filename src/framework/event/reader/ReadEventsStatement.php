@@ -5,8 +5,8 @@ use function array_fill;
 use function count;
 use function implode;
 use function sprintf;
-use example\framework\database\ReadingDatabaseConnection;
-use example\framework\database\ReadStatement;
+use SebastianBergmann\MysqliWrapper\ReadingDatabaseConnection;
+use SebastianBergmann\MysqliWrapper\ReadStatement;
 
 final readonly class ReadEventsStatement implements ReadStatement
 {

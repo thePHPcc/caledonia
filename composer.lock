@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a60d48e5de381dfe7bf081872cdfe5de",
+    "content-hash": "03ed2b65f643464df9b6e401d99814ac",
     "packages": [],
     "packages-dev": [
         {
@@ -60,6 +60,67 @@
                 }
             ],
             "time": "2024-07-03T04:51:23+00:00"
+        },
+        {
+            "name": "sebastian/mysqli-wrapper",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/mysqli-wrapper.git",
+                "reference": "5a16acd2ecff152be36c26ff7fdb41be2e24a428"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/mysqli-wrapper/zipball/5a16acd2ecff152be36c26ff7fdb41be2e24a428",
+                "reference": "5a16acd2ecff152be36c26ff7fdb41be2e24a428",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mysqli": "*",
+                "php": ">=8.3",
+                "sebastian/csv-parser": "^1.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
+                }
+            ],
+            "description": "Wrapper around PHP's mysqli extension",
+            "homepage": "https://github.com/sebastianbergmann/mysqli-wrapper",
+            "keywords": [
+                "mariadb",
+                "mysql",
+                "mysqli"
+            ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/mysqli-wrapper/issues",
+                "source": "https://github.com/sebastianbergmann/mysqli-wrapper/tree/main"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-07-13T15:39:48+00:00"
         },
         {
             "name": "sebastian/uuid",
@@ -123,8 +184,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "stability-flags": {
+        "sebastian/mysqli-wrapper": 20
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "ext-mysqli": "*"

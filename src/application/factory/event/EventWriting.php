@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 namespace example\caledonia\application;
 
-use example\framework\database\MysqliWritingDatabaseConnection;
 use example\framework\event\DatabaseEventWriter;
 use example\framework\event\EventWriter;
 use example\framework\event\SubscribableEventDispatcher;
 use example\framework\event\WritingEventSubscriber;
 use example\framework\library\RandomUuidGenerator;
+use SebastianBergmann\MysqliWrapper\MysqliWritingDatabaseConnection;
 
 trait EventWriting
 {

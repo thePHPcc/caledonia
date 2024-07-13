@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 namespace example\caledonia\application;
 
-use example\framework\database\MysqliReadingDatabaseConnection;
 use example\framework\event\DatabaseEventReader;
 use example\framework\event\EventReader;
+use SebastianBergmann\MysqliWrapper\MysqliReadingDatabaseConnection;
 
 trait EventReading
 {
