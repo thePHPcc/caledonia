@@ -21,13 +21,12 @@ final readonly class DatabaseEventWriter implements EventWriter
      */
     public function write(Event $event): void
     {
-        $this->database->execute(
-            'INSERT INTO event
-                             (topic, event_id, payload)
-                      VALUES (?, ?, ?);',
-            $event->topic(),
+        $statement = new WriteEventStatement(
             $event->id()->asString(),
+            $event->topic(),
             $this->mapper->toJson($event),
         );
+
+        $statement->execute($this->database);
     }
 }

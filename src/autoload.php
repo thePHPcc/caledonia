@@ -72,6 +72,7 @@ spl_autoload_register(
                 'example\\framework\\event\\eventwriter' => '/framework/event/writer/EventWriter.php',
                 'example\\framework\\event\\readeventsstatement' => '/framework/event/reader/ReadEventsStatement.php',
                 'example\\framework\\event\\subscribableeventdispatcher' => '/framework/event/dispatcher/SubscribableEventDispatcher.php',
+                'example\\framework\\event\\writeeventstatement' => '/framework/event/writer/WriteEventStatement.php',
                 'example\\framework\\event\\writingeventsubscriber' => '/framework/event/writer/WritingEventSubscriber.php',
                 'example\\framework\\exception' => '/framework/exceptions/Exception.php',
                 'example\\framework\\http\\command' => '/framework/http/executable/Command.php',
