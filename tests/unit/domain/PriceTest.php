@@ -15,6 +15,7 @@ final class PriceTest extends TestCase
     {
         $this->expectException(PriceMustBePositiveException::class);
 
+        /** @phpstan-ignore argument.type */
         Price::from(0);
     }
 
