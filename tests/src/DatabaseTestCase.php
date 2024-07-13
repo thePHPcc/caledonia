@@ -20,6 +20,7 @@ abstract class DatabaseTestCase extends TestCase
     final protected function assertTableEqualsCsvFile(string $path, string $tableName, CsvSchema $schema): void
     {
         $this->assertTableEqualsArray(
+            /** @phpstan-ignore argument.type */
             iterator_to_array($this->csvParser()->parse($path, $schema)),
             $tableName,
         );
