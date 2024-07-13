@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 namespace example\framework\event;
 
+use function assert;
 use function file_get_contents;
 use function json_encode;
 use example\framework\library\Uuid;
@@ -28,9 +29,12 @@ final class EventJsonMapperTest extends TestCase
 
     public function testMapsJsonDocumentToEventObject(): void
     {
-        $event = $this->mapper()->fromJson(
-            file_get_contents(__DIR__ . '/../../_fixture/dummy-event.json'),
-        );
+        $json = file_get_contents(__DIR__ . '/../../_fixture/dummy-event.json');
+
+        assert($json !== false);
+        assert($json !== '');
+
+        $event = $this->mapper()->fromJson($json);
 
         $this->assertInstanceOf(DummyEvent::class, $event);
 
@@ -41,16 +45,24 @@ final class EventJsonMapperTest extends TestCase
 
     public function testCannotMapUnknownEvents(): void
     {
+        $json = json_encode([]);
+
+        assert($json !== false);
+
         $this->expectException(CannotMapEventException::class);
 
-        (new EventJsonMapper([]))->fromJson(json_encode([]));
+        (new EventJsonMapper([]))->fromJson($json);
     }
 
     public function testCannotMapUnknownEvents2(): void
     {
+        $json = json_encode(['topic' => 'unknown']);
+
+        assert($json !== false);
+
         $this->expectException(CannotMapEventException::class);
 
-        (new EventJsonMapper([]))->fromJson(json_encode(['topic' => 'unknown']));
+        (new EventJsonMapper([]))->fromJson($json);
     }
 
     private function event(): DummyEvent
