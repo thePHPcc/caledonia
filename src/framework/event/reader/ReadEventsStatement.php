@@ -6,8 +6,9 @@ use function count;
 use function implode;
 use function sprintf;
 use example\framework\database\Database;
+use example\framework\database\ReadStatement;
 
-final readonly class ReadEventsStatement
+final readonly class ReadEventsStatement implements ReadStatement
 {
     /**
      * @var non-empty-list<non-empty-string>

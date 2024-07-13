@@ -2,8 +2,9 @@
 namespace example\framework\event;
 
 use example\framework\database\Database;
+use example\framework\database\WriteStatement;
 
-final readonly class WriteEventStatement
+final readonly class WriteEventStatement implements WriteStatement
 {
     /**
      * @var non-empty-string

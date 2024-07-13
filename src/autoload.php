@@ -58,6 +58,8 @@ spl_autoload_register(
                 'example\\framework\\database\\databaseexception' => '/framework/exceptions/DatabaseException.php',
                 'example\\framework\\database\\mysqldatabase' => '/framework/database/MysqlDatabase.php',
                 'example\\framework\\database\\mysqldatabaseconfiguration' => '/framework/database/MysqlDatabaseConfiguration.php',
+                'example\\framework\\database\\readstatement' => '/framework/database/ReadStatement.php',
+                'example\\framework\\database\\writestatement' => '/framework/database/WriteStatement.php',
                 'example\\framework\\event\\cannotmapeventexception' => '/framework/exceptions/CannotMapEventException.php',
                 'example\\framework\\event\\databaseeventreader' => '/framework/event/reader/DatabaseEventReader.php',
                 'example\\framework\\event\\databaseeventwriter' => '/framework/event/writer/DatabaseEventWriter.php',
