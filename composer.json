@@ -2,11 +2,9 @@
     "require": {
         "ext-mysqli": "*"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require-dev": {
         "sebastian/csv-parser": "^1.0",
-        "sebastian/mysqli-wrapper": "dev-main",
+        "sebastian/mysqli-wrapper": "^1.0",
         "sebastian/uuid": "^1.0"
     },
     "autoload": {
