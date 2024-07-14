@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 namespace example\framework\event;
 
-use SebastianBergmann\MysqliWrapper\Exception;
 use SebastianBergmann\MysqliWrapper\WritingDatabaseConnection;
 
 final readonly class DatabaseEventWriter implements EventWriter
@@ -17,7 +16,6 @@ final readonly class DatabaseEventWriter implements EventWriter
 
     /**
      * @throws CannotMapEventException
-     * @throws Exception
      */
     public function write(Event $event): void
     {

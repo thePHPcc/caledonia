@@ -40,7 +40,7 @@ final readonly class GetRequest extends Request
             throw new ParameterDoesNotExistException;
         }
 
-        return (string) $this->parameters[$parameter];
+        return $this->parameters[$parameter];
     }
 
     public function isGetRequest(): true
