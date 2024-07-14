@@ -4,18 +4,21 @@ namespace example\framework\event;
 use example\framework\library\Uuid;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\TestCase;
 use SebastianBergmann\CsvParser\FieldDefinition as CsvFieldDefinition;
 use SebastianBergmann\CsvParser\Schema as CsvSchema;
 use SebastianBergmann\CsvParser\Type as CsvFieldType;
 use SebastianBergmann\MysqliWrapper\MysqliReadingDatabaseConnection;
 use SebastianBergmann\MysqliWrapper\MysqliWritingDatabaseConnection;
-use SebastianBergmann\MysqliWrapper\Testing\DatabaseTestCase;
+use SebastianBergmann\MysqliWrapper\Testing\Testing;
 use Throwable;
 
 #[CoversClass(DatabaseEventWriter::class)]
 #[Medium]
-final class DatabaseEventWriterTest extends DatabaseTestCase
+final class DatabaseEventWriterTest extends TestCase
 {
+    use Testing;
+
     public function testWritesEventToDatabase(): void
     {
         $this->emptyTable('event');

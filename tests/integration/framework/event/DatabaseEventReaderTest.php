@@ -5,15 +5,18 @@ use function assert;
 use example\framework\library\Uuid;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\TestCase;
 use SebastianBergmann\MysqliWrapper\MysqliReadingDatabaseConnection;
 use SebastianBergmann\MysqliWrapper\MysqliWritingDatabaseConnection;
-use SebastianBergmann\MysqliWrapper\Testing\DatabaseTestCase;
+use SebastianBergmann\MysqliWrapper\Testing\Testing;
 use Throwable;
 
 #[CoversClass(DatabaseEventReader::class)]
 #[Medium]
-final class DatabaseEventReaderTest extends DatabaseTestCase
+final class DatabaseEventReaderTest extends TestCase
 {
+    use Testing;
+
     public function testReadsEventsByTopic(): void
     {
         $this->prepareEvent();
