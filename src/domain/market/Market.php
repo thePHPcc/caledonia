@@ -67,7 +67,7 @@ final readonly class Market
 
     public function priceFor(Good $good): Price
     {
-        return $this->priceTables[$good->asString()]->current();
+        return $this->priceTables[$good->value]->current();
     }
 
     /**
@@ -78,7 +78,7 @@ final readonly class Market
         $priceTables = $this->priceTables;
 
         foreach (range(1, $amount) as $i) {
-            $priceTables[$good->asString()] = $priceTables[$good->asString()]->increase();
+            $priceTables[$good->value] = $priceTables[$good->value]->increase();
         }
 
         return $this->newFromPriceTables($priceTables);
@@ -92,7 +92,7 @@ final readonly class Market
         $priceTables = $this->priceTables;
 
         foreach (range(1, $amount) as $i) {
-            $priceTables[$good->asString()] = $priceTables[$good->asString()]->decrease();
+            $priceTables[$good->value] = $priceTables[$good->value]->decrease();
         }
 
         return $this->newFromPriceTables($priceTables);

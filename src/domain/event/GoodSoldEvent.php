@@ -46,7 +46,7 @@ final readonly class GoodSoldEvent extends Event
         return sprintf(
             '%d %s sold at price %d',
             $this->amount,
-            $this->good->asString(),
+            $this->good->value,
             $this->price->asInt(),
         );
     }

@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 namespace example\caledonia\application;
 
-use example\caledonia\domain\Bread;
 use example\caledonia\domain\Good;
 use example\caledonia\domain\Market;
 use example\caledonia\domain\Price;
@@ -16,7 +15,6 @@ use PHPUnit\Framework\TestCase;
 
 #[CoversClass(SellGoodCommandProcessor::class)]
 #[UsesClass(SellGoodCommand::class)]
-#[UsesClass(Bread::class)]
 #[UsesClass(Good::class)]
 #[UsesClass(Market::class)]
 #[UsesClass(Price::class)]
@@ -39,7 +37,7 @@ final class SellGoodCommandProcessorTest extends TestCase
         $emitter
             ->expects($this->once())
             ->method('goodSold')
-            ->with(Good::bread(), Price::from(11), 1);
+            ->with(Good::Bread, Price::from(11), 1);
 
         $emitter
             ->expects($this->never())
@@ -51,7 +49,7 @@ final class SellGoodCommandProcessorTest extends TestCase
 
         $processor = new SellGoodCommandProcessor($emitter, $sourcer);
 
-        $processor->process(new SellGoodCommand(Good::bread(), 1));
+        $processor->process(new SellGoodCommand(Good::Bread, 1));
     }
 
     #[TestDox('A GoodSoldEvent and a PriceChangedEvent are emitted when the price changes')]
@@ -68,7 +66,7 @@ final class SellGoodCommandProcessorTest extends TestCase
         $emitter
             ->expects($this->once())
             ->method('goodSold')
-            ->with(Good::bread(), Price::from(11), 3);
+            ->with(Good::Bread, Price::from(11), 3);
 
         $emitter
             ->expects($this->never())
@@ -77,10 +75,10 @@ final class SellGoodCommandProcessorTest extends TestCase
         $emitter
             ->expects($this->once())
             ->method('priceChanged')
-            ->with(Good::bread(), Price::from(11), Price::from(8));
+            ->with(Good::Bread, Price::from(11), Price::from(8));
 
         $processor = new SellGoodCommandProcessor($emitter, $sourcer);
 
-        $processor->process(new SellGoodCommand(Good::bread(), 3));
+        $processor->process(new SellGoodCommand(Good::Bread, 3));
     }
 }

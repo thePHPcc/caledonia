@@ -38,7 +38,7 @@ final readonly class PriceChangedEvent extends Event
     {
         return sprintf(
             'Price for %s %s from %d to %d',
-            $this->good->asString(),
+            $this->good->value,
             $this->old->asInt() < $this->new->asInt() ? 'increased' : 'decreased',
             $this->old->asInt(),
             $this->new->asInt(),

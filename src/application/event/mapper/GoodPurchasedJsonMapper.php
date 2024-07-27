@@ -35,7 +35,7 @@ final class GoodPurchasedJsonMapper implements EventArrayMapper
         assert($event instanceof GoodPurchasedEvent);
 
         return [
-            'good'   => $event->good()->asString(),
+            'good'   => $event->good()->value,
             'price'  => $event->price()->asInt(),
             'amount' => $event->amount(),
         ];

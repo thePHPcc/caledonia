@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 namespace example\caledonia\application;
 
-use example\caledonia\domain\Bread;
 use example\caledonia\domain\Good;
 use example\caledonia\domain\Market;
 use example\caledonia\domain\Price;
@@ -16,7 +15,6 @@ use PHPUnit\Framework\TestCase;
 
 #[CoversClass(PurchaseGoodCommandProcessor::class)]
 #[UsesClass(PurchaseGoodCommand::class)]
-#[UsesClass(Bread::class)]
 #[UsesClass(Good::class)]
 #[UsesClass(Market::class)]
 #[UsesClass(Price::class)]
@@ -39,7 +37,7 @@ final class PurchaseGoodCommandProcessorTest extends TestCase
         $emitter
             ->expects($this->once())
             ->method('goodPurchased')
-            ->with(Good::bread(), Price::from(11), 1);
+            ->with(Good::Bread, Price::from(11), 1);
 
         $emitter
             ->expects($this->never())
@@ -51,7 +49,7 @@ final class PurchaseGoodCommandProcessorTest extends TestCase
 
         $processor = new PurchaseGoodCommandProcessor($emitter, $sourcer);
 
-        $processor->process(new PurchaseGoodCommand(Good::bread(), 1));
+        $processor->process(new PurchaseGoodCommand(Good::Bread, 1));
     }
 
     #[TestDox('A GoodPurchasedEvent and a PriceChangedEvent are emitted when the price changes')]
@@ -68,7 +66,7 @@ final class PurchaseGoodCommandProcessorTest extends TestCase
         $emitter
             ->expects($this->once())
             ->method('goodPurchased')
-            ->with(Good::bread(), Price::from(10), 3);
+            ->with(Good::Bread, Price::from(10), 3);
 
         $emitter
             ->expects($this->never())
@@ -77,10 +75,10 @@ final class PurchaseGoodCommandProcessorTest extends TestCase
         $emitter
             ->expects($this->once())
             ->method('priceChanged')
-            ->with(Good::bread(), Price::from(10), Price::from(12));
+            ->with(Good::Bread, Price::from(10), Price::from(12));
 
         $processor = new PurchaseGoodCommandProcessor($emitter, $sourcer);
 
-        $processor->process(new PurchaseGoodCommand(Good::bread(), 3));
+        $processor->process(new PurchaseGoodCommand(Good::Bread, 3));
     }
 }

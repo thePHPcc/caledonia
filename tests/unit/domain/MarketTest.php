@@ -10,12 +10,6 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(Market::class)]
 #[CoversClass(PriceTable::class)]
 #[UsesClass(Good::class)]
-#[UsesClass(Bread::class)]
-#[UsesClass(Cheese::class)]
-#[UsesClass(Grain::class)]
-#[UsesClass(Milk::class)]
-#[UsesClass(Whisky::class)]
-#[UsesClass(Wool::class)]
 #[UsesClass(Price::class)]
 #[Group('domain')]
 #[Small]
@@ -25,462 +19,462 @@ final class MarketTest extends TestCase
     {
         $market = Market::create();
 
-        $this->assertObjectEquals(Price::from(10), $market->priceFor(Good::bread()));
+        $this->assertObjectEquals(Price::from(10), $market->priceFor(Good::Bread));
     }
 
     public function testBreadCanBePurchased(): void
     {
         $market = Market::from(0, 0, 0, 0, 0, 0);
 
-        $market = $market->purchase(Good::bread(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::bread()));
+        $market = $market->purchase(Good::Bread, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Bread));
 
-        $market = $market->purchase(Good::bread(), 1);
-        $this->assertEquals(Price::from(9), $market->priceFor(Good::bread()));
+        $market = $market->purchase(Good::Bread, 1);
+        $this->assertEquals(Price::from(9), $market->priceFor(Good::Bread));
 
-        $market = $market->purchase(Good::bread(), 1);
-        $this->assertEquals(Price::from(10), $market->priceFor(Good::bread()));
+        $market = $market->purchase(Good::Bread, 1);
+        $this->assertEquals(Price::from(10), $market->priceFor(Good::Bread));
 
-        $market = $market->purchase(Good::bread(), 1);
-        $this->assertEquals(Price::from(11), $market->priceFor(Good::bread()));
+        $market = $market->purchase(Good::Bread, 1);
+        $this->assertEquals(Price::from(11), $market->priceFor(Good::Bread));
 
-        $market = $market->purchase(Good::bread(), 1);
-        $this->assertEquals(Price::from(11), $market->priceFor(Good::bread()));
+        $market = $market->purchase(Good::Bread, 1);
+        $this->assertEquals(Price::from(11), $market->priceFor(Good::Bread));
 
-        $market = $market->purchase(Good::bread(), 1);
-        $this->assertEquals(Price::from(12), $market->priceFor(Good::bread()));
+        $market = $market->purchase(Good::Bread, 1);
+        $this->assertEquals(Price::from(12), $market->priceFor(Good::Bread));
 
-        $market = $market->purchase(Good::bread(), 1);
-        $this->assertEquals(Price::from(13), $market->priceFor(Good::bread()));
+        $market = $market->purchase(Good::Bread, 1);
+        $this->assertEquals(Price::from(13), $market->priceFor(Good::Bread));
 
-        $market = $market->purchase(Good::bread(), 1);
-        $this->assertEquals(Price::from(14), $market->priceFor(Good::bread()));
+        $market = $market->purchase(Good::Bread, 1);
+        $this->assertEquals(Price::from(14), $market->priceFor(Good::Bread));
 
-        $market = $market->purchase(Good::bread(), 1);
-        $this->assertEquals(Price::from(15), $market->priceFor(Good::bread()));
+        $market = $market->purchase(Good::Bread, 1);
+        $this->assertEquals(Price::from(15), $market->priceFor(Good::Bread));
 
-        $market = $market->purchase(Good::bread(), 1);
-        $this->assertEquals(Price::from(15), $market->priceFor(Good::bread()));
+        $market = $market->purchase(Good::Bread, 1);
+        $this->assertEquals(Price::from(15), $market->priceFor(Good::Bread));
     }
 
     public function testBreadCanBeSold(): void
     {
         $market = Market::from(9, 9, 9, 9, 9, 9);
 
-        $market = $market->sell(Good::bread(), 1);
-        $this->assertEquals(Price::from(14), $market->priceFor(Good::bread()));
+        $market = $market->sell(Good::Bread, 1);
+        $this->assertEquals(Price::from(14), $market->priceFor(Good::Bread));
 
-        $market = $market->sell(Good::bread(), 1);
-        $this->assertEquals(Price::from(13), $market->priceFor(Good::bread()));
+        $market = $market->sell(Good::Bread, 1);
+        $this->assertEquals(Price::from(13), $market->priceFor(Good::Bread));
 
-        $market = $market->sell(Good::bread(), 1);
-        $this->assertEquals(Price::from(12), $market->priceFor(Good::bread()));
+        $market = $market->sell(Good::Bread, 1);
+        $this->assertEquals(Price::from(12), $market->priceFor(Good::Bread));
 
-        $market = $market->sell(Good::bread(), 1);
-        $this->assertEquals(Price::from(11), $market->priceFor(Good::bread()));
+        $market = $market->sell(Good::Bread, 1);
+        $this->assertEquals(Price::from(11), $market->priceFor(Good::Bread));
 
-        $market = $market->sell(Good::bread(), 1);
-        $this->assertEquals(Price::from(11), $market->priceFor(Good::bread()));
+        $market = $market->sell(Good::Bread, 1);
+        $this->assertEquals(Price::from(11), $market->priceFor(Good::Bread));
 
-        $market = $market->sell(Good::bread(), 1);
-        $this->assertEquals(Price::from(10), $market->priceFor(Good::bread()));
+        $market = $market->sell(Good::Bread, 1);
+        $this->assertEquals(Price::from(10), $market->priceFor(Good::Bread));
 
-        $market = $market->sell(Good::bread(), 1);
-        $this->assertEquals(Price::from(9), $market->priceFor(Good::bread()));
+        $market = $market->sell(Good::Bread, 1);
+        $this->assertEquals(Price::from(9), $market->priceFor(Good::Bread));
 
-        $market = $market->sell(Good::bread(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::bread()));
+        $market = $market->sell(Good::Bread, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Bread));
 
-        $market = $market->sell(Good::bread(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::bread()));
+        $market = $market->sell(Good::Bread, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Bread));
 
-        $market = $market->sell(Good::bread(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::bread()));
+        $market = $market->sell(Good::Bread, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Bread));
     }
 
     public function testCheeseHasInitialPriceOf10(): void
     {
         $market = Market::create();
 
-        $this->assertObjectEquals(Price::from(10), $market->priceFor(Good::cheese()));
+        $this->assertObjectEquals(Price::from(10), $market->priceFor(Good::Cheese));
     }
 
     public function testCheeseCanBePurchased(): void
     {
         $market = Market::from(0, 0, 0, 0, 0, 0);
 
-        $market = $market->purchase(Good::cheese(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::cheese()));
+        $market = $market->purchase(Good::Cheese, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Cheese));
 
-        $market = $market->purchase(Good::cheese(), 1);
-        $this->assertEquals(Price::from(9), $market->priceFor(Good::cheese()));
+        $market = $market->purchase(Good::Cheese, 1);
+        $this->assertEquals(Price::from(9), $market->priceFor(Good::Cheese));
 
-        $market = $market->purchase(Good::cheese(), 1);
-        $this->assertEquals(Price::from(10), $market->priceFor(Good::cheese()));
+        $market = $market->purchase(Good::Cheese, 1);
+        $this->assertEquals(Price::from(10), $market->priceFor(Good::Cheese));
 
-        $market = $market->purchase(Good::cheese(), 1);
-        $this->assertEquals(Price::from(11), $market->priceFor(Good::cheese()));
+        $market = $market->purchase(Good::Cheese, 1);
+        $this->assertEquals(Price::from(11), $market->priceFor(Good::Cheese));
 
-        $market = $market->purchase(Good::cheese(), 1);
-        $this->assertEquals(Price::from(12), $market->priceFor(Good::cheese()));
+        $market = $market->purchase(Good::Cheese, 1);
+        $this->assertEquals(Price::from(12), $market->priceFor(Good::Cheese));
 
-        $market = $market->purchase(Good::cheese(), 1);
-        $this->assertEquals(Price::from(13), $market->priceFor(Good::cheese()));
+        $market = $market->purchase(Good::Cheese, 1);
+        $this->assertEquals(Price::from(13), $market->priceFor(Good::Cheese));
 
-        $market = $market->purchase(Good::cheese(), 1);
-        $this->assertEquals(Price::from(14), $market->priceFor(Good::cheese()));
+        $market = $market->purchase(Good::Cheese, 1);
+        $this->assertEquals(Price::from(14), $market->priceFor(Good::Cheese));
 
-        $market = $market->purchase(Good::cheese(), 1);
-        $this->assertEquals(Price::from(14), $market->priceFor(Good::cheese()));
+        $market = $market->purchase(Good::Cheese, 1);
+        $this->assertEquals(Price::from(14), $market->priceFor(Good::Cheese));
 
-        $market = $market->purchase(Good::cheese(), 1);
-        $this->assertEquals(Price::from(15), $market->priceFor(Good::cheese()));
+        $market = $market->purchase(Good::Cheese, 1);
+        $this->assertEquals(Price::from(15), $market->priceFor(Good::Cheese));
 
-        $market = $market->purchase(Good::cheese(), 1);
-        $this->assertEquals(Price::from(15), $market->priceFor(Good::cheese()));
+        $market = $market->purchase(Good::Cheese, 1);
+        $this->assertEquals(Price::from(15), $market->priceFor(Good::Cheese));
     }
 
     public function testCheeseCanBeSold(): void
     {
         $market = Market::from(9, 9, 9, 9, 9, 9);
 
-        $market = $market->sell(Good::cheese(), 1);
-        $this->assertEquals(Price::from(14), $market->priceFor(Good::cheese()));
+        $market = $market->sell(Good::Cheese, 1);
+        $this->assertEquals(Price::from(14), $market->priceFor(Good::Cheese));
 
-        $market = $market->sell(Good::cheese(), 1);
-        $this->assertEquals(Price::from(14), $market->priceFor(Good::cheese()));
+        $market = $market->sell(Good::Cheese, 1);
+        $this->assertEquals(Price::from(14), $market->priceFor(Good::Cheese));
 
-        $market = $market->sell(Good::cheese(), 1);
-        $this->assertEquals(Price::from(13), $market->priceFor(Good::cheese()));
+        $market = $market->sell(Good::Cheese, 1);
+        $this->assertEquals(Price::from(13), $market->priceFor(Good::Cheese));
 
-        $market = $market->sell(Good::cheese(), 1);
-        $this->assertEquals(Price::from(12), $market->priceFor(Good::cheese()));
+        $market = $market->sell(Good::Cheese, 1);
+        $this->assertEquals(Price::from(12), $market->priceFor(Good::Cheese));
 
-        $market = $market->sell(Good::cheese(), 1);
-        $this->assertEquals(Price::from(11), $market->priceFor(Good::cheese()));
+        $market = $market->sell(Good::Cheese, 1);
+        $this->assertEquals(Price::from(11), $market->priceFor(Good::Cheese));
 
-        $market = $market->sell(Good::cheese(), 1);
-        $this->assertEquals(Price::from(10), $market->priceFor(Good::cheese()));
+        $market = $market->sell(Good::Cheese, 1);
+        $this->assertEquals(Price::from(10), $market->priceFor(Good::Cheese));
 
-        $market = $market->sell(Good::cheese(), 1);
-        $this->assertEquals(Price::from(9), $market->priceFor(Good::cheese()));
+        $market = $market->sell(Good::Cheese, 1);
+        $this->assertEquals(Price::from(9), $market->priceFor(Good::Cheese));
 
-        $market = $market->sell(Good::cheese(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::cheese()));
+        $market = $market->sell(Good::Cheese, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Cheese));
 
-        $market = $market->sell(Good::cheese(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::cheese()));
+        $market = $market->sell(Good::Cheese, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Cheese));
 
-        $market = $market->sell(Good::cheese(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::cheese()));
+        $market = $market->sell(Good::Cheese, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Cheese));
     }
 
     public function testGrainHasInitialPriceOf5(): void
     {
         $market = Market::create();
 
-        $this->assertObjectEquals(Price::from(5), $market->priceFor(Good::grain()));
+        $this->assertObjectEquals(Price::from(5), $market->priceFor(Good::Grain));
     }
 
     public function testGrainCanBePurchased(): void
     {
         $market = Market::from(0, 0, 0, 0, 0, 0);
 
-        $market = $market->purchase(Good::grain(), 1);
-        $this->assertEquals(Price::from(3), $market->priceFor(Good::grain()));
+        $market = $market->purchase(Good::Grain, 1);
+        $this->assertEquals(Price::from(3), $market->priceFor(Good::Grain));
 
-        $market = $market->purchase(Good::grain(), 1);
-        $this->assertEquals(Price::from(4), $market->priceFor(Good::grain()));
+        $market = $market->purchase(Good::Grain, 1);
+        $this->assertEquals(Price::from(4), $market->priceFor(Good::Grain));
 
-        $market = $market->purchase(Good::grain(), 1);
-        $this->assertEquals(Price::from(5), $market->priceFor(Good::grain()));
+        $market = $market->purchase(Good::Grain, 1);
+        $this->assertEquals(Price::from(5), $market->priceFor(Good::Grain));
 
-        $market = $market->purchase(Good::grain(), 1);
-        $this->assertEquals(Price::from(6), $market->priceFor(Good::grain()));
+        $market = $market->purchase(Good::Grain, 1);
+        $this->assertEquals(Price::from(6), $market->priceFor(Good::Grain));
 
-        $market = $market->purchase(Good::grain(), 1);
-        $this->assertEquals(Price::from(6), $market->priceFor(Good::grain()));
+        $market = $market->purchase(Good::Grain, 1);
+        $this->assertEquals(Price::from(6), $market->priceFor(Good::Grain));
 
-        $market = $market->purchase(Good::grain(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::grain()));
+        $market = $market->purchase(Good::Grain, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Grain));
 
-        $market = $market->purchase(Good::grain(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::grain()));
+        $market = $market->purchase(Good::Grain, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Grain));
 
-        $market = $market->purchase(Good::grain(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::grain()));
+        $market = $market->purchase(Good::Grain, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Grain));
 
-        $market = $market->purchase(Good::grain(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::grain()));
+        $market = $market->purchase(Good::Grain, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Grain));
 
-        $market = $market->purchase(Good::grain(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::grain()));
+        $market = $market->purchase(Good::Grain, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Grain));
     }
 
     public function testGrainCanBeSold(): void
     {
         $market = Market::from(9, 9, 9, 9, 9, 9);
 
-        $market = $market->sell(Good::grain(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::grain()));
+        $market = $market->sell(Good::Grain, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Grain));
 
-        $market = $market->sell(Good::grain(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::grain()));
+        $market = $market->sell(Good::Grain, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Grain));
 
-        $market = $market->sell(Good::grain(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::grain()));
+        $market = $market->sell(Good::Grain, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Grain));
 
-        $market = $market->sell(Good::grain(), 1);
-        $this->assertEquals(Price::from(6), $market->priceFor(Good::grain()));
+        $market = $market->sell(Good::Grain, 1);
+        $this->assertEquals(Price::from(6), $market->priceFor(Good::Grain));
 
-        $market = $market->sell(Good::grain(), 1);
-        $this->assertEquals(Price::from(6), $market->priceFor(Good::grain()));
+        $market = $market->sell(Good::Grain, 1);
+        $this->assertEquals(Price::from(6), $market->priceFor(Good::Grain));
 
-        $market = $market->sell(Good::grain(), 1);
-        $this->assertEquals(Price::from(5), $market->priceFor(Good::grain()));
+        $market = $market->sell(Good::Grain, 1);
+        $this->assertEquals(Price::from(5), $market->priceFor(Good::Grain));
 
-        $market = $market->sell(Good::grain(), 1);
-        $this->assertEquals(Price::from(4), $market->priceFor(Good::grain()));
+        $market = $market->sell(Good::Grain, 1);
+        $this->assertEquals(Price::from(4), $market->priceFor(Good::Grain));
 
-        $market = $market->sell(Good::grain(), 1);
-        $this->assertEquals(Price::from(3), $market->priceFor(Good::grain()));
+        $market = $market->sell(Good::Grain, 1);
+        $this->assertEquals(Price::from(3), $market->priceFor(Good::Grain));
 
-        $market = $market->sell(Good::grain(), 1);
-        $this->assertEquals(Price::from(3), $market->priceFor(Good::grain()));
+        $market = $market->sell(Good::Grain, 1);
+        $this->assertEquals(Price::from(3), $market->priceFor(Good::Grain));
 
-        $market = $market->sell(Good::grain(), 1);
-        $this->assertEquals(Price::from(3), $market->priceFor(Good::grain()));
+        $market = $market->sell(Good::Grain, 1);
+        $this->assertEquals(Price::from(3), $market->priceFor(Good::Grain));
     }
 
     public function testMilkHasInitialPriceOf5(): void
     {
         $market = Market::create();
 
-        $this->assertObjectEquals(Price::from(5), $market->priceFor(Good::milk()));
+        $this->assertObjectEquals(Price::from(5), $market->priceFor(Good::Milk));
     }
 
     public function testMilkCanBePurchased(): void
     {
         $market = Market::from(0, 0, 0, 0, 0, 0);
 
-        $market = $market->purchase(Good::milk(), 1);
-        $this->assertEquals(Price::from(4), $market->priceFor(Good::milk()));
+        $market = $market->purchase(Good::Milk, 1);
+        $this->assertEquals(Price::from(4), $market->priceFor(Good::Milk));
 
-        $market = $market->purchase(Good::milk(), 1);
-        $this->assertEquals(Price::from(5), $market->priceFor(Good::milk()));
+        $market = $market->purchase(Good::Milk, 1);
+        $this->assertEquals(Price::from(5), $market->priceFor(Good::Milk));
 
-        $market = $market->purchase(Good::milk(), 1);
-        $this->assertEquals(Price::from(5), $market->priceFor(Good::milk()));
+        $market = $market->purchase(Good::Milk, 1);
+        $this->assertEquals(Price::from(5), $market->priceFor(Good::Milk));
 
-        $market = $market->purchase(Good::milk(), 1);
-        $this->assertEquals(Price::from(6), $market->priceFor(Good::milk()));
+        $market = $market->purchase(Good::Milk, 1);
+        $this->assertEquals(Price::from(6), $market->priceFor(Good::Milk));
 
-        $market = $market->purchase(Good::milk(), 1);
-        $this->assertEquals(Price::from(6), $market->priceFor(Good::milk()));
+        $market = $market->purchase(Good::Milk, 1);
+        $this->assertEquals(Price::from(6), $market->priceFor(Good::Milk));
 
-        $market = $market->purchase(Good::milk(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::milk()));
+        $market = $market->purchase(Good::Milk, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Milk));
 
-        $market = $market->purchase(Good::milk(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::milk()));
+        $market = $market->purchase(Good::Milk, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Milk));
 
-        $market = $market->purchase(Good::milk(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::milk()));
+        $market = $market->purchase(Good::Milk, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Milk));
 
-        $market = $market->purchase(Good::milk(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::milk()));
+        $market = $market->purchase(Good::Milk, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Milk));
 
-        $market = $market->purchase(Good::milk(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::milk()));
+        $market = $market->purchase(Good::Milk, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Milk));
     }
 
     public function testMilkCanBeSold(): void
     {
         $market = Market::from(9, 9, 9, 9, 9, 9);
 
-        $market = $market->sell(Good::milk(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::milk()));
+        $market = $market->sell(Good::Milk, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Milk));
 
-        $market = $market->sell(Good::milk(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::milk()));
+        $market = $market->sell(Good::Milk, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Milk));
 
-        $market = $market->sell(Good::milk(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::milk()));
+        $market = $market->sell(Good::Milk, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Milk));
 
-        $market = $market->sell(Good::milk(), 1);
-        $this->assertEquals(Price::from(6), $market->priceFor(Good::milk()));
+        $market = $market->sell(Good::Milk, 1);
+        $this->assertEquals(Price::from(6), $market->priceFor(Good::Milk));
 
-        $market = $market->sell(Good::milk(), 1);
-        $this->assertEquals(Price::from(6), $market->priceFor(Good::milk()));
+        $market = $market->sell(Good::Milk, 1);
+        $this->assertEquals(Price::from(6), $market->priceFor(Good::Milk));
 
-        $market = $market->sell(Good::milk(), 1);
-        $this->assertEquals(Price::from(5), $market->priceFor(Good::milk()));
+        $market = $market->sell(Good::Milk, 1);
+        $this->assertEquals(Price::from(5), $market->priceFor(Good::Milk));
 
-        $market = $market->sell(Good::milk(), 1);
-        $this->assertEquals(Price::from(5), $market->priceFor(Good::milk()));
+        $market = $market->sell(Good::Milk, 1);
+        $this->assertEquals(Price::from(5), $market->priceFor(Good::Milk));
 
-        $market = $market->sell(Good::milk(), 1);
-        $this->assertEquals(Price::from(4), $market->priceFor(Good::milk()));
+        $market = $market->sell(Good::Milk, 1);
+        $this->assertEquals(Price::from(4), $market->priceFor(Good::Milk));
 
-        $market = $market->sell(Good::milk(), 1);
-        $this->assertEquals(Price::from(3), $market->priceFor(Good::milk()));
+        $market = $market->sell(Good::Milk, 1);
+        $this->assertEquals(Price::from(3), $market->priceFor(Good::Milk));
 
-        $market = $market->sell(Good::milk(), 1);
-        $this->assertEquals(Price::from(3), $market->priceFor(Good::milk()));
+        $market = $market->sell(Good::Milk, 1);
+        $this->assertEquals(Price::from(3), $market->priceFor(Good::Milk));
     }
 
     public function testWhiskyHasInitialPriceOf11(): void
     {
         $market = Market::create();
 
-        $this->assertObjectEquals(Price::from(11), $market->priceFor(Good::whisky()));
+        $this->assertObjectEquals(Price::from(11), $market->priceFor(Good::Whisky));
     }
 
     public function testWhiskyCanBePurchased(): void
     {
         $market = Market::from(0, 0, 0, 0, 0, 0);
 
-        $market = $market->purchase(Good::whisky(), 1);
-        $this->assertEquals(Price::from(9), $market->priceFor(Good::whisky()));
+        $market = $market->purchase(Good::Whisky, 1);
+        $this->assertEquals(Price::from(9), $market->priceFor(Good::Whisky));
 
-        $market = $market->purchase(Good::whisky(), 1);
-        $this->assertEquals(Price::from(10), $market->priceFor(Good::whisky()));
+        $market = $market->purchase(Good::Whisky, 1);
+        $this->assertEquals(Price::from(10), $market->priceFor(Good::Whisky));
 
-        $market = $market->purchase(Good::whisky(), 1);
-        $this->assertEquals(Price::from(11), $market->priceFor(Good::whisky()));
+        $market = $market->purchase(Good::Whisky, 1);
+        $this->assertEquals(Price::from(11), $market->priceFor(Good::Whisky));
 
-        $market = $market->purchase(Good::whisky(), 1);
-        $this->assertEquals(Price::from(12), $market->priceFor(Good::whisky()));
+        $market = $market->purchase(Good::Whisky, 1);
+        $this->assertEquals(Price::from(12), $market->priceFor(Good::Whisky));
 
-        $market = $market->purchase(Good::whisky(), 1);
-        $this->assertEquals(Price::from(13), $market->priceFor(Good::whisky()));
+        $market = $market->purchase(Good::Whisky, 1);
+        $this->assertEquals(Price::from(13), $market->priceFor(Good::Whisky));
 
-        $market = $market->purchase(Good::whisky(), 1);
-        $this->assertEquals(Price::from(13), $market->priceFor(Good::whisky()));
+        $market = $market->purchase(Good::Whisky, 1);
+        $this->assertEquals(Price::from(13), $market->priceFor(Good::Whisky));
 
-        $market = $market->purchase(Good::whisky(), 1);
-        $this->assertEquals(Price::from(14), $market->priceFor(Good::whisky()));
+        $market = $market->purchase(Good::Whisky, 1);
+        $this->assertEquals(Price::from(14), $market->priceFor(Good::Whisky));
 
-        $market = $market->purchase(Good::whisky(), 1);
-        $this->assertEquals(Price::from(15), $market->priceFor(Good::whisky()));
+        $market = $market->purchase(Good::Whisky, 1);
+        $this->assertEquals(Price::from(15), $market->priceFor(Good::Whisky));
 
-        $market = $market->purchase(Good::whisky(), 1);
-        $this->assertEquals(Price::from(16), $market->priceFor(Good::whisky()));
+        $market = $market->purchase(Good::Whisky, 1);
+        $this->assertEquals(Price::from(16), $market->priceFor(Good::Whisky));
 
-        $market = $market->purchase(Good::whisky(), 1);
-        $this->assertEquals(Price::from(16), $market->priceFor(Good::whisky()));
+        $market = $market->purchase(Good::Whisky, 1);
+        $this->assertEquals(Price::from(16), $market->priceFor(Good::Whisky));
     }
 
     public function testWhsikyCanBeSold(): void
     {
         $market = Market::from(9, 9, 9, 9, 9, 9);
 
-        $market = $market->sell(Good::whisky(), 1);
-        $this->assertEquals(Price::from(15), $market->priceFor(Good::whisky()));
+        $market = $market->sell(Good::Whisky, 1);
+        $this->assertEquals(Price::from(15), $market->priceFor(Good::Whisky));
 
-        $market = $market->sell(Good::whisky(), 1);
-        $this->assertEquals(Price::from(14), $market->priceFor(Good::whisky()));
+        $market = $market->sell(Good::Whisky, 1);
+        $this->assertEquals(Price::from(14), $market->priceFor(Good::Whisky));
 
-        $market = $market->sell(Good::whisky(), 1);
-        $this->assertEquals(Price::from(13), $market->priceFor(Good::whisky()));
+        $market = $market->sell(Good::Whisky, 1);
+        $this->assertEquals(Price::from(13), $market->priceFor(Good::Whisky));
 
-        $market = $market->sell(Good::whisky(), 1);
-        $this->assertEquals(Price::from(13), $market->priceFor(Good::whisky()));
+        $market = $market->sell(Good::Whisky, 1);
+        $this->assertEquals(Price::from(13), $market->priceFor(Good::Whisky));
 
-        $market = $market->sell(Good::whisky(), 1);
-        $this->assertEquals(Price::from(12), $market->priceFor(Good::whisky()));
+        $market = $market->sell(Good::Whisky, 1);
+        $this->assertEquals(Price::from(12), $market->priceFor(Good::Whisky));
 
-        $market = $market->sell(Good::whisky(), 1);
-        $this->assertEquals(Price::from(11), $market->priceFor(Good::whisky()));
+        $market = $market->sell(Good::Whisky, 1);
+        $this->assertEquals(Price::from(11), $market->priceFor(Good::Whisky));
 
-        $market = $market->sell(Good::whisky(), 1);
-        $this->assertEquals(Price::from(10), $market->priceFor(Good::whisky()));
+        $market = $market->sell(Good::Whisky, 1);
+        $this->assertEquals(Price::from(10), $market->priceFor(Good::Whisky));
 
-        $market = $market->sell(Good::whisky(), 1);
-        $this->assertEquals(Price::from(9), $market->priceFor(Good::whisky()));
+        $market = $market->sell(Good::Whisky, 1);
+        $this->assertEquals(Price::from(9), $market->priceFor(Good::Whisky));
 
-        $market = $market->sell(Good::whisky(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::whisky()));
+        $market = $market->sell(Good::Whisky, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Whisky));
 
-        $market = $market->sell(Good::whisky(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::whisky()));
+        $market = $market->sell(Good::Whisky, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Whisky));
     }
 
     public function testWoolHasInitialPriceOf4(): void
     {
         $market = Market::create();
 
-        $this->assertObjectEquals(Price::from(4), $market->priceFor(Good::wool()));
+        $this->assertObjectEquals(Price::from(4), $market->priceFor(Good::Wool));
     }
 
     public function testWoolCanBePurchased(): void
     {
         $market = Market::from(0, 0, 0, 0, 0, 0);
 
-        $market = $market->purchase(Good::wool(), 1);
-        $this->assertEquals(Price::from(3), $market->priceFor(Good::wool()));
+        $market = $market->purchase(Good::Wool, 1);
+        $this->assertEquals(Price::from(3), $market->priceFor(Good::Wool));
 
-        $market = $market->purchase(Good::wool(), 1);
-        $this->assertEquals(Price::from(4), $market->priceFor(Good::wool()));
+        $market = $market->purchase(Good::Wool, 1);
+        $this->assertEquals(Price::from(4), $market->priceFor(Good::Wool));
 
-        $market = $market->purchase(Good::wool(), 1);
-        $this->assertEquals(Price::from(4), $market->priceFor(Good::wool()));
+        $market = $market->purchase(Good::Wool, 1);
+        $this->assertEquals(Price::from(4), $market->priceFor(Good::Wool));
 
-        $market = $market->purchase(Good::wool(), 1);
-        $this->assertEquals(Price::from(5), $market->priceFor(Good::wool()));
+        $market = $market->purchase(Good::Wool, 1);
+        $this->assertEquals(Price::from(5), $market->priceFor(Good::Wool));
 
-        $market = $market->purchase(Good::wool(), 1);
-        $this->assertEquals(Price::from(5), $market->priceFor(Good::wool()));
+        $market = $market->purchase(Good::Wool, 1);
+        $this->assertEquals(Price::from(5), $market->priceFor(Good::Wool));
 
-        $market = $market->purchase(Good::wool(), 1);
-        $this->assertEquals(Price::from(6), $market->priceFor(Good::wool()));
+        $market = $market->purchase(Good::Wool, 1);
+        $this->assertEquals(Price::from(6), $market->priceFor(Good::Wool));
 
-        $market = $market->purchase(Good::wool(), 1);
-        $this->assertEquals(Price::from(6), $market->priceFor(Good::wool()));
+        $market = $market->purchase(Good::Wool, 1);
+        $this->assertEquals(Price::from(6), $market->priceFor(Good::Wool));
 
-        $market = $market->purchase(Good::wool(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::wool()));
+        $market = $market->purchase(Good::Wool, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Wool));
 
-        $market = $market->purchase(Good::wool(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::wool()));
+        $market = $market->purchase(Good::Wool, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Wool));
 
-        $market = $market->purchase(Good::wool(), 1);
-        $this->assertEquals(Price::from(8), $market->priceFor(Good::wool()));
+        $market = $market->purchase(Good::Wool, 1);
+        $this->assertEquals(Price::from(8), $market->priceFor(Good::Wool));
     }
 
     public function testWoolCanBeSold(): void
     {
         $market = Market::from(9, 9, 9, 9, 9, 9);
 
-        $market = $market->sell(Good::wool(), 1);
-        $this->assertEquals(Price::from(7), $market->priceFor(Good::wool()));
+        $market = $market->sell(Good::Wool, 1);
+        $this->assertEquals(Price::from(7), $market->priceFor(Good::Wool));
 
-        $market = $market->sell(Good::wool(), 1);
-        $this->assertEquals(Price::from(6), $market->priceFor(Good::wool()));
+        $market = $market->sell(Good::Wool, 1);
+        $this->assertEquals(Price::from(6), $market->priceFor(Good::Wool));
 
-        $market = $market->sell(Good::wool(), 1);
-        $this->assertEquals(Price::from(6), $market->priceFor(Good::wool()));
+        $market = $market->sell(Good::Wool, 1);
+        $this->assertEquals(Price::from(6), $market->priceFor(Good::Wool));
 
-        $market = $market->sell(Good::wool(), 1);
-        $this->assertEquals(Price::from(5), $market->priceFor(Good::wool()));
+        $market = $market->sell(Good::Wool, 1);
+        $this->assertEquals(Price::from(5), $market->priceFor(Good::Wool));
 
-        $market = $market->sell(Good::wool(), 1);
-        $this->assertEquals(Price::from(5), $market->priceFor(Good::wool()));
+        $market = $market->sell(Good::Wool, 1);
+        $this->assertEquals(Price::from(5), $market->priceFor(Good::Wool));
 
-        $market = $market->sell(Good::wool(), 1);
-        $this->assertEquals(Price::from(4), $market->priceFor(Good::wool()));
+        $market = $market->sell(Good::Wool, 1);
+        $this->assertEquals(Price::from(4), $market->priceFor(Good::Wool));
 
-        $market = $market->sell(Good::wool(), 1);
-        $this->assertEquals(Price::from(4), $market->priceFor(Good::wool()));
+        $market = $market->sell(Good::Wool, 1);
+        $this->assertEquals(Price::from(4), $market->priceFor(Good::Wool));
 
-        $market = $market->sell(Good::wool(), 1);
-        $this->assertEquals(Price::from(3), $market->priceFor(Good::wool()));
+        $market = $market->sell(Good::Wool, 1);
+        $this->assertEquals(Price::from(3), $market->priceFor(Good::Wool));
 
-        $market = $market->sell(Good::wool(), 1);
-        $this->assertEquals(Price::from(3), $market->priceFor(Good::wool()));
+        $market = $market->sell(Good::Wool, 1);
+        $this->assertEquals(Price::from(3), $market->priceFor(Good::Wool));
 
-        $market = $market->sell(Good::wool(), 1);
-        $this->assertEquals(Price::from(3), $market->priceFor(Good::wool()));
+        $market = $market->sell(Good::Wool, 1);
+        $this->assertEquals(Price::from(3), $market->priceFor(Good::Wool));
     }
 
     public function testHasPriceTableForEachGood(): void

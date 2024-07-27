@@ -35,7 +35,7 @@ final class PriceChangedJsonMapper implements EventArrayMapper
         assert($event instanceof PriceChangedEvent);
 
         return [
-            'good'      => $event->good()->asString(),
+            'good'      => $event->good()->value,
             'old_price' => $event->old()->asInt(),
             'new_price' => $event->new()->asInt(),
         ];

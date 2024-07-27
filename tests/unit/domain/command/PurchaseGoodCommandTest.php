@@ -7,7 +7,6 @@ use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(PurchaseGoodCommand::class)]
-#[CoversClass(Bread::class)]
 #[CoversClass(Good::class)]
 #[Group('domain')]
 #[Small]
@@ -15,14 +14,16 @@ final class PurchaseGoodCommandTest extends TestCase
 {
     public function testHasGood(): void
     {
-        $command = new PurchaseGoodCommand(Good::bread(), 1);
+        $good = Good::Bread;
 
-        $this->assertTrue($command->good()->isBread());
+        $command = new PurchaseGoodCommand($good, 1);
+
+        $this->assertSame($good, $command->good());
     }
 
     public function testHasAmount(): void
     {
-        $command = new PurchaseGoodCommand(Good::bread(), 1);
+        $command = new PurchaseGoodCommand(Good::Bread, 1);
 
         $this->assertSame(1, $command->amount());
     }
