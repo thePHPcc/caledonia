@@ -3,6 +3,9 @@ namespace example\framework\library;
 
 use function SebastianBergmann\Uuid\uuid;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class RandomUuidGenerator implements UuidGenerator
 {
     public function generate(): Uuid

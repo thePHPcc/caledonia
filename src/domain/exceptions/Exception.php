@@ -3,6 +3,9 @@ namespace example\caledonia\domain;
 
 use Throwable;
 
+/**
+ * @no-named-arguments
+ */
 interface Exception extends Throwable
 {
 }

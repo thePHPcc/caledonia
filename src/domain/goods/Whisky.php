@@ -2,7 +2,7 @@
 namespace example\caledonia\domain;
 
 /**
- * @immutable
+ * @no-named-arguments
  */
 final readonly class Whisky extends Good
 {

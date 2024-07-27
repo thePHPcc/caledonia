@@ -4,6 +4,9 @@ namespace example\caledonia\application;
 use example\caledonia\domain\Good;
 use example\caledonia\domain\Price;
 
+/**
+ * @no-named-arguments
+ */
 interface EventEmitter
 {
     /**

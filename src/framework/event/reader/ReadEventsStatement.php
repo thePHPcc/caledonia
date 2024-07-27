@@ -8,6 +8,9 @@ use function sprintf;
 use SebastianBergmann\MysqliWrapper\ReadingDatabaseConnection;
 use SebastianBergmann\MysqliWrapper\ReadStatement;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class ReadEventsStatement implements ReadStatement
 {
     /**

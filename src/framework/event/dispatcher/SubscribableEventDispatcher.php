@@ -1,8 +1,9 @@
 <?php declare(strict_types=1);
 namespace example\framework\event;
 
-use function array_values;
-
+/**
+ * @no-named-arguments
+ */
 final readonly class SubscribableEventDispatcher implements EventDispatcher
 {
     /**
@@ -12,7 +13,7 @@ final readonly class SubscribableEventDispatcher implements EventDispatcher
 
     public function __construct(EventSubscriber ...$subscribers)
     {
-        $this->subscribers = array_values($subscribers);
+        $this->subscribers = $subscribers;
     }
 
     public function dispatch(Event $event): void

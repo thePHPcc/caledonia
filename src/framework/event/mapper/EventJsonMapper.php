@@ -11,6 +11,9 @@ use function json_decode;
 use function json_encode;
 use JsonException;
 
+/**
+ * @no-named-arguments
+ */
 final class EventJsonMapper
 {
     /**

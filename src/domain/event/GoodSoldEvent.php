@@ -5,6 +5,9 @@ use function sprintf;
 use example\framework\event\Event;
 use example\framework\library\Uuid;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class GoodSoldEvent extends Event
 {
     private Good $good;

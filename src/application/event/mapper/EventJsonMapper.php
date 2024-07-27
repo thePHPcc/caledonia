@@ -3,6 +3,9 @@ namespace example\caledonia\application;
 
 use example\framework\event\EventJsonMapper as FrameworkEventJsonMapper;
 
+/**
+ * @no-named-arguments
+ */
 trait EventJsonMapper
 {
     private function createEventJsonMapper(): FrameworkEventJsonMapper

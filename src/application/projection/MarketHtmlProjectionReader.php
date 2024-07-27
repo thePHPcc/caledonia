@@ -4,6 +4,9 @@ namespace example\caledonia\application;
 use function assert;
 use function file_get_contents;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class MarketHtmlProjectionReader
 {
     public function read(): string

@@ -3,6 +3,9 @@ namespace example\caledonia\domain;
 
 use InvalidArgumentException;
 
+/**
+ * @no-named-arguments
+ */
 final class AmountMustNotBecomeNegativeException extends InvalidArgumentException implements Exception
 {
 }

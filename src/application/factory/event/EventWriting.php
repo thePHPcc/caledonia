@@ -8,6 +8,9 @@ use example\framework\event\WritingEventSubscriber;
 use example\framework\library\RandomUuidGenerator;
 use SebastianBergmann\MysqliWrapper\MysqliWritingDatabaseConnection;
 
+/**
+ * @no-named-arguments
+ */
 trait EventWriting
 {
     use EventJsonMapper;

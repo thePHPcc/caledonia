@@ -5,6 +5,9 @@ use example\framework\event\DatabaseEventReader;
 use example\framework\event\EventReader;
 use SebastianBergmann\MysqliWrapper\MysqliReadingDatabaseConnection;
 
+/**
+ * @no-named-arguments
+ */
 trait EventReading
 {
     use EventJsonMapper;

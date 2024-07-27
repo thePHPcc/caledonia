@@ -4,6 +4,9 @@ namespace example\framework\http;
 use function assert;
 use function file_get_contents;
 
+/**
+ * @no-named-arguments
+ */
 abstract readonly class Request
 {
     private string $uri;

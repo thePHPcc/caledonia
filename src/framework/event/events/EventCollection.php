@@ -8,7 +8,7 @@ use IteratorAggregate;
 /**
  * @template-implements IteratorAggregate<int, Event>
  *
- * @immutable
+ * @no-named-arguments
  */
 final readonly class EventCollection implements Countable, IteratorAggregate
 {

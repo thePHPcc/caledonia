@@ -4,6 +4,9 @@ namespace example\framework\http;
 use example\framework\Exception;
 use RuntimeException;
 
+/**
+ * @no-named-arguments
+ */
 final class UnsupportedRequestException extends RuntimeException implements Exception
 {
 }

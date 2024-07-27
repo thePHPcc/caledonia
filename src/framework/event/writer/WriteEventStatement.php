@@ -4,6 +4,9 @@ namespace example\framework\event;
 use SebastianBergmann\MysqliWrapper\WriteStatement;
 use SebastianBergmann\MysqliWrapper\WritingDatabaseConnection;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class WriteEventStatement implements WriteStatement
 {
     /**

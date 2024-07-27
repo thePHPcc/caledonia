@@ -5,6 +5,9 @@ use example\framework\http\GetRequestRouter;
 use example\framework\http\Kernel;
 use example\framework\http\PostRequestRouter;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class ApplicationFactory
 {
     public function createApplication(): Kernel

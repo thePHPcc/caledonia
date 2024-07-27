@@ -3,6 +3,9 @@ namespace example\framework\event;
 
 use example\framework\library\Uuid;
 
+/**
+ * @no-named-arguments
+ */
 abstract readonly class Event
 {
     private Uuid $id;

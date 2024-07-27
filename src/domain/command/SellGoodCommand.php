@@ -1,6 +1,9 @@
 <?php declare(strict_types=1);
 namespace example\caledonia\domain;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class SellGoodCommand
 {
     private Good $good;

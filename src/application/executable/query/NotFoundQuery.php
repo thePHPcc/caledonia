@@ -4,6 +4,9 @@ namespace example\caledonia\application;
 use example\framework\http\Query;
 use example\framework\http\Response;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class NotFoundQuery implements Query
 {
     public function execute(): Response

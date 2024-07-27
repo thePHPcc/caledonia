@@ -6,6 +6,8 @@ use Iterator;
 
 /**
  * @template-implements Iterator<int, Event>
+ *
+ * @no-named-arguments
  */
 final class EventCollectionIterator implements Iterator
 {

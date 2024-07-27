@@ -9,6 +9,9 @@ use example\caledonia\domain\PurchaseGoodCommand;
 use example\framework\http\PostRequest;
 use example\framework\http\PostRequestRoute;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class PurchaseGoodRoute implements PostRequestRoute
 {
     private CommandFactory $factory;

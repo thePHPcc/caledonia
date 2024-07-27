@@ -3,6 +3,9 @@ namespace example\framework\http;
 
 use function assert;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class Kernel
 {
     private GetRequestRouter $getRequestRouter;

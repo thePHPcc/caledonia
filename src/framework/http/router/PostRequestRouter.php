@@ -1,8 +1,9 @@
 <?php declare(strict_types=1);
 namespace example\framework\http;
 
-use function array_values;
-
+/**
+ * @no-named-arguments
+ */
 final readonly class PostRequestRouter
 {
     /**
@@ -12,7 +13,7 @@ final readonly class PostRequestRouter
 
     public function __construct(PostRequestRoute ...$routes)
     {
-        $this->routes = array_values($routes);
+        $this->routes = $routes;
     }
 
     /**

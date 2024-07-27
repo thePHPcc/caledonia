@@ -3,6 +3,9 @@ namespace example\caledonia\application;
 
 use example\caledonia\domain\SellGoodCommand;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class SellGoodCommandProcessor
 {
     private EventEmitter $emitter;

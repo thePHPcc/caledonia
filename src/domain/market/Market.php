@@ -4,7 +4,7 @@ namespace example\caledonia\domain;
 use function range;
 
 /**
- * @immutable
+ * @no-named-arguments
  */
 final readonly class Market
 {

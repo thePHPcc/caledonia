@@ -3,6 +3,9 @@ namespace example\framework\event;
 
 use SebastianBergmann\MysqliWrapper\WritingDatabaseConnection;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class DatabaseEventWriter implements EventWriter
 {
     private WritingDatabaseConnection $connection;

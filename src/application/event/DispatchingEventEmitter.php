@@ -9,6 +9,9 @@ use example\caledonia\domain\PriceChangedEvent;
 use example\framework\event\EventDispatcher;
 use example\framework\library\UuidGenerator;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class DispatchingEventEmitter implements EventEmitter
 {
     private EventDispatcher $dispatcher;

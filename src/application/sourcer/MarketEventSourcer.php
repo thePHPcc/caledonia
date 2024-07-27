@@ -7,6 +7,9 @@ use example\caledonia\domain\GoodSoldEvent;
 use example\caledonia\domain\Market;
 use example\framework\event\EventReader;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class MarketEventSourcer implements MarketSourcer
 {
     private EventReader $reader;

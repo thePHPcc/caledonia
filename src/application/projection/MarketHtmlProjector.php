@@ -7,6 +7,9 @@ use function range;
 use function str_replace;
 use example\caledonia\domain\Market;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class MarketHtmlProjector
 {
     public function project(Market $market): string

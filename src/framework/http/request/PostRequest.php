@@ -1,6 +1,9 @@
 <?php declare(strict_types=1);
 namespace example\framework\http;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class PostRequest extends Request
 {
     private string $body;

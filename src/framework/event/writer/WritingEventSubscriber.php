@@ -1,6 +1,9 @@
 <?php declare(strict_types=1);
 namespace example\framework\event;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class WritingEventSubscriber implements EventSubscriber
 {
     private EventWriter $writer;

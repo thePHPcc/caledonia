@@ -3,6 +3,9 @@ namespace example\framework\http;
 
 use function header;
 
+/**
+ * @no-named-arguments
+ */
 final class Response
 {
     /**

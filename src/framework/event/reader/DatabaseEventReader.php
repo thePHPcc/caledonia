@@ -4,6 +4,9 @@ namespace example\framework\event;
 use function is_string;
 use SebastianBergmann\MysqliWrapper\ReadingDatabaseConnection;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class DatabaseEventReader implements EventReader
 {
     private ReadingDatabaseConnection $connection;

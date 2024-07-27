@@ -5,6 +5,9 @@ use example\framework\http\GetRequest;
 use example\framework\http\GetRequestRoute;
 use example\framework\http\Query;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class MarketRoute implements GetRequestRoute
 {
     private QueryFactory $factory;

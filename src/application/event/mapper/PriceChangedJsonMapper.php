@@ -9,6 +9,9 @@ use example\framework\event\Event;
 use example\framework\event\EventArrayMapper;
 use example\framework\library\Uuid;
 
+/**
+ * @no-named-arguments
+ */
 final class PriceChangedJsonMapper implements EventArrayMapper
 {
     /**

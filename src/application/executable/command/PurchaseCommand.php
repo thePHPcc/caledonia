@@ -5,6 +5,9 @@ use example\caledonia\domain\PurchaseGoodCommand;
 use example\framework\http\Command;
 use example\framework\http\Response;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class PurchaseCommand implements Command
 {
     private PurchaseGoodCommandProcessor $processor;

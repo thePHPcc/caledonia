@@ -3,6 +3,9 @@ namespace example\framework;
 
 use Throwable;
 
+/**
+ * @no-named-arguments
+ */
 interface Exception extends Throwable
 {
 }

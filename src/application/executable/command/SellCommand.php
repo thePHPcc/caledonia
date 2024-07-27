@@ -5,6 +5,9 @@ use example\caledonia\domain\SellGoodCommand;
 use example\framework\http\Command;
 use example\framework\http\Response;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class SellCommand implements Command
 {
     private SellGoodCommandProcessor $processor;

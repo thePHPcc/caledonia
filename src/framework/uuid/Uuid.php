@@ -3,6 +3,9 @@ namespace example\framework\library;
 
 use function preg_match;
 
+/**
+ * @no-named-arguments
+ */
 final readonly class Uuid
 {
     /**
