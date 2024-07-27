@@ -2,7 +2,6 @@
     "$schema": "https://raw.githubusercontent.com/infection/infection/0.26.21/resources/schema.json",
     "testFramework":"phpunit",
     "testFrameworkOptions": "--testsuite=unit",
-    "bootstrap":"tests/bootstrap.php",
     "phpUnit": {
         "customPath": "tools/phpunit"
     },
