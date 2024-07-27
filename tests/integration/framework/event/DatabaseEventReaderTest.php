@@ -62,6 +62,9 @@ final class DatabaseEventReaderTest extends TestCase
         }
     }
 
+    /**
+     * @return array{host: non-empty-string, username: non-empty-string, password: non-empty-string, database: non-empty-string}
+     */
     protected function configurationForTesting(): array
     {
         return [
