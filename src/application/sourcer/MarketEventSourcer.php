@@ -23,7 +23,7 @@ final readonly class MarketEventSourcer implements MarketSourcer
     {
         $market = Market::create();
 
-        foreach ($this->reader->topic(['market.good-purchased', 'market.good-sold']) as $event) {
+        foreach ($this->reader->topic('market.good-purchased', 'market.good-sold') as $event) {
             assert($event instanceof GoodPurchasedEvent || $event instanceof GoodSoldEvent);
 
             if ($event instanceof GoodPurchasedEvent) {

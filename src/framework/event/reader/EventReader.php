@@ -7,7 +7,7 @@ namespace example\framework\event;
 interface EventReader
 {
     /**
-     * @param list<non-empty-string>|non-empty-string $topics
+     * @param non-empty-string ...$topics
      */
-    public function topic(array|string $topics): EventCollection;
+    public function topic(string ...$topics): EventCollection;
 }

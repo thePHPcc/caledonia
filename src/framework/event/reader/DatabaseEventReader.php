@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 namespace example\framework\event;
 
-use function is_string;
 use SebastianBergmann\MysqliWrapper\ReadingDatabaseConnection;
 
 /**
@@ -19,14 +18,10 @@ final readonly class DatabaseEventReader implements EventReader
     }
 
     /**
-     * @param non-empty-list<non-empty-string>|non-empty-string $topics
+     * @param non-empty-string ...$topics
      */
-    public function topic(array|string $topics): EventCollection
+    public function topic(string ...$topics): EventCollection
     {
-        if (is_string($topics)) {
-            $topics = [$topics];
-        }
-
         $result = (new ReadEventsStatement($topics))->execute($this->connection);
         $events = [];
 
