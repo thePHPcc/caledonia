@@ -41,4 +41,18 @@ final class ResponseTest extends TestCase
 
         $this->assertSame($body, $response->body());
     }
+
+    public function testCanBeSent(): void
+    {
+        $response = new Response;
+        $body     = 'the-body';
+        $header   = 'the-header';
+
+        $response->addHeader($header);
+        $response->setBody($body);
+
+        $this->expectOutputString($body);
+
+        $response->send();
+    }
 }
