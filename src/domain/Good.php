@@ -19,8 +19,8 @@ enum Good: string
             'whisky' => self::Whisky,
             'wool'   => self::Wool,
         };
-
     }
+
     case Bread  = 'bread';
     case Cheese = 'cheese';
     case Grain  = 'grain';

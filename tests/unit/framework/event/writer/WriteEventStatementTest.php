@@ -32,6 +32,5 @@ final class WriteEventStatementTest extends TestCase
         $statement = new WriteEventStatement('id', 'topic', 'payload');
 
         $statement->execute($connection);
-
     }
 }
