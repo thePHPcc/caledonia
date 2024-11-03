@@ -43,7 +43,14 @@ final class EventJsonMapperTest extends TestCase
         $this->assertSame($this->event()->key(), $event->key());
     }
 
-    public function testCannotMapUnknownEvents(): void
+    public function testCannotMapUnknownEventToJson(): void
+    {
+        $this->expectException(CannotMapEventException::class);
+
+        (new EventJsonMapper([]))->toJson($this->event());
+    }
+
+    public function testCannotMapFromJsonWithUnknownEvent(): void
     {
         $json = json_encode([]);
 
@@ -54,7 +61,7 @@ final class EventJsonMapperTest extends TestCase
         (new EventJsonMapper([]))->fromJson($json);
     }
 
-    public function testCannotMapUnknownEvents2(): void
+    public function testCannotMapFromJsonWithUnknownEvent2(): void
     {
         $json = json_encode(['topic' => 'unknown']);
 
