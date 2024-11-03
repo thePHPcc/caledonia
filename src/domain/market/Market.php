@@ -95,6 +95,8 @@ final readonly class Market
         $priceTables = $this->priceTables;
 
         foreach (range(1, $amount) as $i) {
+            assert($priceTables[$good->value] instanceof PriceTable);
+
             $priceTables[$good->value] = $priceTables[$good->value]->decrease();
         }
 
