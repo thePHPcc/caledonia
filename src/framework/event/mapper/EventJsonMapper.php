@@ -38,9 +38,10 @@ final class EventJsonMapper
     {
         $data = json_decode($json, true, JSON_THROW_ON_ERROR);
 
+        assert(is_array($data));
+
         $this->ensureJsonCanBeMapped($data);
 
-        assert(is_array($data));
         assert(isset($data['topic']) && is_string($data['topic']));
         assert(isset($data['event_id']) && is_string($data['event_id']));
 
@@ -94,10 +95,6 @@ final class EventJsonMapper
      */
     private function ensureJsonCanBeMapped(mixed $data): void
     {
-        if (!is_array($data)) {
-            throw new CannotMapEventException;
-        }
-
         if (!array_key_exists('topic', $data) ||
             !is_string($data['topic']) ||
             !array_key_exists('event_id', $data) ||
