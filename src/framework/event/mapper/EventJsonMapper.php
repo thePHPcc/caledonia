@@ -93,9 +93,11 @@ final class EventJsonMapper
     }
 
     /**
+     * @param array<non-empty-string, mixed> $data
+     *
      * @throws CannotMapEventException
      */
-    private function ensureJsonCanBeMapped(mixed $data): void
+    private function ensureJsonCanBeMapped(array $data): void
     {
         if (!array_key_exists('topic', $data) ||
             !is_string($data['topic']) ||
