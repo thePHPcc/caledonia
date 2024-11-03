@@ -69,12 +69,14 @@ final class EventJsonMapper
 
         try {
             return json_encode($data, JSON_THROW_ON_ERROR);
+            // @codeCoverageIgnoreStart
         } catch (JsonException $e) {
             throw new CannotMapEventException(
                 $e->getMessage(),
                 $e->getCode(),
                 $e,
             );
+            // @codeCoverageIgnoreEnd
         }
     }
 
