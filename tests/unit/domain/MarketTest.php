@@ -365,7 +365,7 @@ final class MarketTest extends TestCase
         $this->assertEquals(Price::from(16), $market->priceFor(Good::Whisky));
     }
 
-    public function testWhsikyCanBeSold(): void
+    public function testWhiskyCanBeSold(): void
     {
         $market = Market::from(9, 9, 9, 9, 9, 9);
 
