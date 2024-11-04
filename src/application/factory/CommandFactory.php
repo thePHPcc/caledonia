@@ -4,24 +4,9 @@ namespace example\caledonia\application;
 /**
  * @no-named-arguments
  */
-final readonly class CommandFactory
+interface CommandFactory
 {
-    use EventReading;
-    use EventWriting;
+    public function createPurchaseGoodCommandProcessor(): PurchaseGoodCommandProcessor;
 
-    public function createPurchaseGoodCommandProcessor(): PurchaseGoodCommandProcessor
-    {
-        return new PurchaseGoodCommandProcessor(
-            $this->createEventEmitter(),
-            $this->createMarketEventSourcer(),
-        );
-    }
-
-    public function createSellGoodCommandProcessor(): SellGoodCommandProcessor
-    {
-        return new SellGoodCommandProcessor(
-            $this->createEventEmitter(),
-            $this->createMarketEventSourcer(),
-        );
-    }
+    public function createSellGoodCommandProcessor(): SellGoodCommandProcessor;
 }

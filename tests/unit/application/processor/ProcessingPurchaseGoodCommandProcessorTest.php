@@ -13,7 +13,7 @@ use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(PurchaseGoodCommandProcessor::class)]
+#[CoversClass(ProcessingPurchaseGoodCommandProcessor::class)]
 #[UsesClass(PurchaseGoodCommand::class)]
 #[UsesClass(Good::class)]
 #[UsesClass(Market::class)]
@@ -21,7 +21,7 @@ use PHPUnit\Framework\TestCase;
 #[UsesClass(PriceTable::class)]
 #[Group('domain')]
 #[Small]
-final class PurchaseGoodCommandProcessorTest extends TestCase
+final class ProcessingPurchaseGoodCommandProcessorTest extends TestCase
 {
     #[TestDox('Only a GoodPurchasedEvent is emitted when the price does not change')]
     public function testEmitsGoodPurchasedEvent(): void
@@ -47,7 +47,7 @@ final class PurchaseGoodCommandProcessorTest extends TestCase
             ->expects($this->never())
             ->method('priceChanged');
 
-        $processor = new PurchaseGoodCommandProcessor($emitter, $sourcer);
+        $processor = new ProcessingPurchaseGoodCommandProcessor($emitter, $sourcer);
 
         $processor->process(new PurchaseGoodCommand(Good::Bread, 1));
     }
@@ -77,7 +77,7 @@ final class PurchaseGoodCommandProcessorTest extends TestCase
             ->method('priceChanged')
             ->with(Good::Bread, Price::from(10), Price::from(12));
 
-        $processor = new PurchaseGoodCommandProcessor($emitter, $sourcer);
+        $processor = new ProcessingPurchaseGoodCommandProcessor($emitter, $sourcer);
 
         $processor->process(new PurchaseGoodCommand(Good::Bread, 3));
     }

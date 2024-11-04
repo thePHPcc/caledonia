@@ -6,16 +6,16 @@ use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(MarketHtmlProjectionReader::class)]
+#[CoversClass(FilesystemMarketHtmlProjectionReader::class)]
 #[Group('domain')]
 #[Small]
-final class MarketHtmlProjectionReaderTest extends TestCase
+final class FilesystemMarketHtmlProjectionReaderTest extends TestCase
 {
     public function testReadsHtmlProjectionOfMarket(): void
     {
         $this->assertStringEqualsFile(
             __DIR__ . '/../../../../projections/market.html',
-            (new MarketHtmlProjectionReader)->read(),
+            (new FilesystemMarketHtmlProjectionReader)->read(),
         );
     }
 }

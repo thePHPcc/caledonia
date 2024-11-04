@@ -4,12 +4,7 @@ namespace example\caledonia\application;
 /**
  * @no-named-arguments
  */
-final readonly class QueryFactory
+interface QueryFactory
 {
-    use EventReading;
-
-    public function createMarketHtmlProjectionReader(): MarketHtmlProjectionReader
-    {
-        return new MarketHtmlProjectionReader;
-    }
+    public function createMarketHtmlProjectionReader(): MarketHtmlProjectionReader;
 }

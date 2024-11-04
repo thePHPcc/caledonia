@@ -37,11 +37,11 @@ final readonly class ApplicationFactory
 
     private function createCommandFactory(): CommandFactory
     {
-        return new CommandFactory;
+        return new ProductionCommandFactory;
     }
 
     private function createQueryFactory(): QueryFactory
     {
-        return new QueryFactory;
+        return new ProductionQueryFactory;
     }
 }
