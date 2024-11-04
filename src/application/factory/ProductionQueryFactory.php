@@ -10,6 +10,6 @@ final readonly class ProductionQueryFactory implements QueryFactory
 
     public function createMarketHtmlProjectionReader(): MarketHtmlProjectionReader
     {
-        return new FilesystemMarketHtmlProjectionReader;
+        return new FilesystemMarketHtmlProjectionReader(__DIR__ . '/../../../projections/market.html');
     }
 }

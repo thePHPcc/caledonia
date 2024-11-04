@@ -2,6 +2,7 @@
 namespace example\caledonia\application;
 
 use function assert;
+use function file_exists;
 use function file_get_contents;
 
 /**
@@ -9,9 +10,24 @@ use function file_get_contents;
  */
 final readonly class FilesystemMarketHtmlProjectionReader implements MarketHtmlProjectionReader
 {
+    /**
+     * @var non-empty-string
+     */
+    private string $path;
+
+    /**
+     * @param non-empty-string $path
+     */
+    public function __construct(string $path)
+    {
+        assert(file_exists($path));
+
+        $this->path = $path;
+    }
+
     public function read(): string
     {
-        $buffer = file_get_contents(__DIR__ . '/../../../projections/market.html');
+        $buffer = file_get_contents($this->path);
 
         assert($buffer !== false);
 

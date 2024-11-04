@@ -13,9 +13,11 @@ final class FilesystemMarketHtmlProjectionReaderTest extends TestCase
 {
     public function testReadsHtmlProjectionOfMarket(): void
     {
+        $path = __DIR__ . '/../../../expectation/market.html';
+
         $this->assertStringEqualsFile(
-            __DIR__ . '/../../../../projections/market.html',
-            (new FilesystemMarketHtmlProjectionReader)->read(),
+            $path,
+            (new FilesystemMarketHtmlProjectionReader($path))->read(),
         );
     }
 }
