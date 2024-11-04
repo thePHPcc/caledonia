@@ -8,7 +8,7 @@ use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(Market::class)]
-#[CoversClass(PriceTable::class)]
+#[UsesClass(PriceTable::class)]
 #[UsesClass(Good::class)]
 #[UsesClass(Price::class)]
 #[Group('domain')]
