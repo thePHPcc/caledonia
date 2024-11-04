@@ -3,7 +3,7 @@ namespace example\caledonia\application;
 
 use example\framework\http\Request;
 
-require __DIR__ . '/../src/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 (new ApplicationFactory)
     ->createApplication()
