@@ -31,7 +31,7 @@ final class PurchaseGoodRouteTest extends TestCase
             ),
         );
 
-        $this->assertInstanceOf(PurchaseCommand::class, $command);
+        $this->assertInstanceOf(PurchaseGoodCommand::class, $command);
     }
 
     #[TestDox('Does not route POST requests to URIs other than /purchase-good to PurchaseCommand')]

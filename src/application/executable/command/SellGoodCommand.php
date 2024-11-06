@@ -1,19 +1,19 @@
 <?php declare(strict_types=1);
 namespace example\caledonia\application;
 
-use example\caledonia\domain\PurchaseGoodCommand;
+use example\caledonia\domain\SellGoodCommand as DomainCommand;
 use example\framework\http\Command;
 use example\framework\http\Response;
 
 /**
  * @no-named-arguments
  */
-final readonly class PurchaseCommand implements Command
+final readonly class SellGoodCommand implements Command
 {
-    private PurchaseGoodCommandProcessor $processor;
-    private PurchaseGoodCommand $command;
+    private SellGoodCommandProcessor $processor;
+    private DomainCommand $command;
 
-    public function __construct(PurchaseGoodCommandProcessor $processor, PurchaseGoodCommand $command)
+    public function __construct(SellGoodCommandProcessor $processor, DomainCommand $command)
     {
         $this->processor = $processor;
         $this->command   = $command;

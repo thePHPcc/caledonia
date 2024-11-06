@@ -31,7 +31,7 @@ final class SellGoodRouteTest extends TestCase
             ),
         );
 
-        $this->assertInstanceOf(SellCommand::class, $command);
+        $this->assertInstanceOf(SellGoodCommand::class, $command);
     }
 
     #[TestDox('Does not route POST requests to URIs other than /sell-good to SellCommand')]

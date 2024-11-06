@@ -5,7 +5,7 @@ use function assert;
 use function is_array;
 use function json_decode;
 use example\caledonia\domain\Good;
-use example\caledonia\domain\PurchaseGoodCommand;
+use example\caledonia\domain\PurchaseGoodCommand as DomainCommand;
 use example\framework\http\PostRequest;
 use example\framework\http\PostRequestRoute;
 
@@ -21,7 +21,7 @@ final readonly class PurchaseGoodRoute implements PostRequestRoute
         $this->factory = $factory;
     }
 
-    public function route(PostRequest $request): false|PurchaseCommand
+    public function route(PostRequest $request): false|PurchaseGoodCommand
     {
         if ($request->uri() !== '/purchase-good') {
             return false;
@@ -38,9 +38,9 @@ final readonly class PurchaseGoodRoute implements PostRequestRoute
 
         assert($amount >= 1);
 
-        return new PurchaseCommand(
+        return new PurchaseGoodCommand(
             $this->factory->createPurchaseGoodCommandProcessor(),
-            new PurchaseGoodCommand(
+            new DomainCommand(
                 $good,
                 $amount,
             ),
