@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 namespace example\caledonia\domain;
 
-use function assert;
 use function range;
 
 /**
@@ -79,8 +78,6 @@ final readonly class Market
         $priceTables = $this->priceTables;
 
         foreach (range(1, $amount) as $i) {
-            assert($priceTables[$good->value] instanceof PriceTable);
-
             $priceTables[$good->value] = $priceTables[$good->value]->increase();
         }
 
@@ -95,8 +92,6 @@ final readonly class Market
         $priceTables = $this->priceTables;
 
         foreach (range(1, $amount) as $i) {
-            assert($priceTables[$good->value] instanceof PriceTable);
-
             $priceTables[$good->value] = $priceTables[$good->value]->decrease();
         }
 

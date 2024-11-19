@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 namespace example\framework\event;
 
+use function assert;
 use SebastianBergmann\MysqliWrapper\ReadingDatabaseConnection;
 
 /**
@@ -22,6 +23,8 @@ final readonly class DatabaseEventReader implements EventReader
      */
     public function topic(string ...$topics): EventCollection
     {
+        assert($topics !== []);
+
         $result = (new ReadEventsStatement($topics))->execute($this->connection);
         $events = [];
 

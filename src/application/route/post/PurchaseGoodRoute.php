@@ -2,7 +2,9 @@
 namespace example\caledonia\application;
 
 use function assert;
+use function in_array;
 use function is_array;
+use function is_int;
 use function json_decode;
 use example\caledonia\domain\Good;
 use example\caledonia\domain\PurchaseGoodCommand as DomainCommand;
@@ -30,11 +32,11 @@ final readonly class PurchaseGoodRoute implements PostRequestRoute
         $data = json_decode($request->body(), true);
 
         assert(is_array($data));
-        assert(isset($data['good']));
-        assert(isset($data['amount']));
+        assert(isset($data['good']) && in_array($data['good'], ['bread', 'cheese', 'grain', 'milk', 'whisky', 'wool'], true));
+        assert(isset($data['amount']) && is_int($data['amount']));
 
         $good   = Good::fromString($data['good']);
-        $amount = (int) $data['amount'];
+        $amount = $data['amount'];
 
         assert($amount >= 1);
 

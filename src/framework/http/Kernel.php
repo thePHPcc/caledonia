@@ -1,8 +1,6 @@
 <?php declare(strict_types=1);
 namespace example\framework\http;
 
-use function assert;
-
 /**
  * @no-named-arguments
  */
@@ -20,16 +18,12 @@ final readonly class Kernel
     public function run(Request $request): Response
     {
         if ($request->isGetRequest()) {
-            assert($request instanceof GetRequest);
-
             $query = $this->getRequestRouter->route($request);
 
             return $query->execute();
         }
 
         if ($request->isPostRequest()) {
-            assert($request instanceof PostRequest);
-
             $command = $this->postRequestRouter->route($request);
 
             return $command->execute();

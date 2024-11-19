@@ -1,6 +1,8 @@
 parameters:
-    level: 9
+    level: 10
     ignoreErrors:
+        -
+            identifier: method.alreadyNarrowedType
         -
             identifier: method.impossibleType
     paths:

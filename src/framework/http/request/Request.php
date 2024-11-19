@@ -3,6 +3,7 @@ namespace example\framework\http;
 
 use function assert;
 use function file_get_contents;
+use function is_string;
 
 /**
  * @no-named-arguments
@@ -16,12 +17,13 @@ abstract readonly class Request
      */
     public static function fromSuperGlobals(): GetRequest|PostRequest
     {
-        assert(isset($_SERVER['REQUEST_METHOD']));
-        assert(isset($_SERVER['REQUEST_URI']));
+        assert(isset($_SERVER['REQUEST_METHOD']) && is_string($_SERVER['REQUEST_METHOD']));
+        assert(isset($_SERVER['REQUEST_URI']) && is_string($_SERVER['REQUEST_URI']));
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             return new GetRequest(
                 $_SERVER['REQUEST_URI'],
+                /** @phpstan-ignore argument.type */
                 $_GET,
             );
         }

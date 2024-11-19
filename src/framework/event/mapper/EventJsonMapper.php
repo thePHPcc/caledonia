@@ -45,6 +45,7 @@ final class EventJsonMapper
         assert(isset($data['topic']) && is_string($data['topic']));
         assert(isset($data['event_id']) && is_string($data['event_id']));
 
+        /** @phpstan-ignore argument.type */
         return $this->mappers[$data['topic']]->fromArray($data);
     }
 
@@ -93,7 +94,7 @@ final class EventJsonMapper
     }
 
     /**
-     * @param array<non-empty-string, mixed> $data
+     * @param array<mixed> $data
      *
      * @throws CannotMapEventException
      */
