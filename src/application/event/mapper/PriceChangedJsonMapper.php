@@ -21,7 +21,7 @@ final class PriceChangedJsonMapper implements EventArrayMapper
     {
         return new PriceChangedEvent(
             Uuid::from($data['event_id']),
-            Good::fromString($data['good']),
+            Good::from($data['good']),
             Price::from($data['old_price']),
             Price::from($data['new_price']),
         );

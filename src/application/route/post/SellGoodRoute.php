@@ -35,7 +35,7 @@ final readonly class SellGoodRoute implements PostRequestRoute
         assert(isset($data['good']) && in_array($data['good'], ['bread', 'cheese', 'grain', 'milk', 'whisky', 'wool'], true));
         assert(isset($data['amount']) && is_int($data['amount']));
 
-        $good   = Good::fromString($data['good']);
+        $good   = Good::from($data['good']);
         $amount = $data['amount'];
 
         assert($amount >= 1);

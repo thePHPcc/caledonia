@@ -21,7 +21,7 @@ final class GoodSoldJsonMapper implements EventArrayMapper
     {
         return new GoodSoldEvent(
             Uuid::from($data['event_id']),
-            Good::fromString($data['good']),
+            Good::from($data['good']),
             Price::from((int) $data['price']),
             (int) $data['amount'],
         );
