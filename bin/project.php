@@ -14,7 +14,7 @@ if (!isset($argv[1])) {
     exit(1);
 }
 
-require __DIR__ . '/../src/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $sourcer = (new QueryFactory)->createMarketEventSourcer();
 
