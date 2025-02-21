@@ -16,7 +16,7 @@ if (!isset($argv[1])) {
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$sourcer = (new QueryFactory)->createMarketEventSourcer();
+$sourcer = (new ProductionQueryFactory)->createMarketEventSourcer();
 
 file_put_contents(
     $argv[1],
