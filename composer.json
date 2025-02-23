@@ -3,9 +3,9 @@
         "ext-mysqli": "*"
     },
     "require-dev": {
-        "sebastian/csv-parser": "^1.0",
-        "sebastian/mysqli-wrapper": "^1.0",
-        "sebastian/uuid": "^1.0"
+        "sebastian/csv-parser": "^1.0.1",
+        "sebastian/mysqli-wrapper": "^1.0.3",
+        "sebastian/uuid": "^1.0.2"
     },
     "autoload": {
         "classmap": [
