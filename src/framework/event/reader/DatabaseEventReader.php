@@ -25,7 +25,7 @@ final readonly class DatabaseEventReader implements EventReader
     {
         assert($topics !== []);
 
-        $result = (new ReadEventsStatement($topics))->execute($this->connection);
+        $result = new ReadEventsStatement($topics)->execute($this->connection);
         $events = [];
 
         foreach ($result as $row) {
