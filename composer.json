@@ -1,5 +1,11 @@
 {
+    "config": {
+        "platform": {
+            "php": "8.4.4"
+        }
+    },
     "require": {
+        "php": ">=8.4",
         "ext-mysqli": "*"
     },
     "require-dev": {
