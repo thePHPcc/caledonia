@@ -2,7 +2,9 @@
     "config": {
         "platform": {
             "php": "8.4.4"
-        }
+        },
+        "optimize-autoloader": true,
+        "sort-packages": true
     },
     "require": {
         "php": ">=8.4",
