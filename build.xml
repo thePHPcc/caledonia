@@ -34,5 +34,18 @@
             <arg value="--no-progress"/>
             <arg value="update"/>
         </exec>
+
+        <exec executable="${basedir}/tools/composer" dir="${basedir}/tools/.phpstan" taskname="composer">
+            <arg value="update"/>
+            <arg value="--no-interaction"/>
+            <arg value="--no-progress"/>
+            <arg value="--no-ansi"/>
+        </exec>
+
+        <exec executable="${basedir}/tools/composer" dir="${basedir}/tools/.phpstan" taskname="composer">
+            <arg value="bump"/>
+            <arg value="--no-interaction"/>
+            <arg value="--no-ansi"/>
+        </exec>
     </target>
 </project>
