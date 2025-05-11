@@ -16,12 +16,16 @@ final readonly class DummyEventMapper implements EventArrayMapper
         return new DummyEvent(Uuid::from($data['event_id']), $data['key']);
     }
 
+    /**
+     * @return array{event_id: non-empty-string, key: non-empty-string} $data
+     */
     public function toArray(Event $event): array
     {
         assert($event instanceof DummyEvent);
 
         return [
-            'key' => $event->key(),
+            'event_id' => $event->id()->asString(),
+            'key'      => $event->key(),
         ];
     }
 }
