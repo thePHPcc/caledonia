@@ -17,6 +17,7 @@ final class DatabaseEventReaderTest extends DatabaseTestCase
 
         $this->assertCount(1, $events);
 
+        /** @phpstan-ignore offsetAccess.notFound */
         $event = $events->asArray()[0];
 
         assert($event instanceof DummyEvent);
