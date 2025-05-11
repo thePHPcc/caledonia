@@ -50,7 +50,7 @@ final readonly class Uuid
      */
     private function ensureIsValidUuid(string $uuid): void
     {
-        if (!preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/', $uuid)) {
+        if (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/', $uuid) === 0) {
             throw new InvalidUuidException;
         }
     }
