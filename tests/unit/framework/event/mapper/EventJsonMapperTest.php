@@ -50,26 +50,37 @@ final class EventJsonMapperTest extends TestCase
         (new EventJsonMapper([]))->toJson($this->event());
     }
 
-    public function testCannotMapFromJsonWithUnknownEvent(): void
+    public function testCannotMapFromJsonWithoutTopic(): void
     {
-        $json = json_encode([]);
+        $json = json_encode(['event_id' => '6ce6a9e0-5703-4ac7-9d8f-7ad9f0197fae']);
 
         assert($json !== false);
 
         $this->expectException(CannotMapEventException::class);
 
-        (new EventJsonMapper([]))->fromJson($json);
+        $this->mapper()->fromJson($json);
     }
 
-    public function testCannotMapFromJsonWithUnknownEvent2(): void
+    public function testCannotMapFromJsonWithoutEventId(): void
     {
-        $json = json_encode(['topic' => 'unknown']);
+        $json = json_encode(['topic' => 'the-topic']);
 
         assert($json !== false);
 
         $this->expectException(CannotMapEventException::class);
 
-        (new EventJsonMapper([]))->fromJson($json);
+        $this->mapper()->fromJson($json);
+    }
+
+    public function testCannotMapFromJsonWithoutMapperForTopic(): void
+    {
+        $json = json_encode(['topic' => 'unknown', 'event_id' => '54acfaf3-608f-4e54-84db-fadcf38bd298']);
+
+        assert($json !== false);
+
+        $this->expectException(CannotMapEventException::class);
+
+        $this->mapper()->fromJson($json);
     }
 
     private function event(): DummyEvent

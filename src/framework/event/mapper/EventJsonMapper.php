@@ -44,6 +44,7 @@ final class EventJsonMapper
 
         assert(isset($data['topic']) && is_string($data['topic']));
         assert(isset($data['event_id']) && is_string($data['event_id']));
+        assert(isset($this->mappers[$data['topic']]));
 
         /** @phpstan-ignore argument.type */
         return $this->mappers[$data['topic']]->fromArray($data);
@@ -57,6 +58,8 @@ final class EventJsonMapper
     public function toJson(Event $event): string
     {
         $this->ensureEventCanBeMapped($event->topic());
+
+        assert(isset($this->mappers[$event->topic()]));
 
         $metadata = [
             'topic'    => $event->topic(),
@@ -104,6 +107,10 @@ final class EventJsonMapper
             !is_string($data['topic']) ||
             !array_key_exists('event_id', $data) ||
             !is_string($data['event_id'])) {
+            throw new CannotMapEventException;
+        }
+
+        if (!isset($this->mappers[$data['topic']])) {
             throw new CannotMapEventException;
         }
     }
