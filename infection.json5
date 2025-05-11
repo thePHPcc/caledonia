@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/infection/infection/0.29.12/resources/schema.json",
+    "$schema": "https://raw.githubusercontent.com/infection/infection/0.29.14/resources/schema.json",
     "testFramework":"phpunit",
     "testFrameworkOptions": "--testsuite=unit",
     "phpUnit": {
