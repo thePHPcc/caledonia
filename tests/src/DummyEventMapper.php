@@ -8,6 +8,8 @@ final readonly class DummyEventMapper implements EventArrayMapper
 {
     /**
      * @param array{event_id: non-empty-string, key: non-empty-string} $data
+     *
+     * @phpstan-ignore method.childParameterType
      */
     public function fromArray(array $data): DummyEvent
     {

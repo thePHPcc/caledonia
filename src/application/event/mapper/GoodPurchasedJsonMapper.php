@@ -16,6 +16,8 @@ final class GoodPurchasedJsonMapper implements EventArrayMapper
 {
     /**
      * @param array{event_id: non-empty-string, good: 'bread'|'cheese'|'grain'|'milk'|'whisky'|'wool', price: positive-int, amount: positive-int} $data
+     *
+     * @phpstan-ignore method.childParameterType
      */
     public function fromArray(array $data): GoodPurchasedEvent
     {
@@ -29,6 +31,8 @@ final class GoodPurchasedJsonMapper implements EventArrayMapper
 
     /**
      * @return array{good: 'bread'|'cheese'|'grain'|'milk'|'whisky'|'wool', price: positive-int, amount: positive-int}
+     *
+     * @phpstan-ignore method.childReturnType
      */
     public function toArray(Event $event): array
     {
