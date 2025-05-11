@@ -2,12 +2,14 @@
 namespace example\caledonia\domain;
 
 /**
+ * @phpstan-type PriceList array{0: Price, 1: Price, 2: Price, 3: Price, 4: Price, 5: Price, 6: Price, 7: Price, 8: Price, 9: Price}
+ *
  * @no-named-arguments
  */
 final readonly class PriceTable
 {
     /**
-     * @var list<Price>
+     * @var PriceList
      */
     private array $prices;
 
@@ -149,8 +151,8 @@ final readonly class PriceTable
     }
 
     /**
-     * @param list<Price> $prices
-     * @param int<0, 9>   $position
+     * @param PriceList $prices
+     * @param int<0, 9> $position
      */
     private function __construct(array $prices, int $position)
     {
