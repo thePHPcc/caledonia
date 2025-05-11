@@ -7,7 +7,6 @@ use example\caledonia\domain\Price;
 use example\caledonia\domain\PriceTable;
 use example\caledonia\domain\SellGoodCommand;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\UsesClass;
@@ -19,7 +18,6 @@ use PHPUnit\Framework\TestCase;
 #[UsesClass(Market::class)]
 #[UsesClass(Price::class)]
 #[UsesClass(PriceTable::class)]
-#[Group('domain')]
 #[Small]
 final class ProcessingSellGoodCommandProcessorTest extends TestCase
 {

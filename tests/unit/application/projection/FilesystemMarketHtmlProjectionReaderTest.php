@@ -2,12 +2,10 @@
 namespace example\caledonia\application;
 
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(FilesystemMarketHtmlProjectionReader::class)]
-#[Group('domain')]
 #[Small]
 final class FilesystemMarketHtmlProjectionReaderTest extends TestCase
 {
