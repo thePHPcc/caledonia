@@ -5,6 +5,8 @@ use example\framework\event\EventJsonMapper as FrameworkEventJsonMapper;
 
 /**
  * @no-named-arguments
+ *
+ * @codeCoverageIgnore
  */
 trait EventJsonMapper
 {

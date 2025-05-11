@@ -7,6 +7,8 @@ use SebastianBergmann\MysqliWrapper\MysqliReadingDatabaseConnection;
 
 /**
  * @no-named-arguments
+ *
+ * @codeCoverageIgnore
  */
 trait EventReading
 {

@@ -10,6 +10,8 @@ use SebastianBergmann\MysqliWrapper\MysqliWritingDatabaseConnection;
 
 /**
  * @no-named-arguments
+ *
+ * @codeCoverageIgnore
  */
 trait EventWriting
 {

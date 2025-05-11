@@ -3,6 +3,8 @@ namespace example\caledonia\application;
 
 /**
  * @no-named-arguments
+ *
+ * @codeCoverageIgnore
  */
 final readonly class ProductionCommandFactory implements CommandFactory
 {

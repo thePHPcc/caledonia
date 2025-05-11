@@ -7,6 +7,8 @@ use example\framework\http\PostRequestRouter;
 
 /**
  * @no-named-arguments
+ *
+ * @codeCoverageIgnore
  */
 final readonly class ApplicationFactory
 {
