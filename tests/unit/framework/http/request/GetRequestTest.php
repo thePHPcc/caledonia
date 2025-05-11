@@ -3,6 +3,7 @@ namespace example\framework\http;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\TestCase;
 
@@ -41,6 +42,7 @@ final class GetRequestTest extends TestCase
         $request->get('key');
     }
 
+    #[RunInSeparateProcess]
     public function testCanBeCreatedFromSuperGlobals(): void
     {
         $_SERVER['REQUEST_URI']    = 'uri';
