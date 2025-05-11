@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b7dccec9fe8069019b5cde0b7189a34d",
+    "content-hash": "1a7dd3c1097ff622369e1f8e17ec836e",
     "packages": [],
     "packages-dev": [
         {
@@ -63,16 +63,16 @@
         },
         {
             "name": "sebastian/mysqli-wrapper",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/mysqli-wrapper.git",
-                "reference": "2cce66c259f14ac0602ef9795e2b9261c9a53309"
+                "reference": "4cd7f25f5c4e7dc7ab4695403fc45e3a56d0880c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/mysqli-wrapper/zipball/2cce66c259f14ac0602ef9795e2b9261c9a53309",
-                "reference": "2cce66c259f14ac0602ef9795e2b9261c9a53309",
+                "url": "https://api.github.com/repos/sebastianbergmann/mysqli-wrapper/zipball/4cd7f25f5c4e7dc7ab4695403fc45e3a56d0880c",
+                "reference": "4cd7f25f5c4e7dc7ab4695403fc45e3a56d0880c",
                 "shasum": ""
             },
             "require": {
@@ -83,7 +83,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-main": "1.0-dev"
                 }
             },
             "autoload": {
@@ -111,15 +111,23 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/mysqli-wrapper/issues",
-                "source": "https://github.com/sebastianbergmann/mysqli-wrapper/tree/1.0.3"
+                "source": "https://github.com/sebastianbergmann/mysqli-wrapper/tree/1.0.4"
             },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
                     "type": "github"
+                },
+                {
+                    "url": "https://liberapay.com/sebastianbergmann",
+                    "type": "liberapay"
+                },
+                {
+                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
+                    "type": "thanks_dev"
                 }
             ],
-            "time": "2024-08-09T11:59:53+00:00"
+            "time": "2025-05-11T08:53:33+00:00"
         },
         {
             "name": "sebastian/uuid",
@@ -187,8 +195,12 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
+        "php": ">=8.4",
         "ext-mysqli": "*"
     },
     "platform-dev": {},
+    "platform-overrides": {
+        "php": "8.4.4"
+    },
     "plugin-api-version": "2.6.0"
 }
