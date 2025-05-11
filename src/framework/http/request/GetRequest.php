@@ -39,7 +39,7 @@ final readonly class GetRequest extends Request
      */
     public function get(string $parameter): string
     {
-        if (!$this->has($parameter)) {
+        if (!isset($this->parameters[$parameter])) {
             throw new ParameterDoesNotExistException;
         }
 
