@@ -17,7 +17,7 @@ final class FilesystemMarketHtmlProjectionReaderTest extends TestCase
 
         $this->assertStringEqualsFile(
             $path,
-            (new FilesystemMarketHtmlProjectionReader($path))->read(),
+            new FilesystemMarketHtmlProjectionReader($path)->read(),
         );
     }
 }

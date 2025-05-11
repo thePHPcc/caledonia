@@ -47,7 +47,7 @@ final class EventJsonMapperTest extends TestCase
     {
         $this->expectException(CannotMapEventException::class);
 
-        (new EventJsonMapper([]))->toJson($this->event());
+        new EventJsonMapper([])->toJson($this->event());
     }
 
     public function testCannotMapFromJsonWithoutTopic(): void
