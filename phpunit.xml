@@ -13,12 +13,24 @@
          failOnWarning="true"
          colors="true">
     <testsuites>
-        <testsuite name="unit">
-            <directory>tests/unit</directory>
+        <testsuite name="unit-framework">
+            <directory>tests/unit/framework</directory>
         </testsuite>
 
-        <testsuite name="integration">
-            <directory>tests/integration</directory>
+        <testsuite name="unit-domain">
+            <directory>tests/unit/domain</directory>
+        </testsuite>
+
+        <testsuite name="unit-application">
+            <directory>tests/unit/application</directory>
+        </testsuite>
+
+        <testsuite name="integration-framework">
+            <directory>tests/integration/framework</directory>
+        </testsuite>
+
+        <testsuite name="integration/application">
+            <directory>tests/integration/application</directory>
         </testsuite>
     </testsuites>
 
