@@ -1,16 +1,14 @@
-# Event-Based Testing
+# Testable Database Interaction
 ## Sebastian Bergmann
 
-> We decompose software systems into smaller subsystems. To avoid tight coupling, one such subsystem must not tell another what to do. They should collaborate using events instead. When we can recreate the state of an application by processing the log of these events, then we have implemented Event Sourcing.
+> Designing software systems and writing code is much easier when you do not have to process input, produce output, or interact with other systems such as database servers. It would also be pretty boring.
 > 
-> This event log also comes in handy when we test our software. Come to this presentation to learn best practices for testing software systems that use modern software architecture patterns such as Event Collaboration and Event Sourcing.
->
-> https://thephp.cc/presentations/event-based-testing
+> In this session, you will learn best practices and see design patterns in action that allow you to interact with your database without going crazy. In other words: you will learn how to implement testable database interaction – and how to test it.
 
-Example code for the "[Event-Based Testing](https://thephp.cc/presentations/event-based-testing)" presentation by [Sebastian Bergmann](https://thephp.cc/company/consultants/sebastian-bergmann).
+The example application developed in this repository was used, for example ;-), by [Sebastian Bergmann](https://thephp.cc/company/consultants/sebastian-bergmann) in hist "[Event-Based Testing](https://thephp.cc/presentations/event-based-testing?ref=github)" and "[Testable Database Interaction](https://thephp.cc/presentations/testable-database-interaction?ref=github)" presentations.
 
 **This is example code that is not production-ready. It is intended for studying and learning purposes.**
 
 This example application implements a subset of the rules of the boardgame "[Clans of Caledonia](https://karma-games.com/clans-of-caledonia/)" by Juma Al-JouJou.
 
-(c) 2023 Sebastian Bergmann. All rights reserved.
+(c) 2023-2025 Sebastian Bergmann. All rights reserved.
