@@ -7,8 +7,6 @@
 
 The example application developed in this repository was used, for example ;-), by [Sebastian Bergmann](https://thephp.cc/company/consultants/sebastian-bergmann) in his "[Event-Based Testing](https://thephp.cc/presentations/event-based-testing?ref=github)" and "[Testable Database Interaction](https://thephp.cc/presentations/testable-database-interaction?ref=github)" presentations.
 
-**This is example code that is not production-ready. It is intended for studying and learning purposes.**
-
 This example application implements a subset of the rules of the boardgame "[Clans of Caledonia](https://karma-games.com/clans-of-caledonia/)" by Juma Al-JouJou.
 
 (c) 2023-2025 Sebastian Bergmann. All rights reserved.
