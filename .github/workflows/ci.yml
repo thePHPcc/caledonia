@@ -81,5 +81,8 @@ jobs:
       - name: Install dependencies with Composer
         run: ./tools/composer update --no-ansi --no-interaction --no-progress
 
+      - name: Create projection
+        run: ./bin/project.php projections/market.html
+
       - name: Run tests with PHPUnit
         run: ./tools/phpunit
