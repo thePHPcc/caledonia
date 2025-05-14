@@ -21,7 +21,7 @@ final class MarketEndToEndTest extends TestCase
     public function testGetRequestToMarketSendsResponseWithHtmlProjection(): void
     {
         $this->assertStringEqualsFile(
-            __DIR__ . '/../../projections/market.html',
+            __DIR__ . '/../expectation/market.html',
             $this->request('/market'),
         );
     }

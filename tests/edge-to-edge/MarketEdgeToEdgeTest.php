@@ -21,7 +21,7 @@ final class MarketEdgeToEdgeTest extends TestCase
         $response = (new ApplicationFactory)->createApplication()->run($request);
 
         $this->assertStringEqualsFile(
-            __DIR__ . '/../../projections/market.html',
+            __DIR__ . '/../expectation/market.html',
             $response->body(),
         );
     }
@@ -36,7 +36,7 @@ final class MarketEdgeToEdgeTest extends TestCase
         require __DIR__ . '/../../public/index.php';
 
         $this->assertStringEqualsFile(
-            __DIR__ . '/../../projections/market.html',
+            __DIR__ . '/../expectation/market.html',
             $this->getActualOutputForAssertion(),
         );
     }
