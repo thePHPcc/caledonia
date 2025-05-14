@@ -30,6 +30,14 @@
         <testsuite name="integration/application">
             <directory>tests/integration/application</directory>
         </testsuite>
+
+        <testsuite name="edge-to-edge">
+            <directory>tests/edge-to-edge</directory>
+        </testsuite>
+
+        <testsuite name="end-to-end">
+            <directory>tests/end-to-end</directory>
+        </testsuite>
     </testsuites>
 
     <source ignoreIndirectDeprecations="true" restrictNotices="true" restrictWarnings="true">
@@ -41,4 +49,8 @@
             <file>src/autoload.php</file>
         </exclude>
     </source>
+
+    <php>
+        <const name="TEST_WEB_SERVER_BASE_URL" value="http://127.0.0.1:8080"/>
+    </php>
 </phpunit>
