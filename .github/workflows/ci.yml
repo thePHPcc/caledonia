@@ -64,6 +64,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install MySQL
+        uses: shogo82148/actions-setup-mysql@v1
+        with:
+          mysql-version: "9.0"
+
+      - name: Set up test database
+        run: mysql -u root < ./sql/schema.sql
+
       - name: Install PHP with extensions
         uses: shivammathur/setup-php@v2
         with:
