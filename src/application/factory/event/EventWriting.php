@@ -38,7 +38,7 @@ trait EventWriting
     private function createDatabaseConnectionForWritingEvents(): MysqliWritingDatabaseConnection
     {
         return MysqliWritingDatabaseConnection::connect(
-            'localhost',
+            '127.0.0.1',
             'event_writer',
             'event_writer_password',
             'caledonia',

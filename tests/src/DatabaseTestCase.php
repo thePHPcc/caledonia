@@ -19,7 +19,7 @@ abstract class DatabaseTestCase extends TestCase
     {
         try {
             return MysqliReadingDatabaseConnection::connect(
-                'localhost',
+                '127.0.0.1',
                 'event_reader',
                 'event_reader_password',
                 'caledonia',
@@ -33,7 +33,7 @@ abstract class DatabaseTestCase extends TestCase
     {
         try {
             return MysqliWritingDatabaseConnection::connect(
-                'localhost',
+                '127.0.0.1',
                 'event_writer',
                 'event_writer_password',
                 'caledonia',
@@ -49,7 +49,7 @@ abstract class DatabaseTestCase extends TestCase
     protected function configurationForTesting(): array
     {
         return [
-            'host'     => 'localhost',
+            'host'     => '127.0.0.1',
             'username' => 'test_fixture_manager',
             'password' => 'test_fixture_manager_password',
             'database' => 'caledonia',

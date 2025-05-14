@@ -32,7 +32,7 @@ trait EventReading
     private function createDatabaseConnectionForReadingEvents(): MysqliReadingDatabaseConnection
     {
         return MysqliReadingDatabaseConnection::connect(
-            'localhost',
+            '127.0.0.1',
             'event_reader',
             'event_reader_password',
             'caledonia',

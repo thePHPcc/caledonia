@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS caledonia;
-DROP USER IF EXISTS test_fixture_manager@localhost;
-DROP USER IF EXISTS event_writer@localhost;
-DROP USER IF EXISTS event_reader@localhost;
+DROP USER IF EXISTS test_fixture_manager@127.0.0.1;
+DROP USER IF EXISTS event_writer@127.0.0.1;
+DROP USER IF EXISTS event_reader@127.0.0.1;
 
 CREATE DATABASE caledonia;
 USE caledonia;
@@ -23,11 +23,11 @@ CREATE TABLE `test` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
-CREATE USER test_fixture_manager@localhost IDENTIFIED BY 'test_fixture_manager_password';
-GRANT ALL PRIVILEGES ON caledonia.* TO test_fixture_manager@localhost;
+CREATE USER test_fixture_manager@127.0.0.1 IDENTIFIED BY 'test_fixture_manager_password';
+GRANT ALL PRIVILEGES ON caledonia.* TO test_fixture_manager@127.0.0.1;
 
-CREATE USER event_writer@localhost IDENTIFIED BY 'event_writer_password';
-GRANT INSERT ON caledonia.event TO event_writer@localhost;
+CREATE USER event_writer@127.0.0.1 IDENTIFIED BY 'event_writer_password';
+GRANT INSERT ON caledonia.event TO event_writer@127.0.0.1;
 
-CREATE USER event_reader@localhost IDENTIFIED BY 'event_reader_password';
-GRANT SELECT ON caledonia.event TO event_reader@localhost;
+CREATE USER event_reader@127.0.0.1 IDENTIFIED BY 'event_reader_password';
+GRANT SELECT ON caledonia.event TO event_reader@127.0.0.1;
