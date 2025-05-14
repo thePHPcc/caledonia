@@ -34,7 +34,7 @@ final class MarketEndToEndTest extends TestCase
         $response = @file_get_contents(TEST_WEB_SERVER_BASE_URL . $uri);
 
         if ($response === false) {
-            $this->markTestSkipped(TEST_WEB_SERVER_BASE_URL . ' is not available');
+            $this->markTestSkipped('Could not connect to ' . TEST_WEB_SERVER_BASE_URL);
         }
 
         return $response;
