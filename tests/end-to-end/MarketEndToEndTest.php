@@ -4,6 +4,7 @@ namespace example\caledonia\application;
 use function assert;
 use function defined;
 use function file_get_contents;
+use function is_string;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Large;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
@@ -28,6 +29,7 @@ final class MarketEndToEndTest extends TestCase
     private function request(string $uri): string
     {
         assert(defined('TEST_WEB_SERVER_BASE_URL'));
+        assert(is_string(TEST_WEB_SERVER_BASE_URL));
 
         $response = @file_get_contents(TEST_WEB_SERVER_BASE_URL . $uri);
 
