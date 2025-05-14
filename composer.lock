@@ -4,30 +4,30 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a7dd3c1097ff622369e1f8e17ec836e",
+    "content-hash": "4fb2cb781e3e171d177671cb3cbf5179",
     "packages": [],
     "packages-dev": [
         {
             "name": "sebastian/csv-parser",
-            "version": "1.0.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/csv-parser.git",
-                "reference": "6a1ef45536c69ce762e0cf8990f89114465646ab"
+                "reference": "c3e5e7085019ba05a6ea0aaa43f987762864ae6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/csv-parser/zipball/6a1ef45536c69ce762e0cf8990f89114465646ab",
-                "reference": "6a1ef45536c69ce762e0cf8990f89114465646ab",
+                "url": "https://api.github.com/repos/sebastianbergmann/csv-parser/zipball/c3e5e7085019ba05a6ea0aaa43f987762864ae6f",
+                "reference": "c3e5e7085019ba05a6ea0aaa43f987762864ae6f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.3"
+                "php": ">=8.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.0-dev"
+                    "dev-main": "2.0-dev"
                 }
             },
             "autoload": {
@@ -51,39 +51,47 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/csv-parser/issues",
                 "security": "https://github.com/sebastianbergmann/csv-parser/security/policy",
-                "source": "https://github.com/sebastianbergmann/csv-parser/tree/1.0.1"
+                "source": "https://github.com/sebastianbergmann/csv-parser/tree/2.0.0"
             },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
                     "type": "github"
+                },
+                {
+                    "url": "https://liberapay.com/sebastianbergmann",
+                    "type": "liberapay"
+                },
+                {
+                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
+                    "type": "thanks_dev"
                 }
             ],
-            "time": "2024-07-03T04:51:23+00:00"
+            "time": "2025-05-14T06:23:39+00:00"
         },
         {
             "name": "sebastian/mysqli-wrapper",
-            "version": "1.0.4",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/mysqli-wrapper.git",
-                "reference": "4cd7f25f5c4e7dc7ab4695403fc45e3a56d0880c"
+                "reference": "8c261afb1bb3b0f1a18b2a575df0b21193031588"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/mysqli-wrapper/zipball/4cd7f25f5c4e7dc7ab4695403fc45e3a56d0880c",
-                "reference": "4cd7f25f5c4e7dc7ab4695403fc45e3a56d0880c",
+                "url": "https://api.github.com/repos/sebastianbergmann/mysqli-wrapper/zipball/8c261afb1bb3b0f1a18b2a575df0b21193031588",
+                "reference": "8c261afb1bb3b0f1a18b2a575df0b21193031588",
                 "shasum": ""
             },
             "require": {
                 "ext-mysqli": "*",
-                "php": ">=8.3",
-                "sebastian/csv-parser": "^1.0"
+                "php": ">=8.4",
+                "sebastian/csv-parser": "^2.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.0-dev"
+                    "dev-main": "2.0-dev"
                 }
             },
             "autoload": {
@@ -111,7 +119,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/mysqli-wrapper/issues",
-                "source": "https://github.com/sebastianbergmann/mysqli-wrapper/tree/1.0.4"
+                "source": "https://github.com/sebastianbergmann/mysqli-wrapper/tree/2.0.0"
             },
             "funding": [
                 {
@@ -127,7 +135,7 @@
                     "type": "thanks_dev"
                 }
             ],
-            "time": "2025-05-11T08:53:33+00:00"
+            "time": "2025-05-14T06:32:42+00:00"
         },
         {
             "name": "sebastian/uuid",

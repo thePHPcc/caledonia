@@ -11,8 +11,8 @@
         "ext-mysqli": "*"
     },
     "require-dev": {
-        "sebastian/csv-parser": "^1.0.1",
-        "sebastian/mysqli-wrapper": "^1.0.4",
+        "sebastian/csv-parser": "^2.0.0",
+        "sebastian/mysqli-wrapper": "^2.0.0",
         "sebastian/uuid": "^1.0.2"
     },
     "autoload": {
