@@ -10,6 +10,29 @@ permissions:
   contents: read
 
 jobs:
+  dependency-validation:
+    name: Dependency Validation
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+          coverage: none
+          tools: none
+
+      - name: Ensure that composer.json is valid
+        run: ./tools/composer validate --no-ansi --strict composer.json
+
+      - name: Ensure that dependencies can be installed
+        run: ./tools/composer install --no-ansi --dry-run
+
   coding-guidelines:
     name: Coding Guidelines
 
@@ -25,12 +48,17 @@ jobs:
         with:
           php-version: 8.4
           coverage: none
+          tools: none
 
       - name: Run PHP-CS-Fixer
         run: PHP_CS_FIXER_IGNORE_ENV=1 ./tools/php-cs-fixer fix --dry-run --show-progress=dots --using-cache=no --verbose
 
   static-analysis:
     name: Static Analysis
+
+    needs:
+      - dependency-validation
+      - coding-guidelines
 
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -44,6 +72,7 @@ jobs:
         with:
           php-version: 8.4
           coverage: none
+          tools: none
 
       - name: Install dependencies with Composer
         run: ./tools/composer update --no-interaction --no-ansi --no-progress
@@ -51,8 +80,37 @@ jobs:
       - name: Run PHPStan
         run: ./tools/phpstan analyse --no-progress --error-format=github
 
-  tests:
-    name: Tests
+  unit-tests:
+    name: Unit Tests
+
+    needs:
+      - static-analysis
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+          coverage: none
+          tools: none
+
+      - name: Install dependencies with Composer
+        run: ./tools/composer update --no-ansi --no-interaction --no-progress
+
+      - name: Run unit tests with PHPUnit
+        run: ./tools/phpunit --testsuite unit/framework,unit/domain,unit/application
+
+  integration-tests:
+    name: Integration Tests
+
+    needs:
+      - unit-tests
 
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -73,7 +131,82 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.4
-          coverage: xdebug
+          coverage: none
+          tools: none
+
+      - name: Install dependencies with Composer
+        run: ./tools/composer update --no-ansi --no-interaction --no-progress
+
+      - name: Run integration tests with PHPUnit
+        run: ./tools/phpunit --testsuite integration/framework,integration/application
+
+  edge-to-edge-tests:
+    name: Edge-to-Edge Tests
+
+    needs:
+      - integration-tests
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install MySQL
+        uses: shogo82148/actions-setup-mysql@v1
+        with:
+          mysql-version: "9.0"
+
+      - name: Set up test database
+        run: mysql -u root < ./sql/schema.sql
+
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+          coverage: none
+          tools: none
+
+      - name: Install dependencies with Composer
+        run: ./tools/composer update --no-ansi --no-interaction --no-progress
+
+      - name: Create directory for projections
+        run: mkdir projections
+
+      - name: Create projection
+        run: ./bin/project.php projections/market.html
+
+      - name: Run edge-to-edge tests with PHPUnit
+        run: ./tools/phpunit --testsuite edge-to-edge
+
+  end-to-end-tests:
+    name: End-to-End Tests
+
+    needs:
+      - edge-to-edge-tests
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install MySQL
+        uses: shogo82148/actions-setup-mysql@v1
+        with:
+          mysql-version: "9.0"
+
+      - name: Set up test database
+        run: mysql -u root < ./sql/schema.sql
+
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+          coverage: none
+          tools: none
 
       - name: Install dependencies with Composer
         run: ./tools/composer update --no-ansi --no-interaction --no-progress
@@ -87,5 +220,5 @@ jobs:
       - name: Start PHP built-in server
         run: php -S 127.0.0.1:8080 -t public &
 
-      - name: Run tests with PHPUnit
-        run: ./tools/phpunit
+      - name: Run end-to-end tests with PHPUnit
+        run: ./tools/phpunit --testsuite end-to-end
