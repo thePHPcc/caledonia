@@ -1,4 +1,15 @@
 {
+    "name": "thephpcc/caledonia",
+    "description": "Example application used in presentations by Sebastian Bergmann",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Sebastian Bergmann",
+            "email": "sebastian@phpunit.de",
+            "role": "lead"
+        }
+    ],
     "config": {
         "platform": {
             "php": "8.4.4"
