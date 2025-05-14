@@ -87,5 +87,8 @@ jobs:
       - name: Create projection
         run: ./bin/project.php projections/market.html
 
+      - name: Start PHP built-in server
+        run: php -S 127.0.0.1:8080 -t public &
+
       - name: Run tests with PHPUnit
         run: ./tools/phpunit
