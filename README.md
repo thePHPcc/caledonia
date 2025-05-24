@@ -9,4 +9,14 @@ The example application developed in this repository was used, for example ;-), 
 
 This example application implements a subset of the rules of the boardgame "[Clans of Caledonia](https://karma-games.com/clans-of-caledonia/)" by Juma Al-JouJou.
 
-(c) 2023-2025 Sebastian Bergmann. All rights reserved.
+### Newsletter
+
+Our free Skills Spotlight keeps you up to date on our training courses and events. In English or German.
+
+[Subscribe to Skills Spotlight](https://thephpcc.academy/newsletter?ref=github)
+
+You can unsubscribe at any time.
+
+---
+
+© 2023-2025 Sebastian Bergmann. All rights reserved.
