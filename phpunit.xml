@@ -53,4 +53,10 @@
     <php>
         <const name="TEST_WEB_SERVER_BASE_URL" value="http://127.0.0.1:8080"/>
     </php>
+
+    <extensions>
+        <bootstrap class="example\framework\event\test\extension\Extension">
+            <parameter name="target" value="build/events.md"/>
+        </bootstrap>
+    </extensions>
 </phpunit>

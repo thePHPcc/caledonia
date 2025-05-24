@@ -4,4 +4,5 @@
 /.php-cs-fixer.cache
 /.phpunit.cache
 /vendor
+/build
 /projections
