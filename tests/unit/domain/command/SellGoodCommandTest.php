@@ -27,4 +27,11 @@ final class SellGoodCommandTest extends TestCase
 
         $this->assertSame(1, $command->amount());
     }
+
+    public function testCanBeRepresentedAsString(): void
+    {
+        $command = new SellGoodCommand(Good::Bread, 1);
+
+        $this->assertSame('Sell 1 bread', $command->asString());
+    }
 }

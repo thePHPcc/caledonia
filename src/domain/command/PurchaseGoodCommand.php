@@ -1,10 +1,12 @@
 <?php declare(strict_types=1);
 namespace example\caledonia\domain;
 
+use function sprintf;
+
 /**
  * @no-named-arguments
  */
-final readonly class PurchaseGoodCommand
+final readonly class PurchaseGoodCommand extends Command
 {
     private Good $good;
 
@@ -33,5 +35,17 @@ final readonly class PurchaseGoodCommand
     public function amount(): int
     {
         return $this->amount;
+    }
+
+    /**
+     * @return non-empty-string
+     */
+    public function asString(): string
+    {
+        return sprintf(
+            'Purchase %d %s',
+            $this->amount,
+            $this->good->value,
+        );
     }
 }
